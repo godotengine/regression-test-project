@@ -1,0 +1,55 @@
+[gd_scene format=2]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Node2D 3" type="Node2D" parent="."]
+
+[node name="Node2D 2" type="Node2D" parent="Node2D 3"]
+
+[node name="Node2D 6" type="Node2D" parent="."]
+
+[node name="Node2D 2" type="Node2D" parent="Node2D 6"]
+
+[node name="Node2D 7" type="Node2D" parent="."]
+
+[node name="Node2D 8" type="Node2D" parent="Node2D 7"]
+
+[node name="Node2D" type="Node2D" parent="Node2D 7"]
+
+[node name="Node2D 5" type="Node2D" parent="."]
+
+[node name="Node2D 6" type="Node2D" parent="Node2D 5"]
+
+[node name="Node2D 4" type="Node2D" parent="."]
+
+[node name="Node2D 10" type="Node2D" parent="Node2D 4"]
+
+[node name="Node2D 9" type="Node2D" parent="Node2D 4/Node2D 10"]
+
+[node name="Node2D 10" type="Node2D" parent="Node2D 4/Node2D 10"]
+
+[node name="Node2D 12" type="Node2D" parent="."]
+
+[node name="Node2D 2" type="Node2D" parent="Node2D 12"]
+
+[node name="Node2D 11" type="Node2D" parent="."]
+
+[node name="Node2D 2" type="Node2D" parent="Node2D 11"]
+
+[node name="Node2D 9" type="Node2D" parent="."]
+
+[node name="Node2D 6" type="Node2D" parent="Node2D 9"]
+
+[node name="Node2D" type="Node2D" parent="Node2D 9/Node2D 6"]
+
+[node name="Node2D 10" type="Node2D" parent="Node2D 9/Node2D 6/Node2D"]
+
+[node name="Node2D 10" type="Node2D" parent="Node2D 9/Node2D 6/Node2D/Node2D 10"]
+
+[node name="Node2D 9" type="Node2D" parent="Node2D 9/Node2D 6/Node2D/Node2D 10/Node2D 10"]
+
+[node name="Node2D 10" type="Node2D" parent="."]
+
+[node name="Node2D 8" type="Node2D" parent="Node2D 10"]
+
+[node name="Node2D 8" type="Node2D" parent="."]
