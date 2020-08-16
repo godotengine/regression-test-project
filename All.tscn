@@ -6,6 +6,7 @@
 [ext_resource path="res://Other.tscn" type="PackedScene" id=4]
 
 [node name="All" type="Node"]
+script = null
 
 [node name="GridContainer" parent="." instance=ExtResource( 1 )]
 

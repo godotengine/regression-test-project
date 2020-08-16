@@ -1,10 +1,10 @@
 extends Node
 
+const RANGE : int = 5
 func _ready() -> void:
-	for _i in range(Autoload.RANGE):
+	for _i in range(RANGE):
 		add_child(AnimationPlayer.new())
 		add_child(AnimationTree.new())
-		add_child(AnimationTreePlayer.new())
 		add_child(AudioStreamPlayer.new())
 		add_child(CanvasLayer.new())
 		add_child(ParallaxBackground.new())

@@ -4,7 +4,7 @@ const RANGE : int = 5
 
 var time_to_show : float = -1000.0
 
-func _init() -> void:
+func _init():
 	for argument in OS.get_cmdline_args():
 		var rr : String = argument
 		if rr.find("tscn") != -1: # Ignore all tscn scenes/names

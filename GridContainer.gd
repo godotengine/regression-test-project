@@ -1,14 +1,13 @@
 extends GridContainer
 
+const RANGE : int = 5
 func _ready():
-	for _i in range(Autoload.RANGE):
+	for _i in range(RANGE):
 		add_child(Control.new())
 		add_child(Popup.new())
-		add_child(WindowDialog.new())
 		add_child(AcceptDialog.new())
 		add_child(ConfirmationDialog.new())
 		add_child(FileDialog.new())
-		add_child(PopupDialog.new())
 		add_child(PopupMenu.new())
 		add_child(PopupPanel.new())
 		add_child(Button.new())
@@ -17,7 +16,6 @@ func _ready():
 		add_child(ColorPickerButton.new())
 		add_child(MenuButton.new())
 		add_child(OptionButton.new())
-		add_child(ToolButton.new())
 		add_child(LinkButton.new())
 		add_child(TextureButton.new())
 		add_child(Container.new())
@@ -33,7 +31,6 @@ func _ready():
 		add_child(MarginContainer.new())
 		add_child(PanelContainer.new())
 		add_child(TabContainer.new())
-		add_child(ViewportContainer.new())
 		add_child(ColorRect.new())
 		add_child(HScrollBar.new())
 		add_child(VScrollBar.new())

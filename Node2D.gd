@@ -1,15 +1,16 @@
 extends Node2D
 
+const RANGE : int = 5
 func _ready():
-	for _i in range(Autoload.RANGE):
+	for _i in range(RANGE):
 		add_child(Node2D.new())
-		add_child(AnimatedSprite.new())
+		add_child(AnimatedSprite2D.new())
 		add_child(Area2D.new())
 		add_child(KinematicBody2D.new())
 		add_child(RigidBody2D.new())
 		add_child(StaticBody2D.new())
 		add_child(AudioStreamPlayer2D.new())
-		add_child(BackBufferCopy.new())
+#		add_child(BackBufferCopy.new())
 		add_child(Bone2D.new())
 		add_child(CPUParticles2D.new())
 		add_child(Camera2D.new())
@@ -25,9 +26,8 @@ func _ready():
 		add_child(MeshInstance2D.new())
 		add_child(MultiMeshInstance2D.new())
 		add_child(Navigation2D.new())
-		add_child(NavigationPolygonInstance.new())
 		add_child(ParallaxLayer.new())
-		add_child(Particles2D.new())
+		add_child(GPUParticles2D.new())
 		add_child(Path2D.new())
 		add_child(PathFollow2D.new())
 		add_child(Polygon2D.new())
@@ -35,7 +35,7 @@ func _ready():
 		add_child(RayCast2D.new())
 		add_child(RemoteTransform2D.new())
 		add_child(Skeleton2D.new())
-		add_child(Sprite.new())
+		add_child(Sprite2D.new())
 		add_child(TileMap.new())
 		add_child(TouchScreenButton.new())
 		add_child(VisibilityNotifier2D.new())
