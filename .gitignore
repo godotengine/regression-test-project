@@ -6,5 +6,5 @@ logs/
 .mono/
 *.zip
 TEMP/
-export_presets.cfg
+#export_presets.cfg
 logs/
