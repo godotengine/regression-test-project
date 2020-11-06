@@ -1,0 +1,273 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://icon 32x32.png" type="Texture" id=1]
+[ext_resource path="res://Physics/3D/StaticArena.gd" type="Script" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.89
+rough = true
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 1, 1, 1, 0.521569 )
+albedo_texture = ExtResource( 1 )
+metallic = 1.0
+metallic_specular = 0.86
+metallic_texture = ExtResource( 1 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 50, 2, 50 )
+
+[sub_resource type="SpatialMaterial" id=4]
+params_diffuse_mode = 1
+albedo_texture = ExtResource( 1 )
+metallic = 0.8
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 50, 20, 5 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 11.8794, 1.37845, 22.281 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 11.8794, 1.37845, 22.281 )
+
+[sub_resource type="SphereShape" id=8]
+
+[node name="Physics3D" type="Spatial"]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.959707, 0.281002, 0, -0.281002, -0.959707, 0, 35.3705, 0 )
+light_energy = 1.45
+
+[node name="StaticArena" type="Spatial" parent="."]
+script = ExtResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="StaticArena"]
+collision_layer = 2147483651
+collision_mask = 279045
+physics_material_override = SubResource( 1 )
+
+[node name="CSGBox" type="CSGBox" parent="StaticArena/StaticBody"]
+width = 100.0
+height = 4.32824
+depth = 100.0
+material = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticArena/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="StaticBody2" type="StaticBody" parent="StaticArena"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.1689, 1.64214 )
+collision_layer = 2147483651
+collision_mask = 279045
+physics_material_override = SubResource( 1 )
+
+[node name="CSGBox" type="CSGBox" parent="StaticArena/StaticBody2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -46.5124 )
+width = 100.0
+height = 40.0
+depth = 10.0
+material = SubResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticArena/StaticBody2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -46.709 )
+shape = SubResource( 5 )
+
+[node name="StaticBody3" type="StaticBody" parent="StaticArena"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.1689, 91.732 )
+collision_layer = 2147483651
+collision_mask = 279045
+physics_material_override = SubResource( 1 )
+
+[node name="CSGBox" type="CSGBox" parent="StaticArena/StaticBody3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -46.5124 )
+width = 100.0
+height = 40.0
+depth = 10.0
+material = SubResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticArena/StaticBody3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -46.709 )
+shape = SubResource( 5 )
+
+[node name="StaticBody4" type="StaticBody" parent="StaticArena"]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -1.90218, 18.1689, 0.572887 )
+collision_layer = 2147483651
+collision_mask = 279045
+physics_material_override = SubResource( 1 )
+
+[node name="CSGBox" type="CSGBox" parent="StaticArena/StaticBody4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13509, -46.5124 )
+width = 100.0
+height = 40.0
+depth = 10.0
+material = SubResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticArena/StaticBody4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -46.709 )
+shape = SubResource( 5 )
+
+[node name="StaticBody5" type="StaticBody" parent="StaticArena"]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -92.1931, 18.8845, 0.814518 )
+collision_layer = 2147483651
+collision_mask = 279045
+physics_material_override = SubResource( 1 )
+
+[node name="CSGBox" type="CSGBox" parent="StaticArena/StaticBody5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -46.5124 )
+width = 100.0
+height = 40.0
+depth = 10.0
+material = SubResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticArena/StaticBody5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -46.709 )
+shape = SubResource( 5 )
+
+[node name="StaticBody6" type="StaticBody" parent="StaticArena"]
+transform = Transform( 0.998532, 0.013617, -0.0524264, 0, 0.967885, 0.251394, 0.054166, -0.251025, 0.966464, -16.8315, 7.76313, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticArena/StaticBody6"]
+shape = SubResource( 6 )
+
+[node name="CSGBox" type="CSGBox" parent="StaticArena/StaticBody6"]
+width = 23.9394
+depth = 44.6359
+
+[node name="StaticBody7" type="StaticBody" parent="StaticArena"]
+transform = Transform( -0.642787, 0.192579, -0.741443, 0, 0.967885, 0.251394, 0.766045, 0.161593, -0.622144, 10.0702, 7.03413, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticArena/StaticBody7"]
+transform = Transform( 1, -9.31323e-10, 0, 0, 1, 1.49012e-08, 3.72529e-09, 1.49012e-08, 1, 0, 0, 0 )
+shape = SubResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="StaticArena/StaticBody7"]
+width = 23.9394
+depth = 44.6359
+
+[node name="Objects" type="Spatial" parent="."]
+
+[node name="RigidBody" type="RigidBody" parent="Objects"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1259, 41.1727, -21.1681 )
+linear_velocity = Vector3( 0, 5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/RigidBody"]
+transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0 )
+shape = SubResource( 8 )
+
+[node name="CSGSphere" type="CSGSphere" parent="Objects/RigidBody/CollisionShape"]
+
+[node name="RigidBody2" type="RigidBody" parent="Objects"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1259, 41.1727, 20.5363 )
+linear_velocity = Vector3( 0, 5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/RigidBody2"]
+transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0 )
+shape = SubResource( 8 )
+
+[node name="CSGSphere" type="CSGSphere" parent="Objects/RigidBody2/CollisionShape"]
+
+[node name="RigidBody3" type="RigidBody" parent="Objects"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1259, 50.364, -3.65285 )
+linear_velocity = Vector3( 0, 5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/RigidBody3"]
+transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0 )
+shape = SubResource( 8 )
+
+[node name="CSGSphere" type="CSGSphere" parent="Objects/RigidBody3/CollisionShape"]
+
+[node name="RigidBody4" type="RigidBody" parent="Objects"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.28166, 41.1727, -21.1681 )
+linear_velocity = Vector3( 0, 5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/RigidBody4"]
+transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0 )
+shape = SubResource( 8 )
+
+[node name="CSGSphere" type="CSGSphere" parent="Objects/RigidBody4/CollisionShape"]
+
+[node name="RigidBody5" type="RigidBody" parent="Objects"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.80622, 41.1727, 12.6092 )
+linear_velocity = Vector3( 0, 5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/RigidBody5"]
+transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0 )
+shape = SubResource( 8 )
+
+[node name="CSGSphere" type="CSGSphere" parent="Objects/RigidBody5/CollisionShape"]
+
+[node name="RigidBody6" type="RigidBody" parent="Objects"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.6969, 41.1727, -2.89124 )
+linear_velocity = Vector3( 0, 5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/RigidBody6"]
+transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0 )
+shape = SubResource( 8 )
+
+[node name="CSGSphere" type="CSGSphere" parent="Objects/RigidBody6/CollisionShape"]
+
+[node name="RigidBody7" type="RigidBody" parent="Objects"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6828, 41.1727, 19.6551 )
+linear_velocity = Vector3( 0, 5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/RigidBody7"]
+transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0 )
+shape = SubResource( 8 )
+
+[node name="CSGSphere" type="CSGSphere" parent="Objects/RigidBody7/CollisionShape"]
+
+[node name="RigidBody8" type="RigidBody" parent="Objects"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43668, 52.2537, -6.09689 )
+linear_velocity = Vector3( 0, 5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/RigidBody8"]
+transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0 )
+shape = SubResource( 8 )
+
+[node name="CSGSphere" type="CSGSphere" parent="Objects/RigidBody8/CollisionShape"]
+
+[node name="RigidBody9" type="RigidBody" parent="Objects"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3219, 62.862, -5.02587 )
+linear_velocity = Vector3( 0, 5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/RigidBody9"]
+transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0 )
+shape = SubResource( 8 )
+
+[node name="CSGSphere" type="CSGSphere" parent="Objects/RigidBody9/CollisionShape"]
+
+[node name="RigidBody10" type="RigidBody" parent="Objects"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.7139, 41.1727, -9.76783 )
+linear_velocity = Vector3( 0, 5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/RigidBody10"]
+transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0 )
+shape = SubResource( 8 )
+
+[node name="CSGSphere" type="CSGSphere" parent="Objects/RigidBody10/CollisionShape"]
+
+[node name="RigidBody11" type="RigidBody" parent="Objects"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.57036, 66.2741, -5.42798 )
+linear_velocity = Vector3( 0, 5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/RigidBody11"]
+transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0 )
+shape = SubResource( 8 )
+
+[node name="CSGSphere" type="CSGSphere" parent="Objects/RigidBody11/CollisionShape"]
+
+[node name="RigidBody12" type="RigidBody" parent="Objects"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.4517, 3.2776, -36.8718 )
+linear_velocity = Vector3( 0, 5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/RigidBody12"]
+transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0 )
+shape = SubResource( 8 )
+
+[node name="CSGSphere" type="CSGSphere" parent="Objects/RigidBody12/CollisionShape"]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.922114, 0.23703, -0.305815, 0.0163102, 0.765871, 0.642788, 0.386575, -0.597711, 0.702354, -25.392, 55.117, 39.851 )
+current = true
+far = 200.0

@@ -1,8 +1,8 @@
 extends Node2D
 
-const RANGE : int = 5
+
 func _ready():
-	for _i in range(RANGE):
+	for _i in range(Autoload.RANGE):
 		add_child(Node2D.new())
 		add_child(AnimatedSprite2D.new())
 		add_child(Area2D.new())
@@ -10,12 +10,12 @@ func _ready():
 		add_child(RigidBody2D.new())
 		add_child(StaticBody2D.new())
 		add_child(AudioStreamPlayer2D.new())
-#		add_child(BackBufferCopy.new())
+		add_child(BackBufferCopy.new())
 		add_child(Bone2D.new())
 		add_child(CPUParticles2D.new())
 		add_child(Camera2D.new())
 		add_child(CanvasModulate.new())
-		add_child(CollisionPolygon2D.new())
+#		add_child(CollisionPolygon2D.new()) # Errors
 		add_child(CollisionShape2D.new())
 		add_child(DampedSpringJoint2D.new())
 		add_child(GrooveJoint2D.new())
@@ -41,8 +41,9 @@ func _ready():
 		add_child(VisibilityNotifier2D.new())
 		add_child(VisibilityEnabler2D.new())
 		add_child(YSort.new())
-	
-func _process(_delta : float) -> void:
-	for i in get_children() :
+
+
+func _process(_delta: float) -> void:
+	for i in get_children():
 		if i is Node2D:
-			i.set_position(Vector2(1000 * randf() - 500,1000 * randf() - 500))
+			i.set_position(Vector2(1000 * randf() - 500, 1000 * randf() - 500))

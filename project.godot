@@ -8,13 +8,23 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node2D",
+"class": @"Operators",
+"language": @"GDScript",
+"path": "res://MainScenes/Operators.gd"
+} ]
+_global_script_class_icons={
+@"Operators": ""
+}
+
 [application]
 
 run/main_scene="res://All.tscn"
 
 [autoload]
 
-Autoload="*res://Autoload.gd"
+Autoload="*res://Autoload/Autoload.gd"
 
 [memory]
 

@@ -1,8 +1,8 @@
 extends Node
 
-const RANGE : int = 5
+
 func _ready() -> void:
-	for _i in range(RANGE):
+	for _i in range(Autoload.RANGE):
 		add_child(AnimationPlayer.new())
 		add_child(AnimationTree.new())
 		add_child(AudioStreamPlayer.new())
@@ -15,4 +15,3 @@ func _ready() -> void:
 		add_child(Tween.new())
 		add_child(Viewport.new())
 		add_child(WorldEnvironment.new())
-	

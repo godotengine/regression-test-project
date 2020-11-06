@@ -1,10 +1,9 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Spatial.gd" type="Script" id=1]
+[ext_resource path="res://MainScenes/Spatial.gd" type="Script" id=1]
 
-[node name="Spatial" type="Node3D"]
+[node name="Spatial" type="Spatial"]
 script = ExtResource( 1 )
 
-[node name="Camera" type="Camera3D" parent="."]
+[node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.690617, 0.72322, 0, -0.72322, 0.690617, 0, 3.77374, 5.42622 )
-script = null

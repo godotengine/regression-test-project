@@ -1,8 +1,8 @@
 extends Node3D
 
-const RANGE : int = 5
+
 func _ready():
-	for i in range(RANGE):
+	for i in range(Autoload.RANGE):
 		add_child(Node3D.new())
 		add_child(XRAnchor3D.new())
 		add_child(Camera3D.new())
@@ -60,9 +60,10 @@ func _ready():
 		add_child(VehicleWheel3D.new())
 		add_child(VisibilityNotifier3D.new())
 		add_child(VisibilityEnabler3D.new())
-	
-func _process(delta : float) -> void:
+
+
+func _process(delta: float) -> void:
 	for i in get_children():
 		if i.get_name() != "Camera":
-			i.set_scale(Vector3(delta + 1,delta + 1,delta + 1))
-			i.set_translation(Vector3(10 * randf(),10 * randf(),10 * randf()))
+			i.set_scale(Vector3(delta + 1, delta + 1, delta + 1))
+			i.set_translation(Vector3(10 * randf(), 10 * randf(), 10 * randf()))

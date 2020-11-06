@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://icon 32x32.png" type="Texture" id=1]
+[ext_resource path="res://Physics/2D/Area2D.gd" type="Script" id=2]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 4.018, -13.1782, -15.9057, 3.23778, 1.63277, 17.5492, 19.3115, 2.39594 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -4.58427, -16.8342, -20.5974, -4.94143, -8.23639, 16.784, 20.4187, 13.5065 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[connection signal="area_entered" from="." to="." method="_on_Area2D_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
