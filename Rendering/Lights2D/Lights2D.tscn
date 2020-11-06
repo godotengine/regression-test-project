@@ -1,0 +1,100 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Rendering/Lights2D/Light2D.tscn" type="PackedScene" id=2]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+cull_mode = 1
+polygon = PoolVector2Array( -17.0128, 10.1432, -70.8541, 35.4749, 23.5811, 77.3471, 22.5851, 14.3859 )
+
+[node name="Lights2D" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+self_modulate = Color( 0.290196, 0.160784, 0, 0.529412 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Light2D" parent="." instance=ExtResource( 2 )]
+
+[node name="Light2D2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 552.563, -17.2793 )
+
+[node name="Light2D3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 34.9607, 524.365 )
+
+[node name="Light2D4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 679.842, 556.891 )
+
+[node name="Light2D5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 418.213, 295.262 )
+
+[node name="Light2D6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 863.69, 330.617 )
+
+[node name="Light2D7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 336.188, 565.377 )
+
+[node name="Light2D8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 996.626, 563.962 )
+
+[node name="Light2D9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 582.261, 406.985 )
+
+[node name="Light2D10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 600.646, 208.995 )
+
+[node name="Light2D11" parent="." instance=ExtResource( 2 )]
+position = Vector2( 842.477, 139.698 )
+
+[node name="Light2D12" parent="." instance=ExtResource( 2 )]
+position = Vector2( 240.022, 228.794 )
+
+[node name="Light2D13" parent="." instance=ExtResource( 2 )]
+position = Vector2( 84.4581, 320.718 )
+
+[node name="Light2D14" parent="." instance=ExtResource( 2 )]
+position = Vector2( 251.335, 390.014 )
+
+[node name="Light2D15" parent="." instance=ExtResource( 2 )]
+position = Vector2( 232.951, 64.745 )
+
+[node name="Light2D16" parent="." instance=ExtResource( 2 )]
+position = Vector2( 716.612, 57.674 )
+
+[node name="Light2D17" parent="." instance=ExtResource( 2 )]
+position = Vector2( 966.927, 117.071 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2( 469.444, 367.746 )
+occluder = SubResource( 1 )
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+position = Vector2( 641.978, 284.308 )
+occluder = SubResource( 1 )
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="."]
+position = Vector2( 374.692, 76.4184 )
+occluder = SubResource( 1 )
+
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="."]
+position = Vector2( 876.738, 219.254 )
+occluder = SubResource( 1 )
+
+[node name="LightOccluder2D5" type="LightOccluder2D" parent="."]
+position = Vector2( 906.436, 492.197 )
+occluder = SubResource( 1 )
+
+[node name="LightOccluder2D6" type="LightOccluder2D" parent="."]
+position = Vector2( 906.436, 492.197 )
+occluder = SubResource( 1 )
+
+[node name="LightOccluder2D7" type="LightOccluder2D" parent="."]
+position = Vector2( 216.3, 438.457 )
+occluder = SubResource( 1 )

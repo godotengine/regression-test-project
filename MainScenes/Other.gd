@@ -1,5 +1,6 @@
 extends Node
 
+
 func _ready() -> void:
 	for _i in range(Autoload.RANGE):
 		add_child(AnimationPlayer.new())
@@ -15,4 +16,3 @@ func _ready() -> void:
 		add_child(Tween.new())
 		add_child(Viewport.new())
 		add_child(WorldEnvironment.new())
-	
