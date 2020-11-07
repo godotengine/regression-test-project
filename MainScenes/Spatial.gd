@@ -1,5 +1,6 @@
 extends Spatial
 
+
 func _ready():
 	for i in range(Autoload.RANGE):
 		add_child(Spatial.new())
@@ -61,9 +62,10 @@ func _ready():
 		add_child(VehicleWheel.new())
 		add_child(VisibilityNotifier.new())
 		add_child(VisibilityEnabler.new())
-	
-func _process(delta : float) -> void:
+
+
+func _process(delta: float) -> void:
 	for i in get_children():
 		if i.get_name() != "Camera":
-			i.set_scale(Vector3(delta + 1,delta + 1,delta + 1))
-			i.set_translation(Vector3(10 * randf(),10 * randf(),10 * randf()))
+			i.set_scale(Vector3(delta + 1, delta + 1, delta + 1))
+			i.set_translation(Vector3(10 * randf(), 10 * randf(), 10 * randf()))

@@ -1,5 +1,6 @@
 extends GridContainer
 
+
 func _ready():
 	for _i in range(Autoload.RANGE):
 		add_child(Control.new())
@@ -57,8 +58,9 @@ func _ready():
 		add_child(TextureRect.new())
 		add_child(Tree.new())
 		add_child(VideoPlayer.new())
-	
-func _process(_delta : float) -> void:
-	for i in get_children() :
+
+
+func _process(_delta: float) -> void:
+	for i in get_children():
 		if i is Control:
-			i._set_size(Vector2(200 * randf() - 100,200 * randf() - 100))
+			i._set_size(Vector2(200 * randf() - 100, 200 * randf() - 100))
