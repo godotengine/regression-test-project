@@ -79,8 +79,6 @@ func _ready() -> void:
 	var _r2 = qq()
 	var _rr = qqr("WRT")
 	call("qqr","QWT")
-	var func_ref = funcref(self,"qqr")
-	func_ref.call_func("QWQW")
 	
 	if 36235:
 		pass

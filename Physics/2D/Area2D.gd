@@ -22,8 +22,8 @@ func _process(delta):
 
 
 func _on_Area2D_area_entered(area):
-	move_vector = -move_vector
+	pass#move_vector = -move_vector
 
 
 func _on_Area2D_body_entered(body):
-	move_vector = Vector2(move_vector.x, -move_vector.y)
+	pass#move_vector = Vector2(move_vector.x, -move_vector.y)
