@@ -56,6 +56,78 @@ position = Vector2( 901.644, 373.039 )
 [node name="Area2D20" parent="Area2D" instance=ExtResource( 2 )]
 position = Vector2( 787.351, 544.478 )
 
+[node name="Area2D9" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 660.036, 115.278 )
+
+[node name="Area2D11" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 355.255, 161.312 )
+
+[node name="Area2D13" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 482.247, 261.319 )
+
+[node name="Area2D15" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 56.8237, 288.304 )
+
+[node name="Area2D17" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 183.816, 388.311 )
+
+[node name="Area2D21" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 594.953, 275.605 )
+
+[node name="Area2D22" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 836.238, 204.172 )
+
+[node name="Area2D23" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 721.945, 375.611 )
+
+[node name="Area2D24" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 696.901, 221.117 )
+
+[node name="Area2D25" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 392.12, 267.151 )
+
+[node name="Area2D26" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 519.112, 367.158 )
+
+[node name="Area2D27" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 93.689, 394.143 )
+
+[node name="Area2D28" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 220.681, 494.15 )
+
+[node name="Area2D29" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 631.818, 381.444 )
+
+[node name="Area2D30" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 873.103, 310.011 )
+
+[node name="Area2D31" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 758.81, 481.45 )
+
+[node name="Area2D32" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 639.819, 9.43819 )
+
+[node name="Area2D33" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 335.038, 55.4722 )
+
+[node name="Area2D34" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 462.03, 155.479 )
+
+[node name="Area2D35" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 36.6071, 182.464 )
+
+[node name="Area2D36" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 163.599, 282.471 )
+
+[node name="Area2D37" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 574.736, 169.765 )
+
+[node name="Area2D38" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 816.021, 98.3322 )
+
+[node name="Area2D39" parent="Area2D" instance=ExtResource( 2 )]
+position = Vector2( 701.728, 269.771 )
+
 [node name="KinematicBody2D" type="Node2D" parent="."]
 
 [node name="KinematicBody2D" parent="KinematicBody2D" instance=ExtResource( 3 )]
@@ -73,6 +145,21 @@ position = Vector2( 509.622, 242.332 )
 [node name="KinematicBody2D5" parent="KinematicBody2D" instance=ExtResource( 3 )]
 position = Vector2( 914.078, 76.812 )
 
+[node name="KinematicBody2D6" parent="KinematicBody2D" instance=ExtResource( 3 )]
+position = Vector2( 251.025, 329.752 )
+
+[node name="KinematicBody2D7" parent="KinematicBody2D" instance=ExtResource( 3 )]
+position = Vector2( 540.685, 492.602 )
+
+[node name="KinematicBody2D8" parent="KinematicBody2D" instance=ExtResource( 3 )]
+position = Vector2( 493.966, 158.892 )
+
+[node name="KinematicBody2D9" parent="KinematicBody2D" instance=ExtResource( 3 )]
+position = Vector2( 670.165, 269.684 )
+
+[node name="KinematicBody2D10" parent="KinematicBody2D" instance=ExtResource( 3 )]
+position = Vector2( 1074.62, 104.164 )
+
 [node name="StaticBody2D" type="Node2D" parent="."]
 position = Vector2( 73.6327, 117.071 )
 
@@ -86,6 +173,18 @@ position = Vector2( 618.011, -2.82837 )
 
 [node name="StaticBody2D4" parent="StaticBody2D" instance=ExtResource( 4 )]
 position = Vector2( 793.374, 120.208 )
+
+[node name="StaticBody2D6" parent="StaticBody2D" instance=ExtResource( 4 )]
+position = Vector2( 68.974, 216.436 )
+
+[node name="StaticBody2D7" parent="StaticBody2D" instance=ExtResource( 4 )]
+position = Vector2( 240.094, 483.722 )
+
+[node name="StaticBody2D8" parent="StaticBody2D" instance=ExtResource( 4 )]
+position = Vector2( 686.985, 213.607 )
+
+[node name="StaticBody2D9" parent="StaticBody2D" instance=ExtResource( 4 )]
+position = Vector2( 862.348, 336.644 )
 
 [node name="StaticBody2D5" parent="StaticBody2D" instance=ExtResource( 4 )]
 position = Vector2( 704.278, 296.985 )
@@ -118,3 +217,15 @@ position = Vector2( 490.543, 544.06 )
 
 [node name="RigidBody2D9" parent="RigidBody2D" instance=ExtResource( 5 )]
 position = Vector2( 490.543, 544.06 )
+
+[node name="RigidBody2D10" parent="RigidBody2D" instance=ExtResource( 5 )]
+position = Vector2( 282.873, 201.928 )
+
+[node name="RigidBody2D11" parent="RigidBody2D" instance=ExtResource( 5 )]
+position = Vector2( 281.538, 57.7651 )
+
+[node name="RigidBody2D12" parent="RigidBody2D" instance=ExtResource( 5 )]
+position = Vector2( 17.2386, 558.33 )
+
+[node name="RigidBody2D13" parent="RigidBody2D" instance=ExtResource( 5 )]
+position = Vector2( 17.2386, 558.33 )

@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Operators",
 "language": "GDScript",
-"path": "res://MainScenes/Operators.gd"
+"path": "res://AIO/Operators/Operators.gd"
 } ]
 _global_script_class_icons={
 "Operators": ""
@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-run/main_scene="res://All.tscn"
+run/main_scene="res://Start.tscn"
 config/icon="res://icon.png"
 
 [autoload]

@@ -28,7 +28,7 @@ extends Node2D
 #]
 
 
-func _ready() -> void:
+func _process(delta: float) -> void:
 #	for i in []
 
 	for i in [
