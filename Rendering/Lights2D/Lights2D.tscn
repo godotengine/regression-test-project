@@ -1,133 +1,215 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Rendering/Lights2D/Light2D.tscn" type="PackedScene" id=2]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 cull_mode = 1
-polygon = PackedVector2Array( -17.0128, 10.1432, -70.8541, 35.4749, 23.5811, 77.3471, 22.5851, 14.3859 )
+polygon = PoolVector2Array( -17.0128, 10.1432, -70.8541, 35.4749, 23.5811, 77.3471, 44.4183, 22.5847 )
+
+[sub_resource type="OccluderPolygon2D" id=2]
+cull_mode = 1
+polygon = PoolVector2Array( -94.173, -250.818, -70.8541, 35.4749, 23.5811, 77.3471, 44.4183, 22.5847 )
+
+[sub_resource type="OccluderPolygon2D" id=3]
+cull_mode = 2
+polygon = PoolVector2Array( 181.122, -348.705, -275.018, -211.507, -285.709, -168.744, 444.828, -400.378 )
 
 [node name="Lights2D" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = null
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-self_modulate = Color( 0.290196, 0.160784, 0, 0.529412 )
+self_modulate = Color( 0.294118, 0.294118, 0.294118, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = null
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Light2D" parent="." instance=ExtResource( 2 )]
-skew = 4.37114e-08
+[node name="Lights" type="Node2D" parent="."]
 
-[node name="Light2D2" parent="." instance=ExtResource( 2 )]
+[node name="Light2D" parent="Lights" instance=ExtResource( 2 )]
+
+[node name="Light2D2" parent="Lights" instance=ExtResource( 2 )]
 position = Vector2( 552.563, -17.2793 )
-skew = 4.37114e-08
 
-[node name="Light2D3" parent="." instance=ExtResource( 2 )]
+[node name="Light2D3" parent="Lights" instance=ExtResource( 2 )]
 position = Vector2( 34.9607, 524.365 )
-skew = 4.37114e-08
 
-[node name="Light2D4" parent="." instance=ExtResource( 2 )]
+[node name="Light2D4" parent="Lights" instance=ExtResource( 2 )]
 position = Vector2( 679.842, 556.891 )
-skew = 4.37114e-08
 
-[node name="Light2D5" parent="." instance=ExtResource( 2 )]
+[node name="Light2D5" parent="Lights" instance=ExtResource( 2 )]
 position = Vector2( 418.213, 295.262 )
-skew = 4.37114e-08
 
-[node name="Light2D6" parent="." instance=ExtResource( 2 )]
+[node name="Light2D6" parent="Lights" instance=ExtResource( 2 )]
 position = Vector2( 863.69, 330.617 )
-skew = 4.37114e-08
 
-[node name="Light2D7" parent="." instance=ExtResource( 2 )]
+[node name="Light2D7" parent="Lights" instance=ExtResource( 2 )]
 position = Vector2( 336.188, 565.377 )
-skew = 4.37114e-08
 
-[node name="Light2D8" parent="." instance=ExtResource( 2 )]
+[node name="Light2D8" parent="Lights" instance=ExtResource( 2 )]
 position = Vector2( 996.626, 563.962 )
-skew = 4.37114e-08
 
-[node name="Light2D9" parent="." instance=ExtResource( 2 )]
+[node name="Light2D9" parent="Lights" instance=ExtResource( 2 )]
 position = Vector2( 582.261, 406.985 )
-skew = 4.37114e-08
 
-[node name="Light2D10" parent="." instance=ExtResource( 2 )]
+[node name="Light2D10" parent="Lights" instance=ExtResource( 2 )]
 position = Vector2( 600.646, 208.995 )
-skew = 4.37114e-08
 
-[node name="Light2D11" parent="." instance=ExtResource( 2 )]
+[node name="Light2D11" parent="Lights" instance=ExtResource( 2 )]
 position = Vector2( 842.477, 139.698 )
-skew = 4.37114e-08
 
-[node name="Light2D12" parent="." instance=ExtResource( 2 )]
-position = Vector2( 240.022, 228.794 )
-skew = 4.37114e-08
+[node name="Light2D12" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( -187.091, -47.1287 )
 
-[node name="Light2D13" parent="." instance=ExtResource( 2 )]
-position = Vector2( 84.4581, 320.718 )
-skew = 4.37114e-08
+[node name="Light2D13" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( -342.655, 44.7952 )
 
-[node name="Light2D14" parent="." instance=ExtResource( 2 )]
-position = Vector2( 251.335, 390.014 )
-skew = 4.37114e-08
+[node name="Light2D14" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( -175.778, 114.091 )
 
-[node name="Light2D15" parent="." instance=ExtResource( 2 )]
-position = Vector2( 232.951, 64.745 )
-skew = 4.37114e-08
+[node name="Light2D15" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( -194.162, -211.178 )
 
-[node name="Light2D16" parent="." instance=ExtResource( 2 )]
-position = Vector2( 716.612, 57.674 )
-skew = 4.37114e-08
+[node name="Light2D16" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 289.499, -218.249 )
 
-[node name="Light2D17" parent="." instance=ExtResource( 2 )]
+[node name="Light2D35" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( -102.216, -74.258 )
+
+[node name="Light2D36" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 841.085, 146.51 )
+
+[node name="Light2D37" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 323.483, 688.155 )
+
+[node name="Light2D38" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 968.364, 720.681 )
+
+[node name="Light2D39" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 706.735, 459.052 )
+
+[node name="Light2D40" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 1152.21, 494.407 )
+
+[node name="Light2D41" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 624.71, 729.167 )
+
+[node name="Light2D42" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 1285.15, 727.752 )
+
+[node name="Light2D43" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 870.783, 570.775 )
+
+[node name="Light2D44" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 889.168, 372.785 )
+
+[node name="Light2D45" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 1131, 303.488 )
+
+[node name="Light2D46" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 528.544, 392.584 )
+
+[node name="Light2D47" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 372.98, 484.508 )
+
+[node name="Light2D48" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 539.857, 553.804 )
+
+[node name="Light2D49" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 521.473, 228.535 )
+
+[node name="Light2D50" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 1005.13, 221.464 )
+
+[node name="Light2D17" parent="Lights" instance=ExtResource( 2 )]
 position = Vector2( 966.927, 117.071 )
-skew = 4.37114e-08
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+[node name="Light2D18" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 136.375, 90.875 )
+
+[node name="Light2D19" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 652.563, 35.7207 )
+
+[node name="Light2D20" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 134.961, 577.365 )
+
+[node name="Light2D21" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 779.842, 609.891 )
+
+[node name="Light2D22" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 518.213, 348.262 )
+
+[node name="Light2D23" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 963.69, 383.617 )
+
+[node name="Light2D24" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 436.188, 618.377 )
+
+[node name="Light2D25" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 1096.63, 616.962 )
+
+[node name="Light2D26" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 682.261, 459.985 )
+
+[node name="Light2D27" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 700.646, 261.995 )
+
+[node name="Light2D28" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 942.477, 192.698 )
+
+[node name="Light2D29" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 340.022, 281.794 )
+
+[node name="Light2D30" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 184.458, 373.718 )
+
+[node name="Light2D31" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 351.335, 443.014 )
+
+[node name="Light2D32" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 332.951, 117.745 )
+
+[node name="Light2D33" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 816.612, 110.674 )
+
+[node name="Light2D34" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 1066.93, 170.071 )
+
+[node name="LightOccluders" type="Node2D" parent="."]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="LightOccluders"]
 position = Vector2( 469.444, 367.746 )
-skew = 4.37114e-08
 occluder = SubResource( 1 )
-script = null
 
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="LightOccluders"]
 position = Vector2( 641.978, 284.308 )
-skew = 4.37114e-08
 occluder = SubResource( 1 )
-script = null
 
-[node name="LightOccluder2D3" type="LightOccluder2D" parent="."]
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="LightOccluders"]
 position = Vector2( 374.692, 76.4184 )
-skew = 4.37114e-08
 occluder = SubResource( 1 )
-script = null
 
-[node name="LightOccluder2D4" type="LightOccluder2D" parent="."]
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="LightOccluders"]
 position = Vector2( 876.738, 219.254 )
-skew = 4.37114e-08
 occluder = SubResource( 1 )
-script = null
 
-[node name="LightOccluder2D5" type="LightOccluder2D" parent="."]
+[node name="LightOccluder2D5" type="LightOccluder2D" parent="LightOccluders"]
 position = Vector2( 906.436, 492.197 )
-skew = 4.37114e-08
 occluder = SubResource( 1 )
-script = null
 
-[node name="LightOccluder2D6" type="LightOccluder2D" parent="."]
+[node name="LightOccluder2D6" type="LightOccluder2D" parent="LightOccluders"]
 position = Vector2( 906.436, 492.197 )
-skew = 4.37114e-08
 occluder = SubResource( 1 )
-script = null
 
-[node name="LightOccluder2D7" type="LightOccluder2D" parent="."]
+[node name="LightOccluder2D7" type="LightOccluder2D" parent="LightOccluders"]
 position = Vector2( 216.3, 438.457 )
-skew = 4.37114e-08
-occluder = SubResource( 1 )
-script = null
+occluder = SubResource( 2 )
+
+[node name="LightOccluder2D8" type="LightOccluder2D" parent="LightOccluders"]
+position = Vector2( 496.042, 443.802 )
+occluder = SubResource( 3 )

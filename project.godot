@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": @"Operators",
 "language": @"GDScript",
-"path": "res://MainScenes/Operators.gd"
+"path": "res://AIO/Operators/Operators.gd"
 } ]
 _global_script_class_icons={
 @"Operators": ""
@@ -20,15 +20,28 @@ _global_script_class_icons={
 
 [application]
 
-run/main_scene="res://All.tscn"
+run/main_scene="res://Start.tscn"
+config/icon="res://icon.png"
 
 [autoload]
 
 Autoload="*res://Autoload/Autoload.gd"
 
+[debug]
+
+gdscript/warnings/enable=false
+gdscript/warnings/standalone_expression=false
+
 [memory]
 
 limits/message_queue/max_size_kb=131072
+
+[network]
+
+limits/debugger_stdout/max_chars_per_second=16384
+limits/debugger_stdout/max_messages_per_frame=100
+limits/debugger_stdout/max_errors_per_second=1000
+limits/debugger_stdout/max_warnings_per_second=1000
 
 [rendering]
 

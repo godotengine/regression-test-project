@@ -2,4 +2,4 @@ extends Node3D
 
 
 func _process(delta):
-	rotate(Vector3(0, 1, 0).normalized(), 1 * delta)
+	rotate(Vector3(0, 1, 0).normalized(), 2 * delta)

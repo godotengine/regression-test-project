@@ -1,4 +1,4 @@
-extends Node2D
+extends PointLight2D
 
 var move_vector: Vector2 = Vector2(1, 1)
 var speed: float = 100.0

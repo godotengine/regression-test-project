@@ -15,3 +15,4 @@ func _ready() -> void:
 		add_child(Tween.new())
 		add_child(Viewport.new())
 		add_child(WorldEnvironment.new())
+

@@ -8,13 +8,6 @@ extends Node2D
 #	Dictionary(),
 #	NodePath(),
 #	Plane(),
-#	PoolByteArray(),
-#	PoolColorArray(),
-#	PoolIntArray(),
-#	PoolRealArray(),
-#	PoolStringArray(),
-#	PoolVector2Array(),
-#	PoolVector3Array(),
 #	Quat(),
 #	Rect2(),
 #	String(),
@@ -28,7 +21,7 @@ extends Node2D
 #]
 
 
-func _ready() -> void:
+func _process(delta: float) -> void:
 #	for i in []
 
 	for i in [

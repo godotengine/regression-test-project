@@ -7,7 +7,7 @@ signal roman
 @onready var sew : int = 0
 
 			
-func _ready() -> void:
+func _process(delta: float) -> void:
 	
 	assert(2>1)
 		
@@ -18,46 +18,46 @@ func _ready() -> void:
 	
 	52 % -25
 	arr.append(254)
-	arr[36235 % arr.size()]
-	arr[-36235 % arr.size()]
+	arr[45 % arr.size()]
+	arr[-45 % arr.size()]
 	if dict.has(strin):
 		dict[strin]
 	sew = sew
 	number is Node2D
-	~36235
-	-36235
-	36235 * 36235
-	36235 / (21)
-	36235 % (21)
-	36235 + 36235
-	36235 - 36235
-	36235 >> int(max(min(36235,0),63))
-	36235 << int(max(min(36235,0),63))
-	36235 & 36235
-	36235 ^ 36235
-	36235 | 36235
-	36235 < 36235
-	36235 > 36235
-	36235 == 36235
-	36235 != 36235
-	36235 >= 36235
-	36235 <= 36235
-	36235 in ["asfasfqw","asfqwgqani"]
-	!36235
-	not 36235
-	36235 and 36235
-	36235 && 36235
-	36235 or 36235
-	36235 || 36235
+	~45
+	-45
+	45 * 45
+	45 / (21)
+	45 % (21)
+	45 + 45
+	45 - 45
+	1 >> int(max(min(12,0),61))
+	1 << int(max(min(12,0),61))
+	45 & 45
+	45 ^ 45
+	45 | 45
+	45 < 45
+	45 > 45
+	45 == 45
+	45 != 45
+	45 >= 45
+	45 <= 45
+	45 in ["asfasfqw","asfqwgqani"]
+	!45
+	not 45
+	45 and 45
+	45 && 45
+	45 or 45
+	45 || 45
 		
-	number = 36235
-	number += 36235
-	number -= 36235
-	number *= 36235
+	number = 45
+	number += 45
+	number -= 45
+	number *= 45
 	number /= 21
 	number %= 21
-	number &= 36235
-	number |= 36235
+	number &= 45
+	number |= 45
 	
 	1234567890
 	0x0123456789ABCDEF
@@ -80,7 +80,7 @@ func _ready() -> void:
 	var _rr = qqr("WRT")
 	call("qqr","QWT")
 	
-	if 36235:
+	if 45:
 		pass
 	else:  
 		pass
@@ -89,29 +89,29 @@ func _ready() -> void:
 	while(rr != 0):
 		rr -= 1
 	
-	match 36235:
+	match 45:
 		2:
-			36235
+			45
 		5:
 			pass
-			36235
+			45
 		3:
 			continue
 			false
 		_:
 			[521252,"asfasfw", "asfw"]
 	
-	match typeof(36235):
+	match typeof(45):
 		TYPE_AABB:
-			36235
+			45
 		TYPE_INT:
-			36235
+			45
 			
-	match 36235:
+	match 45:
 		2:
-			36235
+			45
 #		var RR:
-#			RR = 36235
+#			RR = 45
 			
 	match randi() % 26:
 		2:
