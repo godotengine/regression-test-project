@@ -60,6 +60,16 @@ func _ready():
 		add_child(VehicleWheel3D.new())
 		add_child(VisibilityNotifier3D.new())
 		add_child(VisibilityEnabler3D.new())
+		
+		
+		add_child(GPUParticlesAttractorBox.new())
+		add_child(GPUParticlesAttractorSphere.new())
+		add_child(GPUParticlesAttractorVectorField.new())
+		
+		add_child(GPUParticlesCollisionBox.new())
+		add_child(GPUParticlesCollisionHeightField.new())
+		add_child(GPUParticlesCollisionSphere.new())
+		add_child(GPUParticlesCollisionSDF.new())
 
 
 func _process(delta: float) -> void:
