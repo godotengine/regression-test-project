@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://MainScenes/Control.tscn" type="PackedScene" id=1]
 [ext_resource path="res://MainScenes/Spatial.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Rendering/Lights3D/Lights3D.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Rendering/Lights2D/Lights2D.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Physics/3D/Physics3D.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Text/Text.tscn" type="PackedScene" id=10]
 
 [node name="All" type="Node"]
 script = null
@@ -41,4 +42,7 @@ script = null
 script = null
 
 [node name="Lights3D" parent="Rendering" instance=ExtResource( 7 )]
+script = null
+
+[node name="Text" parent="." instance=ExtResource( 10 )]
 script = null

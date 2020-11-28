@@ -8,7 +8,7 @@ const PRINT_TIME_EVERY_SECONDS : int = 5
 var time_to_print_next_time : int = PRINT_TIME_EVERY_SECONDS
 var current_run_time : float = 0.0
 
-var time_to_show: float = 6 # How long test works
+var time_to_show: float = 20 # How long test works
 
 var time_for_each_step : float = -1.0
 
@@ -22,6 +22,7 @@ const alone_steps : Array = [
 	"res://Physics/3D/Physics3D.tscn",
 	"res://Rendering/Lights2D/Lights2D.tscn",
 	"res://Rendering/Lights3D/Lights3D.tscn",
+	"res://Text/Text.tscn",
 ]
 
 # All scenes run in one step
