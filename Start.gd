@@ -1,7 +1,7 @@
 extends Control
 
 var current_scene : int = -1
-var time_to_switch : float
+var time_to_switch : int
 const NUMBER_OF_INSTANCES : int = 1 # Use more than 1 to stress test, 1 should be optimal for casual CI
 
 func _ready():
@@ -14,10 +14,9 @@ func _ready():
 		print("   - " + path)
 	
 
-func _process(delta):
-	time_to_switch -= delta
-	if time_to_switch <= 0:
-		time_to_switch = Autoload.time_for_each_step
+func _process(_delta):
+	if time_to_switch - OS.get_system_time_msecs() <= 0:
+		time_to_switch = Autoload.time_for_each_step + OS.get_system_time_msecs()
 		
 		if current_scene < Autoload.alone_steps.size() - 1:
 			current_scene += 1

@@ -1,8 +1,8 @@
 extends Spatial
 
 
-func _ready():
-	for i in range(Autoload.RANGE):
+func _ready() -> void:
+	for _i in range(10):
 		add_child(Spatial.new())
 		add_child(ARVRAnchor.new())
 		add_child(Camera.new())

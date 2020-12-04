@@ -1,8 +1,7 @@
 extends Node2D
 
-
-func _ready():
-	for _i in range(Autoload.RANGE):
+func _ready() -> void:
+	for _i in range(10):
 		add_child(Node2D.new())
 		add_child(AnimatedSprite.new())
 		add_child(Area2D.new())
@@ -15,7 +14,7 @@ func _ready():
 		add_child(CPUParticles2D.new())
 		add_child(Camera2D.new())
 		add_child(CanvasModulate.new())
-#		add_child(CollisionPolygon2D.new()) # Errors
+		add_child(CollisionPolygon2D.new()) # Errors
 		add_child(CollisionShape2D.new())
 		add_child(DampedSpringJoint2D.new())
 		add_child(GrooveJoint2D.new())
