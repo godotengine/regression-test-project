@@ -1,8 +1,7 @@
 extends GridContainer
 
-
-func _ready():
-	for _i in range(Autoload.RANGE):
+func _ready() -> void:
+	for _i in range(10):
 		add_child(Control.new())
 		add_child(Popup.new())
 		add_child(WindowDialog.new())
