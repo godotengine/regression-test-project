@@ -1,6 +1,6 @@
 extends Label
 
-const TIME : float = 0.3
+const TIME : float = 0.5
 var time_to_stop : float = TIME
 var current_type : int = 0
 
