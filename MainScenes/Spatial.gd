@@ -2,7 +2,7 @@ extends Node3D
 
 
 func _ready():
-	for i in range(Autoload.RANGE):
+	for i in range(5):
 		add_child(Node3D.new())
 		add_child(XRAnchor3D.new())
 		add_child(Camera3D.new())

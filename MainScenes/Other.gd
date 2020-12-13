@@ -2,7 +2,7 @@ extends Node
 
 
 func _ready() -> void:
-	for _i in range(Autoload.RANGE):
+	for _i in range(5):
 		add_child(AnimationPlayer.new())
 		add_child(AnimationTree.new())
 		add_child(AudioStreamPlayer.new())

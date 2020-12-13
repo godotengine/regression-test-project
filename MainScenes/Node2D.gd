@@ -2,7 +2,7 @@ extends Node2D
 
 
 func _ready():
-	for _i in range(Autoload.RANGE):
+	for _i in range(5):
 		add_child(Node2D.new())
 		add_child(AnimatedSprite2D.new())
 		add_child(Area2D.new())
