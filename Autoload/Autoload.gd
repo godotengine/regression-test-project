@@ -8,7 +8,7 @@ var last_time : int
 const PRINT_TIME_EVERY_MILISECONDS : int = 5000
 var time_to_print_next_time : int = PRINT_TIME_EVERY_MILISECONDS
 
-var time_to_show: int = 30 * 1000 # How long test works in miliseconds
+var time_to_show: int = 15 * 1000 # How long test works in miliseconds
 
 var time_for_each_step : int = -1 
 
@@ -32,7 +32,7 @@ const all_in_one : Array = [
 ]
 
 func _init(): 
-	start_time = OS.get_system_time_msecs()
+	start_time = OS.get_ticks_msec()
 	
 	# In case when user doesn't provide time
 	time_for_each_step = time_to_show / (alone_steps.size() + 1)
@@ -47,7 +47,7 @@ func _init():
 
 
 func _process(delta: float) -> void:
-	var current_run_time : int = OS.get_system_time_msecs() - start_time
+	var current_run_time : int = OS.get_ticks_msec() - start_time
 	
 	if current_run_time > time_to_print_next_time:
 		print("Test is running now " + str(int(time_to_print_next_time / 1000)) + " seconds")
