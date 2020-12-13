@@ -15,8 +15,8 @@ func _ready():
 	
 
 func _process(_delta):
-	if time_to_switch - OS.get_system_time_msecs() <= 0:
-		time_to_switch = Autoload.time_for_each_step + OS.get_system_time_msecs()
+	if time_to_switch - OS.get_ticks_msec() <= 0:
+		time_to_switch = Autoload.time_for_each_step + OS.get_ticks_msec()
 		
 		if current_scene < Autoload.alone_steps.size() - 1:
 			current_scene += 1
