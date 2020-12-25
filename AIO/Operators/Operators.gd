@@ -79,8 +79,6 @@ func _process(delta: float) -> void:
 	var _r2 = qq()
 	var _rr = qqr("WRT")
 	call("qqr","QWT")
-	var func_ref = funcref(self,"qqr")
-	func_ref.call_func("QWQW")
 	
 	if 45:
 		pass
@@ -141,7 +139,7 @@ func _process(delta: float) -> void:
 
 enum {TILE, MILE}
 enum State {STATE_IDLE, STATE_JUMP = 5, STATE_SHOOT}
-const Roman = {IDLE = 0, JUMP = 5, SHOOT = 6}
+#const Roman = {IDLE = 0, JUMP = 5, SHOOT = 6} # TODO Not working in Godot 4
 const TITLE = 0
 const TITLE2 : int = 0
 var describtion
@@ -156,25 +154,25 @@ func qqr(_stat : String = "TQW") -> String:
 static func ff(_rr : String = "FA") -> String:
 	return "qtqwtwey"
 	
-class ram:
-	var sa : int = 0
-	var qq
-	static func rr() -> ram:
-		return ram.new()
-	static func Wr() -> Node:
-		return Node.new()
-	static func rqq() -> String:
-		return "as"
-	func roman() ->  String:
-		return "wqr"
-	func wykop() ->  String:
-		return "wqr"
-
-func func_ready() -> void:
-	var rr : ram = ram.new()
-	rr.sa = 125
-	rr.qq  = "qw"
-	var _s = rr.rr()
-	var _r = rr.rqq()
-	var _t = rr.roman()
-	var _y = rr.wykop()
+#class ram: # TODO this version leaks in Godot 4
+#	var sa : int = 0
+#	var qq
+#	static func rr() -> ram:
+#		return ram.new()
+#	static func Wr() -> Node:
+#		return Node.new()
+#	static func rqq() -> String:
+#		return "as"
+#	func roman() ->  String:
+#		return "wqr"
+#	func wykop() ->  String:
+#		return "wqr"
+#
+#func func_ready() -> void:
+#	var rr : ram = ram.new()
+#	rr.sa = 125
+#	rr.qq  = "qw"
+#	var _s = rr.rr()
+#	var _r = rr.rqq()
+#	var _t = rr.roman()
+#	var _y = rr.wykop()
