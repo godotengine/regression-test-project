@@ -1,0 +1,79 @@
+name: 🐧 Linux Builds Stress 1m
+on: [push, pull_request]
+
+jobs:
+  linux-sanitizer:
+    runs-on: "ubuntu-20.04"
+    name: Editor and exported project with sanitizers (target=debug/release, tools=yes/no, debug_symbols=yes, use_tsan=yes)
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # Azure repositories are not reliable, we need to prevent azure giving us packages.
+      - name: Make apt sources.list use the default Ubuntu repositories
+        run: |
+          sudo rm -f /etc/apt/sources.list.d/*
+          sudo cp -f misc/ci/sources.list /etc/apt/sources.list
+          sudo apt-get update
+
+      # Install all packages (except scons)
+      - name: Configure dependencies
+        run: |
+          sudo apt-get install build-essential pkg-config libx11-dev libxcursor-dev \
+            libxinerama-dev libgl1-mesa-dev libglu-dev libasound2-dev libpulse-dev libudev-dev libxi-dev libxrandr-dev yasm \
+            xvfb wget2 unzip python scons git llvm clang
+
+#      - name: Download Godot
+#        run: |
+#          wget2 https://downloads.tuxfamily.org/godotengine/3.2.4/beta1/Godot_v3.2.4-beta1_x11.64.zip
+#          unzip Godot_v3.2.4-beta1_x11.64.zip
+#          rm Godot_v3.2.4-beta1_x11.64.zip
+#          mv Godot_v3.2.4-beta1_x11.64 godot.x11.tools.64.llvms
+#          wget2 https://downloads.tuxfamily.org/godotengine/3.2.4/beta1/Godot_v3.2.4-beta1_export_templates.tpz
+#          unzip Godot_v3.2.4-beta1_export_templates.tpz
+#          mv templates/linux_x11_64_debug godot.x11.opt.64s
+#          rm -rf templates
+#          rm Godot_v3.2.4-beta1_export_templates.tpz
+#          ls -alr
+
+#      - name: Download Godot(ZIP)
+#        run: |
+#          wget2 https://github.com/godotengine/godot/archive/3.2.zip
+#          unzip 3.2.zip
+#          rm 3.2.zip
+
+
+      - name: Download Godot(GIT)
+        run: |
+          git clone https://github.com/godotengine/godot.git
+          cd godot
+          git checkout 3.2
+          cd ../
+
+      - name: Compile Godot
+        run: |
+          cd godot
+          scons p=x11 -j2 use_tsan=yes use_llvm=yes
+          cp bin/godot.x11.tools.64.llvms ../
+          cd ../
+          rm -rf godot
+
+      - name: Use Godot
+        run: |
+          sed -i "s|NUMBER_OF_INSTANCES : int = 1|NUMBER_OF_INSTANCES : int = 10|" Start.gd
+          echo "-------------------- OPEN EDITOR TO IMPORT PROJECT -----------------------"
+          DRI_PRIME=0 timeout 600s xvfb-run ./godot.x11.tools.64.llvms --audio-driver Dummy -e --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
+          echo "-------------------- OPEN EDITOR SECOND TIME TO BE SURE THAT EVERYTHING WAS IMPORTED -----------------------"
+          DRI_PRIME=0 xvfb-run ./godot.x11.tools.64.llvms --audio-driver Dummy -e -q --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
+          echo "-------------------- RUN PROJECT -----------------------"
+          DRI_PRIME=0 xvfb-run ./godot.x11.tools.64.llvms 1800 --audio-driver Dummy --video-driver GLES3 --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
+
+#      # Export project and run it to check for possible leaks and invalid memory usage
+#      - name: Exporting and running project
+#        run: |
+#          curr="$(pwd)/godot.x11.opt.64s"
+#          sed -i "s|PATH_TO_CHANGE|$curr|" export_presets.cfg
+#          DRI_PRIME=0 xvfb-run ./godot.x11.tools.64.llvms --export-debug "Linux/X11" test_project 2>&1 | tee sanitizers_log.txt || true
+#          misc/check_ci_log.py sanitizers_log.txt
+#          DRI_PRIME=0 xvfb-run ./test_project 20 2>&1 | tee sanitizers_log.txt || true
+#          misc/check_ci_log.py sanitizers_log.txt
