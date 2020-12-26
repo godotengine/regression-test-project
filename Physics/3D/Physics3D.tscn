@@ -315,28 +315,73 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2835, 26.9285, 6.16852 )
 [node name="RigidBody49" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1264, 26.9285, 21.2921 )
 
-[node name="RigidBody50" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65333, 39.1802, -12.0018 )
-
-[node name="RigidBody51" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3314, 43.8629, -2.69553 )
-
-[node name="RigidBody52" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.8272, 36.7241, -17.8582 )
-
-[node name="RigidBody53" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.2562, 36.7241, -26.9792 )
-
-[node name="RigidBody54" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.57118, 36.7241, -25.1251 )
-
-[node name="RigidBody55" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.644, 31.9038, -10.6155 )
-
-[node name="RigidBody56" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9894, 26.9285, 7.13636 )
-
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.922114, 0.23703, -0.305815, 0.0163102, 0.765871, 0.642788, 0.386575, -0.597711, 0.702354, -25.392, 55.117, 39.851 )
+transform = Transform( 0.922114, 0.23703, -0.305815, 0.0163102, 0.765871, 0.642787, 0.386575, -0.597711, 0.702354, -25.392, 55.117, 39.851 )
 current = true
 far = 200.0
+
+[node name="Joints" type="Spatial" parent="."]
+
+[node name="Cone" type="Spatial" parent="Joints"]
+
+[node name="RigidBody2" parent="Joints/Cone" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2888, 6.73046, 77.026 )
+gravity_scale = -3.0
+
+[node name="RigidBody" parent="Joints/Cone" instance=ExtResource( 3 )]
+
+[node name="ConeTwistJoint" type="ConeTwistJoint" parent="Joints/Cone"]
+nodes/node_a = NodePath("../RigidBody")
+nodes/node_b = NodePath("../RigidBody2")
+
+[node name="Generic" type="Spatial" parent="Joints"]
+
+[node name="RigidBody" parent="Joints/Generic" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2888, 33.1278, 67.0796 )
+gravity_scale = -3.0
+
+[node name="RigidBody2" parent="Joints/Generic" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2888, 33.1278, -0.445078 )
+
+[node name="Generic6DOFJoint" type="Generic6DOFJoint" parent="Joints/Generic"]
+nodes/node_a = NodePath("../RigidBody")
+nodes/node_b = NodePath("../RigidBody2")
+
+[node name="Hinge" type="Spatial" parent="Joints"]
+
+[node name="RigidBody" parent="Joints/Hinge" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6153, 33.1278, 59.2096 )
+gravity_scale = -3.0
+
+[node name="RigidBody2" parent="Joints/Hinge" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.17695, 33.1278, 19.1751 )
+
+[node name="HingeJoint" type="HingeJoint" parent="Joints/Hinge"]
+nodes/node_a = NodePath("../RigidBody")
+nodes/node_b = NodePath("../RigidBody2")
+
+[node name="Pin" type="Spatial" parent="Joints"]
+
+[node name="RigidBody" parent="Joints/Pin" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2888, 4.83369, 116.28 )
+gravity_scale = -3.0
+
+[node name="RigidBody2" parent="Joints/Pin" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2888, 33.1278, 10.7729 )
+
+[node name="PinJoint" type="PinJoint" parent="Joints/Pin"]
+nodes/node_a = NodePath("../RigidBody")
+nodes/node_b = NodePath("../RigidBody2")
+
+[node name="Slider" type="Spatial" parent="Joints"]
+
+[node name="RigidBody" parent="Joints/Slider" instance=ExtResource( 3 )]
+gravity_scale = -3.0
+
+[node name="RigidBody2" parent="Joints/Slider" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.3355, 33.1278, 19.1751 )
+
+[node name="SliderJoint" type="SliderJoint" parent="Joints/Slider"]
+nodes/node_a = NodePath("../RigidBody")
+nodes/node_b = NodePath("../RigidBody2")
+linear_motion/softness = 1.43
