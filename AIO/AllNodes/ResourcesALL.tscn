@@ -1,0 +1,918 @@
+[gd_scene format=2]
+
+[node name="Resources" type="Node2D"]
+
+[node name="Reference_LEAK" type="Node2D" parent="."]
+
+[node name="ARVRInterface_CHILD" type="Node2D" parent="."]
+
+[node name="ARVRInterfaceGDNative" type="Node2D" parent="."]
+
+[node name="MobileVRInterface" type="Node2D" parent="."]
+
+[node name="AStar" type="Node2D" parent="."]
+
+[node name="AStar2D" type="Node2D" parent="."]
+
+[node name="Resource" type="Node2D" parent="."]
+
+[node name="Texture_CHILD" type="Node2D" parent="."]
+
+[node name="AnimatedTexture" type="Node2D" parent="."]
+
+[node name="AtlasTexture" type="Node2D" parent="."]
+
+[node name="CameraTexture" type="Node2D" parent="."]
+
+[node name="CurveTexture" type="Node2D" parent="."]
+
+[node name="GradientTexture" type="Node2D" parent="."]
+
+[node name="ImageTexture" type="Node2D" parent="."]
+
+[node name="LargeTexture" type="Node2D" parent="."]
+
+[node name="MeshTexture" type="Node2D" parent="."]
+
+[node name="NoiseTexture" type="Node2D" parent="."]
+
+[node name="ProxyTexture" type="Node2D" parent="."]
+
+[node name="StreamTexture" type="Node2D" parent="."]
+
+[node name="ViewportTexture" type="Node2D" parent="."]
+
+[node name="Animation" type="Node2D" parent="."]
+
+[node name="AnimationNode" type="Node2D" parent="."]
+
+[node name="AnimationNodeAdd2" type="Node2D" parent="."]
+
+[node name="AnimationNodeAdd3" type="Node2D" parent="."]
+
+[node name="AnimationRootNode" type="Node2D" parent="."]
+
+[node name="AnimationNodeAnimation" type="Node2D" parent="."]
+
+[node name="AnimationNodeBlendSpace1D" type="Node2D" parent="."]
+
+[node name="AnimationNodeBlendSpace2D" type="Node2D" parent="."]
+
+[node name="AnimationNodeBlendTree" type="Node2D" parent="."]
+
+[node name="AnimationNodeBlendMachine" type="Node2D" parent="."]
+
+[node name="AnimationNodeBlendBlend2" type="Node2D" parent="."]
+
+[node name="AnimationNodeBlendBlend3" type="Node2D" parent="."]
+
+[node name="AnimationNodeOneShot" type="Node2D" parent="."]
+
+[node name="AnimationNodeOutput" type="Node2D" parent="."]
+
+[node name="AnimationNodeTimeScale" type="Node2D" parent="."]
+
+[node name="AnimationNodeTimeSeek" type="Node2D" parent="."]
+
+[node name="AnimationNodeTransition" type="Node2D" parent="."]
+
+[node name="AnimationNodeBlendStateMachinePlayback" type="Node2D" parent="."]
+
+[node name="AnimationNodeBlendStateMachineTransition" type="Node2D" parent="."]
+
+[node name="Mesh" type="Node2D" parent="."]
+
+[node name="ArrayMesh" type="Node2D" parent="."]
+
+[node name="PrimitiveMesh_CHILD" type="Node2D" parent="."]
+
+[node name="CapsuleMesh" type="Node2D" parent="."]
+
+[node name="CubeMesh" type="Node2D" parent="."]
+
+[node name="CylinderMesh" type="Node2D" parent="."]
+
+[node name="PlaneMesh" type="Node2D" parent="."]
+
+[node name="PointMesh" type="Node2D" parent="."]
+
+[node name="PrismMesh" type="Node2D" parent="."]
+
+[node name="QuadMesh" type="Node2D" parent="."]
+
+[node name="SphereMesh" type="Node2D" parent="."]
+
+[node name="AudioBusLayout" type="Node2D" parent="."]
+
+[node name="AudioEffect_CHILD" type="Node2D" parent="."]
+
+[node name="AudioEffectAmplify" type="Node2D" parent="."]
+
+[node name="AudioEffectFilter" type="Node2D" parent="."]
+
+[node name="AudioEffectBandLimitFilter" type="Node2D" parent="."]
+
+[node name="AudioEffectBandPassFilter" type="Node2D" parent="."]
+
+[node name="AudioEffectHighPassFilter" type="Node2D" parent="."]
+
+[node name="AudioEffectHighShelfFilter" type="Node2D" parent="."]
+
+[node name="AudioEffectLowPassFilter" type="Node2D" parent="."]
+
+[node name="AudioEffectLowShelfFilter" type="Node2D" parent="."]
+
+[node name="AudioEffectNotchFilter" type="Node2D" parent="."]
+
+[node name="AudioEffectChorus" type="Node2D" parent="."]
+
+[node name="AudioEffectCompressor" type="Node2D" parent="."]
+
+[node name="AudioEffectDelay" type="Node2D" parent="."]
+
+[node name="AudioEffectDistortion" type="Node2D" parent="."]
+
+[node name="AudioEffectEQ" type="Node2D" parent="."]
+
+[node name="AudioEffectEQ10" type="Node2D" parent="."]
+
+[node name="AudioEffectEQ21" type="Node2D" parent="."]
+
+[node name="AudioEffectEQ6" type="Node2D" parent="."]
+
+[node name="AudioEffectLimiter" type="Node2D" parent="."]
+
+[node name="AudioEffectPanner" type="Node2D" parent="."]
+
+[node name="AudioEffectPhaser" type="Node2D" parent="."]
+
+[node name="AudioEffectPitchShift" type="Node2D" parent="."]
+
+[node name="AudioEffectRecord" type="Node2D" parent="."]
+
+[node name="AudioEffectReverb" type="Node2D" parent="."]
+
+[node name="AudioEffectSpectrumAnalyzer" type="Node2D" parent="."]
+
+[node name="AudioEffectStereoEnhance" type="Node2D" parent="."]
+
+[node name="AudioStream_CHILD" type="Node2D" parent="."]
+
+[node name="AudioStreamGenerator" type="Node2D" parent="."]
+
+[node name="AudioStreamMicrophone" type="Node2D" parent="."]
+
+[node name="AudioStreamOGGVorbis" type="Node2D" parent="."]
+
+[node name="AudioStreamRandomPitch" type="Node2D" parent="."]
+
+[node name="AudioStreamSample" type="Node2D" parent="."]
+
+[node name="BakedLightmapData" type="Node2D" parent="."]
+
+[node name="BitMap" type="Node2D" parent="."]
+
+[node name="Font_CHILD" type="Node2D" parent="."]
+
+[node name="BitmapFont" type="Node2D" parent="."]
+
+[node name="DynamicFont" type="Node2D" parent="."]
+
+[node name="Shape_CHILD" type="Node2D" parent="."]
+
+[node name="BoxShape" type="Node2D" parent="."]
+
+[node name="CapsuleShape" type="Node2D" parent="."]
+
+[node name="ConcavePolygonShape" type="Node2D" parent="."]
+
+[node name="ConvexPolygonShape" type="Node2D" parent="."]
+
+[node name="CylinderShape" type="Node2D" parent="."]
+
+[node name="HeightMapShape" type="Node2D" parent="."]
+
+[node name="PlaneShape" type="Node2D" parent="."]
+
+[node name="RayShape" type="Node2D" parent="."]
+
+[node name="SphereShape" type="Node2D" parent="."]
+
+[node name="ButtonGroup" type="Node2D" parent="."]
+
+[node name="Material_CHILD" type="Node2D" parent="."]
+
+[node name="CanvasItemMaterial" type="Node2D" parent="."]
+
+[node name="ParticlesMaterial" type="Node2D" parent="."]
+
+[node name="ShaderMaterial" type="Node2D" parent="."]
+
+[node name="SpatialMaterial" type="Node2D" parent="."]
+
+[node name="Shape2D_CHILD" type="Node2D" parent="."]
+
+[node name="CapsuleShape2D" type="Node2D" parent="."]
+
+[node name="CircleShape2D" type="Node2D" parent="."]
+
+[node name="ConcavePolygonShape2D" type="Node2D" parent="."]
+
+[node name="ConvexPolygonShape2D" type="Node2D" parent="."]
+
+[node name="LineShape2D" type="Node2D" parent="."]
+
+[node name="RayShape2D" type="Node2D" parent="."]
+
+[node name="RectangleShape2D" type="Node2D" parent="."]
+
+[node name="SegmentShape2D" type="Node2D" parent="."]
+
+[node name="CryptoKey" type="Node2D" parent="."]
+
+[node name="CubeMap" type="Node2D" parent="."]
+
+[node name="Curve" type="Node2D" parent="."]
+
+[node name="Curve2D" type="Node2D" parent="."]
+
+[node name="Curve3D" type="Node2D" parent="."]
+
+[node name="DynamicFontData" type="Node2D" parent="."]
+
+[node name="EditorSettings_JUST_DONT" type="Node2D" parent="."]
+
+[node name="EditorSpatialGizmoPlugin_CANT" type="Node2D" parent="."]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="GDNativeLibrary" type="Node2D" parent="."]
+
+[node name="Script_CHILD" type="Node2D" parent="."]
+
+[node name="GDScript_WORKAROUND" type="Node2D" parent="."]
+
+[node name="NativeScript_CANT" type="Node2D" parent="."]
+
+[node name="PluginScript_CANT" type="Node2D" parent="."]
+
+[node name="VisualScript" type="Node2D" parent="."]
+
+[node name="GIProbeData" type="Node2D" parent="."]
+
+[node name="Gradient" type="Node2D" parent="."]
+
+[node name="Image" type="Node2D" parent="."]
+
+[node name="InputEvent_CHILD" type="Node2D" parent="."]
+
+[node name="InputEventAction" type="Node2D" parent="."]
+
+[node name="InputEventWithModifiers_CHILD" type="Node2D" parent="."]
+
+[node name="InputEventGesture_CHILD" type="Node2D" parent="."]
+
+[node name="InputEventMagnifyGesture" type="Node2D" parent="."]
+
+[node name="InputEventPanGesture" type="Node2D" parent="."]
+
+[node name="InputEventKey" type="Node2D" parent="."]
+
+[node name="InputEventMouse_CHILD" type="Node2D" parent="."]
+
+[node name="InputEventMouseButton" type="Node2D" parent="."]
+
+[node name="InputEventMouseMotion" type="Node2D" parent="."]
+
+[node name="InputEventJoypadButton" type="Node2D" parent="."]
+
+[node name="InputEventJoypadMotion" type="Node2D" parent="."]
+
+[node name="InputEventMIDI" type="Node2D" parent="."]
+
+[node name="InputEventScreenDrag" type="Node2D" parent="."]
+
+[node name="InputEventScreenTouch" type="Node2D" parent="."]
+
+[node name="MeshLibrary" type="Node2D" parent="."]
+
+[node name="MultiMesh" type="Node2D" parent="."]
+
+[node name="NavigationMesh" type="Node2D" parent="."]
+
+[node name="NavigationPolygon" type="Node2D" parent="."]
+
+[node name="OccluderPolygon2D" type="Node2D" parent="."]
+
+[node name="OpenSimplexNoise" type="Node2D" parent="."]
+
+[node name="Translation" type="Node2D" parent="."]
+
+[node name="PHashTranslation" type="Node2D" parent="."]
+
+[node name="PackedDataContainer" type="Node2D" parent="."]
+
+[node name="PackedScene" type="Node2D" parent="."]
+
+[node name="Sky_CHILD" type="Node2D" parent="."]
+
+[node name="PanoramaSky" type="Node2D" parent="."]
+
+[node name="ProceduralSky" type="Node2D" parent="."]
+
+[node name="PhysicsMaterial" type="Node2D" parent="."]
+
+[node name="PolygonPathFinder" type="Node2D" parent="."]
+
+[node name="RichTextEffect" type="Node2D" parent="."]
+
+[node name="Shader" type="Node2D" parent="."]
+
+[node name="VisualShader" type="Node2D" parent="."]
+
+[node name="ShortCut" type="Node2D" parent="."]
+
+[node name="Skin" type="Node2D" parent="."]
+
+[node name="SpriteFrames" type="Node2D" parent="."]
+
+[node name="StyleBox_CHILD" type="Node2D" parent="."]
+
+[node name="StyleBoxEmpty_CANT" type="Node2D" parent="."]
+
+[node name="StyleBoxFlat" type="Node2D" parent="."]
+
+[node name="StyleBoxLine" type="Node2D" parent="."]
+
+[node name="StyleBoxTexture" type="Node2D" parent="."]
+
+[node name="TextFile_CANT" type="Node2D" parent="."]
+
+[node name="TextureLayered_CANT" type="Node2D" parent="."]
+
+[node name="Texture3D_CANT" type="Node2D" parent="."]
+
+[node name="TextureArray_CANT" type="Node2D" parent="."]
+
+[node name="Theme" type="Node2D" parent="."]
+
+[node name="TileSet" type="Node2D" parent="."]
+
+[node name="VideoStream_CHILD" type="Node2D" parent="."]
+
+[node name="VideoStreamGDNative" type="Node2D" parent="."]
+
+[node name="VideoStreamTheora" type="Node2D" parent="."]
+
+[node name="VideoStreamWebm" type="Node2D" parent="."]
+
+[node name="VisualScriptNode_CHILD" type="Node2D" parent="."]
+
+[node name="VisualScriptBasicTypeConstant" type="Node2D" parent="."]
+
+[node name="VisualScriptBuiltinFunc" type="Node2D" parent="."]
+
+[node name="VisualScriptClassConstant" type="Node2D" parent="."]
+
+[node name="VisualScriptComment" type="Node2D" parent="."]
+
+[node name="VisualScriptLists_CANT" type="Node2D" parent="."]
+
+[node name="VisualScriptComposeArray_CANT" type="Node2D" parent="."]
+
+[node name="VisualScriptCondition_CANT" type="Node2D" parent="."]
+
+[node name="VisualScriptConstant" type="Node2D" parent="."]
+
+[node name="VisualScriptConstructor" type="Node2D" parent="."]
+
+[node name="VisualScriptCustomNode_CANT" type="Node2D" parent="."]
+
+[node name="VisualScriptDeconstruct" type="Node2D" parent="."]
+
+[node name="VisualScriptEmitSignal" type="Node2D" parent="."]
+
+[node name="VisualScriptEngineSingleton" type="Node2D" parent="."]
+
+[node name="VisualScriptExpression_CANT" type="Node2D" parent="."]
+
+[node name="VisualScriptFunction_CANT" type="Node2D" parent="."]
+
+[node name="VisualScriptFunctionCall" type="Node2D" parent="."]
+
+[node name="VisualScriptGlobalConstant" type="Node2D" parent="."]
+
+[node name="VisualScriptIndexGet_CANT" type="Node2D" parent="."]
+
+[node name="VisualScriptIndexSet_CANT" type="Node2D" parent="."]
+
+[node name="VisualScriptInputAction" type="Node2D" parent="."]
+
+[node name="VisualScriptIterator_CANT" type="Node2D" parent="."]
+
+[node name="VisualScriptLocalVar" type="Node2D" parent="."]
+
+[node name="VisualScriptLocalVarSet" type="Node2D" parent="."]
+
+[node name="VisualScriptMathConstant" type="Node2D" parent="."]
+
+[node name="VisualScriptOperator" type="Node2D" parent="."]
+
+[node name="VisualScriptPreload" type="Node2D" parent="."]
+
+[node name="VisualScriptPropertyGet" type="Node2D" parent="."]
+
+[node name="VisualScriptPropertySet" type="Node2D" parent="."]
+
+[node name="VisualScriptResourcePath" type="Node2D" parent="."]
+
+[node name="VisualScriptReturn" type="Node2D" parent="."]
+
+[node name="VisualScriptSceneNode" type="Node2D" parent="."]
+
+[node name="VisualScriptSceneTree_CANT" type="Node2D" parent="."]
+
+[node name="VisualScriptSelect" type="Node2D" parent="."]
+
+[node name="VisualScriptSelf_CANT" type="Node2D" parent="."]
+
+[node name="VisualScriptSequence" type="Node2D" parent="."]
+
+[node name="VisualScriptSubCall_CANT" type="Node2D" parent="."]
+
+[node name="VisualScriptSwitch_CANT" type="Node2D" parent="."]
+
+[node name="VisualScriptTypeCast" type="Node2D" parent="."]
+
+[node name="VisualScriptVariableGet" type="Node2D" parent="."]
+
+[node name="VisualScriptWhile_CANT" type="Node2D" parent="."]
+
+[node name="VisualScriptYield" type="Node2D" parent="."]
+
+[node name="VisualScriptYieldSignal" type="Node2D" parent="."]
+
+[node name="VisualShaderNode_CHILD" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeBooleanConstant" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeUniform_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeBooleanUniform_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeColorUniform_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeScalarUniform_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeTextureUniform" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeTextureUniformTriplanar_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeTransformUniform_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeVec3Uniform_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeColorConstant" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeColorFunc" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeColorOp" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeCompare" type="Node2D" parent="."]
+
+[node name="VisualScriptVariableSet" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeCubeMap" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeCubeMapUniform_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeCustom_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeDeterminant_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeDotProduct_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeGroupBase" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeExpression" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeGlobalExpression" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeFaceForward_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeFresnel_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeIf_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeInput" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeIs" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeOuterProduct_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeOutput_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeScalarClamp_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeScalarConstant" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeScalarDerivativeFunc" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeScalarFunc" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeScalarInterp_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeScalarOp" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeScalarSmoothStep_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeSwitch_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeScalarSwitch_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeTexture" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeTransformCompose_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeTransformConstant" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeDecompose_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeTransformFunc" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeTransformMult" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeTransformVecMult" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeVec3Constant" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeVectorClamp_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeVectorCompose_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeVectorDecompose_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeVectorDerivativeFunc" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeVectorDistance_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeVectorFunc" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeVectorInterp_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeVectorLen_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeVectorOp" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeVectorRefract_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeVectorScalarMix_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeVectorScalarSmoothStep_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeVectorScalarStep_CANT" type="Node2D" parent="."]
+
+[node name="VisualShaderNodeVectorSmoothStep_CANT" type="Node2D" parent="."]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="World2D" type="Node2D" parent="."]
+
+[node name="X509Certificate" type="Node2D" parent="."]
+
+[node name="AnimationTrackEditPlugin_CANT" type="Node2D" parent="."]
+
+[node name="AudioEffectInstance_CANT" type="Node2D" parent="."]
+
+[node name="AudioEffectAmplifyInstance_CANT" type="Node2D" parent="."]
+
+[node name="AudioEffectEQInstance_CANT" type="Node2D" parent="."]
+
+[node name="AudioEffectPannerInstance_CANT" type="Node2D" parent="."]
+
+[node name="AudioEffectSpectrumAnalyzerInstance_CANT" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayback_CANT" type="Node2D" parent="."]
+
+[node name="AudioStreamPlaybackResampled_CANT" type="Node2D" parent="."]
+
+[node name="AudioStreamGeneratorPlayback_CANT" type="Node2D" parent="."]
+
+[node name="CameraFeed" type="Node2D" parent="."]
+
+[node name="CharFXTransform" type="Node2D" parent="."]
+
+[node name="ConfigFile" type="Node2D" parent="."]
+
+[node name="Crypto" type="Node2D" parent="."]
+
+[node name="Directory" type="Node2D" parent="."]
+
+[node name="EditorExportPlugin_CANT" type="Node2D" parent="."]
+
+[node name="EditorFeatureProfile_CANT" type="Node2D" parent="."]
+
+[node name="ResourceImporter_CANT2" type="Node2D" parent="."]
+
+[node name="EditorImportPlugin_CANT" type="Node2D" parent="."]
+
+[node name="ResourceImporterOGGVorbis_CANT" type="Node2D" parent="."]
+
+[node name="EditorInspectorPlugin_CANT" type="Node2D" parent="."]
+
+[node name="EditorResourceConversionPlugin_CANT" type="Node2D" parent="."]
+
+[node name="EditorResourcePreviewGenerator_CANT" type="Node2D" parent="."]
+
+[node name="EditorSceneImporter_CANT" type="Node2D" parent="."]
+
+[node name="EditorSceneImporterAssimp_CANT" type="Node2D" parent="."]
+
+[node name="EditorScenePostImport_CANT" type="Node2D" parent="."]
+
+[node name="EditorScript_CANT" type="Node2D" parent="."]
+
+[node name="SpatialGizmo_CANT" type="Node2D" parent="."]
+
+[node name="EditorSpatialGizmo_CANT" type="Node2D" parent="."]
+
+[node name="EncodedObjectAsID" type="Node2D" parent="."]
+
+[node name="Expression" type="Node2D" parent="."]
+
+[node name="File" type="Node2D" parent="."]
+
+[node name="FuncRef_CANT" type="Node2D" parent="."]
+
+[node name="GDNative" type="Node2D" parent="."]
+
+[node name="GDScriptFunctionState_CANT" type="Node2D" parent="."]
+
+[node name="GDScriptNativeClass_CANT" type="Node2D" parent="."]
+
+[node name="HTTPClient" type="Node2D" parent="."]
+
+[node name="HashingContext" type="Node2D" parent="."]
+
+[node name="JSONParseResult" type="Node2D" parent="."]
+
+[node name="KinematicCollision" type="Node2D" parent="."]
+
+[node name="KinematicCollision2D" type="Node2D" parent="."]
+
+[node name="Marshalls_CANT" type="Node2D" parent="."]
+
+[node name="MeshDataTool" type="Node2D" parent="."]
+
+[node name="MultiplayerAPI" type="Node2D" parent="."]
+
+[node name="PacketPeer_CHILD" type="Node2D" parent="."]
+
+[node name="NetworkedMultiplayerPeer_CHILD" type="Node2D" parent="."]
+
+[node name="MultiplayerPeerGDNative_CANT" type="Node2D" parent="."]
+
+[node name="NetworkedMultiplayerENet" type="Node2D" parent="."]
+
+[node name="WebRTCMultiplayer" type="Node2D" parent="."]
+
+[node name="WebSocketMultiplayerPeer_CHILD" type="Node2D" parent="."]
+
+[node name="WebSocketClient" type="Node2D" parent="."]
+
+[node name="WebSocketServer_SPAM" type="Node2D" parent="."]
+
+[node name="PacketPeerGDNative_CANT" type="Node2D" parent="."]
+
+[node name="PacketPeerStream" type="Node2D" parent="."]
+
+[node name="PacketPeerUDP" type="Node2D" parent="."]
+
+[node name="WebRTCDataChannel_CANT" type="Node2D" parent="."]
+
+[node name="WebRTCDataChannelGDNative_CANT" type="Node2D" parent="."]
+
+[node name="WebSocketPeer" type="Node2D" parent="."]
+
+[node name="Mutex" type="Node2D" parent="."]
+
+[node name="PCKPacker" type="Node2D" parent="."]
+
+[node name="PackerDatacontainerRef_CANT" type="Node2D" parent="."]
+
+[node name="Physics2DShapeQueryParameters" type="Node2D" parent="."]
+
+[node name="Physics2DShapeQueryResult_CANT" type="Node2D" parent="."]
+
+[node name="Physics2DTestMotionResult" type="Node2D" parent="."]
+
+[node name="PhysicsShapeQueryParameters" type="Node2D" parent="."]
+
+[node name="PhysicsShapeQueryResult_CANT" type="Node2D" parent="."]
+
+[node name="RandomNumberGenerator" type="Node2D" parent="."]
+
+[node name="RegEx" type="Node2D" parent="."]
+
+[node name="RegExMatch" type="Node2D" parent="."]
+
+[node name="ResourceFormatLoader_CANT" type="Node2D" parent="."]
+
+[node name="ResourceFormatLoaderCrypto_CANT" type="Node2D" parent="."]
+
+[node name="ResourceFormatSaver_CANT" type="Node2D" parent="."]
+
+[node name="ResourceFormatSaverCrypto_CANT" type="Node2D" parent="."]
+
+[node name="ResourceImporter_CANT" type="Node2D" parent="."]
+
+[node name="ResourveInteractiveLoader_CANT" type="Node2D" parent="."]
+
+[node name="SceneState_CANT" type="Node2D" parent="."]
+
+[node name="SceneTreeTimer_CANT" type="Node2D" parent="."]
+
+[node name="Semaphore_DONT_USE" type="Node2D" parent="."]
+
+[node name="SkinReference_CANT" type="Node2D" parent="."]
+
+[node name="SpatialVelocityTracker" type="Node2D" parent="."]
+
+[node name="StreamPeer_CHILD" type="Node2D" parent="."]
+
+[node name="StreamPeerBuffer" type="Node2D" parent="."]
+
+[node name="StreamPeerGDNative_CANT" type="Node2D" parent="."]
+
+[node name="StreamPeerSSL" type="Node2D" parent="."]
+
+[node name="StreamPeerTCP" type="Node2D" parent="."]
+
+[node name="SurfaceTool" type="Node2D" parent="."]
+
+[node name="TCP_Server" type="Node2D" parent="."]
+
+[node name="Thread" type="Node2D" parent="."]
+
+[node name="TriangleMesh_CANT" type="Node2D" parent="."]
+
+[node name="UPNP" type="Node2D" parent="."]
+
+[node name="UPNPDevice" type="Node2D" parent="."]
+
+[node name="VisualScriptFunctionState" type="Node2D" parent="."]
+
+[node name="WeakRef" type="Node2D" parent="."]
+
+[node name="WebRTCPeerConnection" type="Node2D" parent="."]
+
+[node name="WebRTCPeerConnectionGDNative_CANT" type="Node2D" parent="."]
+
+[node name="XMLParser" type="Node2D" parent="."]
+
+[node name="ARVRPositionalTracker_LEAK" type="Node2D" parent="."]
+
+[node name="ARVRServer_CANT" type="Node2D" parent="."]
+
+[node name="AudioServer_CANT" type="Node2D" parent="."]
+
+[node name="PhysicsDirectBodyState_CANT" type="Node2D" parent="."]
+
+[node name="BulletPhysicsDirectBodyState_CANT" type="Node2D" parent="."]
+
+[node name="PhysicsDirectSpaceState_CANT" type="Node2D" parent="."]
+
+[node name="BulletPhysicsDirectSpaceState_CANT" type="Node2D" parent="."]
+
+[node name="PhysicsServer_CANT" type="Node2D" parent="."]
+
+[node name="BulletPhysicsServer_CANT" type="Node2D" parent="."]
+
+[node name="CameraServer_CANT" type="Node2D" parent="."]
+
+[node name="ClassDB_CANT" type="Node2D" parent="."]
+
+[node name="EditorFileSystemDirectory_CANT" type="Node2D" parent="."]
+
+[node name="EditorNavigationMeshGenerator_LEAK" type="Node2D" parent="."]
+
+[node name="EditorSelection_CANT" type="Node2D" parent="."]
+
+[node name="EditorVCSInterface_CANT" type="Node2D" parent="."]
+
+[node name="Engine_CANT" type="Node2D" parent="."]
+
+[node name="Geometry_CANT" type="Node2D" parent="."]
+
+[node name="IP_CANT" type="Node2D" parent="."]
+
+[node name="IP_Unix_CANT" type="Node2D" parent="."]
+
+[node name="Input_CANT" type="Node2D" parent="."]
+
+[node name="InputDefault_CANT" type="Node2D" parent="."]
+
+[node name="InputMap_CANT" type="Node2D" parent="."]
+
+[node name="JSON_CANT" type="Node2D" parent="."]
+
+[node name="JSONRPC_LEAK" type="Node2D" parent="."]
+
+[node name="JavaScript_CANT" type="Node2D" parent="."]
+
+[node name="MainLoop_LEAK" type="Node2D" parent="."]
+
+[node name="SceneTree\?" type="Node2D" parent="."]
+
+[node name="OS_CANT" type="Node2D" parent="."]
+
+[node name="Performance_CANT" type="Node2D" parent="."]
+
+[node name="Physics2DDirectBodyState_CANT" type="Node2D" parent="."]
+
+[node name="Physics2DDirectBodyStateSW_CANT" type="Node2D" parent="."]
+
+[node name="Physics2DDirectSpaceState_CANT" type="Node2D" parent="."]
+
+[node name="Physics2DDirectSpaceStateSW_CANT" type="Node2D" parent="."]
+
+[node name="Physics2DServer_CANT" type="Node2D" parent="."]
+
+[node name="Physics2DServerSW_CANT" type="Node2D" parent="."]
+
+[node name="ProjectSettings_JUST_DONT" type="Node2D" parent="."]
+
+[node name="ResourceLoader_CANT" type="Node2D" parent="."]
+
+[node name="ResourceSaver_CANT" type="Node2D" parent="."]
+
+[node name="TranslationServer_SERVER" type="Node2D" parent="."]
+
+[node name="TreeItem_CANT" type="Node2D" parent="."]
+
+[node name="UndoRedo_LEAK" type="Node2D" parent="."]
+
+[node name="VisualScriptEditor_CANT" type="Node2D" parent="."]
+
+[node name="VisualServer_CANT" type="Node2D" parent="."]
+
+[node name="AABB_MOVED" type="Node2D" parent="."]
+
+[node name="Array" type="Node2D" parent="."]
+
+[node name="Basis" type="Node2D" parent="."]
+
+[node name="Color" type="Node2D" parent="."]
+
+[node name="Dictionary" type="Node2D" parent="."]
+
+[node name="Nil_CANT" type="Node2D" parent="."]
+
+[node name="NodePath" type="Node2D" parent="."]
+
+[node name="Plane" type="Node2D" parent="."]
+
+[node name="PoolByteArray" type="Node2D" parent="."]
+visible = false
+
+[node name="PoolColorArray" type="Node2D" parent="."]
+visible = false
+
+[node name="PoolIntArray" type="Node2D" parent="."]
+visible = false
+
+[node name="PoolRealArray" type="Node2D" parent="."]
+visible = false
+
+[node name="PoolStringArray" type="Node2D" parent="."]
+visible = false
+
+[node name="PoolVector2Array" type="Node2D" parent="."]
+visible = false
+
+[node name="PoolVector3Array" type="Node2D" parent="."]
+visible = false
+
+[node name="Quat" type="Node2D" parent="."]
+
+[node name="RID" type="Node2D" parent="."]
+
+[node name="Rect2" type="Node2D" parent="."]
+
+[node name="String" type="Node2D" parent="."]
+
+[node name="Transform" type="Node2D" parent="."]
+
+[node name="Transform2D" type="Node2D" parent="."]
+
+[node name="Variant_CANT" type="Node2D" parent="."]
+
+[node name="Vector2" type="Node2D" parent="."]
+
+[node name="Vector3" type="Node2D" parent="."]
+
+[node name="bool" type="Node2D" parent="."]
+
+[node name="float" type="Node2D" parent="."]
+
+[node name="int" type="Node2D" parent="."]

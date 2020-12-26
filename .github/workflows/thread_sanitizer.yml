@@ -1,4 +1,4 @@
-name: 🐧 Linux Builds Stress 1m
+name: 🐧 Thread Sanitizer 2h
 on: [push, pull_request]
 
 jobs:
@@ -66,7 +66,7 @@ jobs:
           echo "-------------------- OPEN EDITOR SECOND TIME TO BE SURE THAT EVERYTHING WAS IMPORTED -----------------------"
           DRI_PRIME=0 xvfb-run ./godot.x11.tools.64.llvms --audio-driver Dummy -e -q --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
           echo "-------------------- RUN PROJECT -----------------------"
-          DRI_PRIME=0 xvfb-run ./godot.x11.tools.64.llvms 1800 --audio-driver Dummy --video-driver GLES3 --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
+          DRI_PRIME=0 xvfb-run ./godot.x11.tools.64.llvms 7200 --audio-driver Dummy --video-driver GLES3 --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
 
 #      # Export project and run it to check for possible leaks and invalid memory usage
 #      - name: Exporting and running project

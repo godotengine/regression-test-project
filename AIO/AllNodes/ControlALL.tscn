@@ -1,0 +1,475 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://icon 32x32.png" type="Texture" id=1]
+
+[sub_resource type="Theme" id=1]
+
+[node name="ControlALL" type="GridContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+columns = 9
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Popup" type="Popup" parent="."]
+visible = true
+modulate = Color( 0.607843, 0.4, 0.4, 1 )
+self_modulate = Color( 0.835294, 0.717647, 0.717647, 1 )
+show_behind_parent = true
+light_mask = 16387
+margin_left = 80.0
+margin_right = 80.0
+margin_bottom = 130.0
+grow_horizontal = 0
+grow_vertical = 2
+hint_tooltip = "dfadfasf"
+focus_neighbour_left = NodePath("../Button_ALL")
+focus_neighbour_top = NodePath("../ToolButton")
+focus_neighbour_right = NodePath("../LinkButton")
+focus_neighbour_bottom = NodePath("../Container")
+focus_next = NodePath("../TextureButton")
+focus_previous = NodePath("../CheckBox")
+focus_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 4
+size_flags_horizontal = 14
+size_flags_vertical = 15
+size_flags_stretch_ratio = 121.49
+theme = SubResource( 1 )
+popup_exclusive = true
+
+[node name="WindowDialog" type="WindowDialog" parent="."]
+visible = true
+margin_left = 84.0
+margin_right = 167.0
+margin_bottom = 130.0
+popup_exclusive = true
+window_title = "wfaas"
+resizable = true
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+visible = true
+margin_left = 171.0
+margin_right = 251.0
+margin_bottom = 130.0
+window_title = "asfas"
+resizable = true
+dialog_text = "fqwfqwfqwf"
+dialog_hide_on_ok = false
+dialog_autowrap = true
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+visible = true
+margin_left = 255.0
+margin_right = 461.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 138, 48.3 )
+window_title = "Please Confirm...asfasfas"
+resizable = true
+dialog_text = "fas"
+dialog_hide_on_ok = false
+dialog_autowrap = true
+
+[node name="FileDialog" type="FileDialog" parent="."]
+visible = true
+margin_left = 465.0
+margin_right = 681.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 138, 48.3 )
+window_title = "Open File(s)"
+dialog_text = "sffasfasf"
+dialog_hide_on_ok = true
+dialog_autowrap = true
+mode_overrides_title = false
+mode = 1
+access = 1
+filters = PoolStringArray( "", "as", "", "fasf", "", "s", "", "asfasfa", "sf", "", "" )
+show_hidden_files = true
+current_dir = "user://"
+current_file = "asf"
+current_path = "user://asf"
+
+[node name="PopupDialog_NOTHING" type="PopupDialog" parent="."]
+visible = true
+margin_left = 685.0
+margin_right = 737.0
+margin_bottom = 130.0
+popup_exclusive = true
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+margin_top = 923.0
+margin_right = 308.0
+margin_bottom = 943.0
+hide_on_item_selection = false
+hide_on_checkable_item_selection = false
+hide_on_state_item_selection = true
+submenu_popup_delay = 5.32352e+07
+allow_search = true
+
+[node name="PopupPanel_NOTHING" type="PopupPanel" parent="."]
+visible = true
+margin_left = 741.0
+margin_right = 753.0
+margin_bottom = 130.0
+popup_exclusive = true
+
+[node name="Button" type="Button" parent="."]
+margin_left = 757.0
+margin_right = 815.0
+margin_bottom = 130.0
+text = "asfasf"
+flat = true
+clip_text = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox_NOTHING" type="CheckBox" parent="."]
+margin_left = 819.0
+margin_right = 1127.0
+margin_bottom = 130.0
+text = "safasf"
+flat = true
+clip_text = true
+align = 2
+
+[node name="CheckButton_NOTHING" type="CheckButton" parent="."]
+margin_top = 134.0
+margin_right = 80.0
+margin_bottom = 546.0
+text = "asfq"
+flat = true
+clip_text = true
+align = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
+margin_left = 84.0
+margin_top = 134.0
+margin_right = 167.0
+margin_bottom = 546.0
+text = "asfasf"
+flat = true
+clip_text = true
+align = 2
+color = Color( 0.639216, 0.576471, 0.576471, 1 )
+edit_alpha = false
+
+[node name="MenuButton" type="MenuButton" parent="."]
+margin_left = 171.0
+margin_top = 134.0
+margin_right = 251.0
+margin_bottom = 546.0
+icon = ExtResource( 1 )
+switch_on_hover = true
+
+[node name="OptionButton" type="OptionButton" parent="."]
+margin_left = 255.0
+margin_top = 134.0
+margin_right = 461.0
+margin_bottom = 546.0
+icon = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToolButton_NOTHING" type="ToolButton" parent="."]
+margin_left = 465.0
+margin_top = 134.0
+margin_right = 681.0
+margin_bottom = 546.0
+text = "asfasf"
+icon = ExtResource( 1 )
+flat = false
+clip_text = true
+align = 2
+
+[node name="LinkButton" type="LinkButton" parent="."]
+margin_left = 685.0
+margin_top = 134.0
+margin_right = 737.0
+margin_bottom = 546.0
+text = "asfqfqwf"
+underline = 2
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 741.0
+margin_top = 134.0
+margin_right = 753.0
+margin_bottom = 546.0
+expand = true
+stretch_mode = 5
+
+[node name="Container" type="Container" parent="."]
+margin_left = 757.0
+margin_top = 134.0
+margin_right = 815.0
+margin_bottom = 546.0
+
+[node name="Control" type="Control" parent="Container"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Control2" type="Control" parent="Container"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Control3" type="Control" parent="Container"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Control4" type="Control" parent="Container"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Control5" type="Control" parent="Container"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Control6" type="Control" parent="Container"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Control7" type="Control" parent="Container"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorPicker" type="ColorPicker" parent="."]
+margin_left = 819.0
+margin_top = 134.0
+margin_right = 1127.0
+margin_bottom = 546.0
+alignment = 1
+edit_alpha = false
+raw_mode = true
+deferred_mode = true
+presets_enabled = false
+presets_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer_NOTHING" type="HBoxContainer" parent="."]
+margin_top = 550.0
+margin_right = 80.0
+margin_bottom = 580.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer_NOTHING" type="VBoxContainer" parent="."]
+margin_left = 84.0
+margin_top = 550.0
+margin_right = 167.0
+margin_bottom = 580.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_left = 171.0
+margin_top = 550.0
+margin_right = 251.0
+margin_bottom = 580.0
+use_top_left = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_left = 255.0
+margin_top = 550.0
+margin_right = 461.0
+margin_bottom = 580.0
+
+[node name="GraphNode" type="GraphNode" parent="."]
+margin_left = 465.0
+margin_top = 550.0
+margin_right = 681.0
+margin_bottom = 580.0
+
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_left = 685.0
+margin_top = 550.0
+margin_right = 737.0
+margin_bottom = 580.0
+
+[node name="HSplitContainer_NOTHING" type="HSplitContainer" parent="."]
+margin_left = 741.0
+margin_top = 550.0
+margin_right = 753.0
+margin_bottom = 580.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSplitContainer_NOTHING" type="VSplitContainer" parent="."]
+margin_left = 757.0
+margin_top = 550.0
+margin_right = 815.0
+margin_bottom = 580.0
+
+[node name="MarginContainer_NOTHING" type="MarginContainer" parent="."]
+margin_left = 819.0
+margin_top = 550.0
+margin_right = 1127.0
+margin_bottom = 580.0
+
+[node name="PanelContainer_NOTHING" type="PanelContainer" parent="."]
+margin_top = 584.0
+margin_right = 80.0
+margin_bottom = 620.0
+
+[node name="TabContainer" type="TabContainer" parent="."]
+margin_left = 84.0
+margin_top = 584.0
+margin_right = 167.0
+margin_bottom = 620.0
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+margin_left = 171.0
+margin_top = 584.0
+margin_right = 251.0
+margin_bottom = 620.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 255.0
+margin_top = 584.0
+margin_right = 461.0
+margin_bottom = 620.0
+
+[node name="GraphEdit" type="GraphEdit" parent="."]
+margin_left = 465.0
+margin_top = 584.0
+margin_right = 681.0
+margin_bottom = 620.0
+scroll_offset = Vector2( -102, 0 )
+
+[node name="HScrollBar_NOTHING" type="HScrollBar" parent="."]
+margin_left = 685.0
+margin_top = 584.0
+margin_right = 737.0
+margin_bottom = 596.0
+
+[node name="VScrollBar_NOTHING" type="VScrollBar" parent="."]
+margin_left = 741.0
+margin_top = 584.0
+margin_right = 753.0
+margin_bottom = 620.0
+
+[node name="HSlider_NOTHING" type="HSlider" parent="."]
+margin_left = 757.0
+margin_top = 584.0
+margin_right = 815.0
+margin_bottom = 600.0
+
+[node name="VSlider_NOTHING" type="VSlider" parent="."]
+margin_left = 819.0
+margin_top = 584.0
+margin_right = 835.0
+margin_bottom = 620.0
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_top = 624.0
+margin_right = 80.0
+margin_bottom = 638.0
+
+[node name="SpinBox" type="SpinBox" parent="."]
+margin_left = 84.0
+margin_top = 624.0
+margin_right = 167.0
+margin_bottom = 648.0
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+margin_left = 171.0
+margin_top = 624.0
+margin_right = 251.0
+margin_bottom = 648.0
+
+[node name="HSeparator" type="HSeparator" parent="."]
+margin_left = 255.0
+margin_top = 624.0
+margin_right = 461.0
+margin_bottom = 648.0
+
+[node name="VSeparator" type="VSeparator" parent="."]
+margin_left = 465.0
+margin_top = 624.0
+margin_right = 681.0
+margin_bottom = 648.0
+
+[node name="ItemList" type="ItemList" parent="."]
+margin_left = 685.0
+margin_top = 624.0
+margin_right = 737.0
+margin_bottom = 648.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 741.0
+margin_top = 629.0
+margin_right = 753.0
+margin_bottom = 643.0
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 757.0
+margin_top = 624.0
+margin_right = 815.0
+margin_bottom = 648.0
+caret_blink = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_left = 819.0
+margin_top = 624.0
+margin_right = 1127.0
+margin_bottom = 648.0
+
+[node name="Panel_NOTHING" type="Panel" parent="."]
+margin_top = 652.0
+margin_right = 80.0
+margin_bottom = 676.0
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+margin_left = 84.0
+margin_top = 652.0
+margin_right = 167.0
+margin_bottom = 676.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 171.0
+margin_top = 652.0
+margin_right = 251.0
+margin_bottom = 676.0
+
+[node name="Tabs" type="Tabs" parent="."]
+margin_left = 255.0
+margin_top = 652.0
+margin_right = 461.0
+margin_bottom = 676.0
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 465.0
+margin_top = 652.0
+margin_right = 681.0
+margin_bottom = 676.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 685.0
+margin_top = 652.0
+margin_right = 737.0
+margin_bottom = 676.0
+
+[node name="Tree" type="Tree" parent="."]
+margin_left = 741.0
+margin_top = 652.0
+margin_right = 753.0
+margin_bottom = 676.0
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+margin_left = 757.0
+margin_top = 652.0
+margin_right = 815.0
+margin_bottom = 676.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

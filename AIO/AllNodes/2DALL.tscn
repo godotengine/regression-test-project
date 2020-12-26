@@ -1,0 +1,536 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://icon 32x32.png" type="Texture" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+[sub_resource type="AudioStreamGenerator" id=20]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 143.376
+
+[sub_resource type="CapsuleShape2D" id=4]
+
+[sub_resource type="PhysicsMaterial" id=19]
+friction = 0.68
+bounce = 0.22
+
+[sub_resource type="OccluderPolygon2D" id=5]
+polygon = PoolVector2Array( 154.731, -96.6275, 387.172, 24.2205, -101.105, 208.947, -186.368, 85.7895, -29.5522, -93.1285, 96.4138, -123.454, 143.068, -27.8128, 63.7559, 96.9867, -58.7109, 98.1531, -124.027, 87.6559, -94.8678, 130.811, -65.709, 134.31, -20.2213, 121.48, 63.7559, 115.648, 168.728, 23.5066 )
+
+[sub_resource type="Curve" id=18]
+_data = [ Vector2( 0.39011, 0.254545 ), 0.0, 12.6848, 0, 0, Vector2( 0.725275, 0.672727 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="SpatialMaterial" id=6]
+
+[sub_resource type="CylinderMesh" id=7]
+lightmap_size_hint = Vector2( 0, -5.04 )
+material = SubResource( 6 )
+custom_aabb = AABB( 0, -2.18, 0, 0, 1.14, 0 )
+flip_faces = true
+top_radius = 100.0
+bottom_radius = 46.11
+height = 46.901
+radial_segments = 11
+rings = 2
+
+[sub_resource type="CapsuleMesh" id=16]
+
+[sub_resource type="MultiMesh" id=17]
+color_format = 1
+transform_format = 1
+custom_data_format = 1
+instance_count = 20
+mesh = SubResource( 16 )
+transform_array = PoolVector3Array( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+color_array = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 )
+custom_data_array = PoolColorArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+
+[sub_resource type="NavigationPolygon" id=8]
+vertices = PoolVector2Array( 296.65, 558.363, 13.3817, 304.252, 991.535, 303.622, 782.014, 568.914, 664.753, 123.873, 648.051, 292.561, 407.545, 340.996, 591.265, 102.16, 200.442, 481.292, -91.8398, 511.355, 288.962, 234.105 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 8, 9, 10 ) ]
+outlines = [ PoolVector2Array( 296.65, 558.363, 13.3817, 304.252, 991.535, 303.622, 782.014, 568.914 ), PoolVector2Array( 591.265, 102.16, 407.545, 340.996, 648.051, 292.561, 664.753, 123.873 ), PoolVector2Array( 288.962, 234.105, -91.8398, 511.355, 200.442, 481.292 ) ]
+
+[sub_resource type="NavigationPolygon" id=9]
+vertices = PoolVector2Array( 177.06, 604.885, 231.183, -16.7214, 357.439, 401.123, 541.159, 404.463, 1130.73, 337.656, 541.159, 668.352 )
+polygons = [ PoolIntArray( 0, 1, 2 ), PoolIntArray( 3, 4, 5 ), PoolIntArray( 5, 0, 2, 3 ) ]
+outlines = [ PoolVector2Array( 231.183, -16.7214, 177.06, 604.885, 541.159, 668.352, 1130.73, 337.656, 541.159, 404.463, 357.439, 401.123 ) ]
+
+[sub_resource type="NavigationPolygon" id=10]
+
+[sub_resource type="ParticlesMaterial" id=11]
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+angular_velocity = 0.000168972
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
+[sub_resource type="Curve2D" id=12]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 600.13, 43.3051, 0, 0, 0, 0, 300.135, 362.781, 0, 0, 0, 0, 347.542, 374.582, 0, 0, 0, 0, 705.323, 520.571, 0, 0, 0, 0, 1046.23, 234.211, 0, 0, 0, 0, 810.516, 74.4735, 0, 0, 0, 0, 652.727, 304.34, 0, 0, 0, 0, 658.571, 132.914, 0, 0, 0, 0, 600.13, 43.3051 )
+}
+
+[sub_resource type="TileSet" id=15]
+0/name = "icon 32x32.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 9, 20, 1 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "icon.png 1"
+1/texture = ExtResource( 5 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 96, 153, 332, 109 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "icon 32x32.png 2"
+2/texture = ExtResource( 1 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 4, 4, 33, 31 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+
+[sub_resource type="StreamTexture" id=13]
+flags = 23
+
+[node name="2DALL" type="Node2D"]
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 1079.71, 252.027 )
+frames = SubResource( 1 )
+animation = "New Anim"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 700.235, 306.442 )
+space_override = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 899.279, 302.146 )
+collision/safe_margin = 0.078
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+shape = SubResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="KinematicBody2D"]
+shape = SubResource( 2 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="KinematicBody2D"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="KinematicBody2D"]
+shape = SubResource( 2 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="KinematicBody2D"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2( 989.493, 115.99 )
+mass = 1.21
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource( 2 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RigidBody2D"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource( 2 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="RigidBody2D"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 1118.37, 103.102 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 395.869, 394.508 )
+stream = SubResource( 20 )
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+position = Vector2( 531.906, 372.742 )
+rect = Rect2( -100, -100, 201.655, 200 )
+
+[node name="Bone2D" type="Bone2D" parent="."]
+position = Vector2( 306.084, 224.462 )
+rest = Transform2D( 0.045, 0, 0.065, 0.015, 0, 0.027 )
+default_length = 19.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 129.236, 465.248 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 533.267, 444.842 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2( 210.858, 352.337 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 202.409, 143.34, -41.2679, 348.875, 259.62, 360.529, 458.799, 111.556, 139.9, 7.72824 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 95.8147, 94.5793 )
+shape = SubResource( 3 )
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
+position = Vector2( 606, 195 )
+node_a = NodePath("RigidBody2D")
+node_b = NodePath("RigidBody2D2")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="DampedSpringJoint2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DampedSpringJoint2D/RigidBody2D"]
+shape = SubResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DampedSpringJoint2D/RigidBody2D"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DampedSpringJoint2D/RigidBody2D"]
+shape = SubResource( 4 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="DampedSpringJoint2D/RigidBody2D"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DampedSpringJoint2D/RigidBody2D"]
+shape = SubResource( 4 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="DampedSpringJoint2D/RigidBody2D"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="DampedSpringJoint2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DampedSpringJoint2D/RigidBody2D2"]
+shape = SubResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DampedSpringJoint2D/RigidBody2D2"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DampedSpringJoint2D/RigidBody2D2"]
+shape = SubResource( 4 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="DampedSpringJoint2D/RigidBody2D2"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DampedSpringJoint2D/RigidBody2D2"]
+shape = SubResource( 4 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="DampedSpringJoint2D/RigidBody2D2"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="GrooveJoint2D" type="GrooveJoint2D" parent="."]
+position = Vector2( 1115.92, 421.941 )
+node_a = NodePath("../KinematicBody2D")
+node_b = NodePath("../RigidBody2D")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="GrooveJoint2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrooveJoint2D/RigidBody2D"]
+shape = SubResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GrooveJoint2D/RigidBody2D"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="GrooveJoint2D/RigidBody2D"]
+shape = SubResource( 4 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="GrooveJoint2D/RigidBody2D"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="GrooveJoint2D/RigidBody2D"]
+shape = SubResource( 4 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="GrooveJoint2D/RigidBody2D"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="GrooveJoint2D"]
+mass = 1.49
+physics_material_override = SubResource( 19 )
+gravity_scale = 69.62
+custom_integrator = true
+contacts_reported = 23
+contact_monitor = true
+linear_velocity = Vector2( 0.04, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrooveJoint2D/RigidBody2D2"]
+shape = SubResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GrooveJoint2D/RigidBody2D2"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="GrooveJoint2D/RigidBody2D2"]
+shape = SubResource( 4 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="GrooveJoint2D/RigidBody2D2"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="GrooveJoint2D/RigidBody2D2"]
+shape = SubResource( 4 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="GrooveJoint2D/RigidBody2D2"]
+polygon = PoolVector2Array( 9.03, -9.88, -12.31, -3.97, 11.88, 17.58 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2( 1017.84, 196.165 )
+node_a = NodePath("../KinematicBody2D")
+node_b = NodePath("../RigidBody2D")
+bias = 0.021
+softness = 0.84
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 716.189, 403.435 )
+texture = ExtResource( 5 )
+offset = Vector2( 0.059, 0.024 )
+texture_scale = 0.57
+energy = 2.07
+range_height = 3.4
+shadow_enabled = true
+shadow_buffer_size = 2020
+shadow_gradient_length = 8.8
+shadow_filter = 3
+shadow_filter_smooth = 3.0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2( 867.666, 539.296 )
+occluder = SubResource( 5 )
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2( 352.357, 194.507 )
+points = PoolVector2Array( -210.754, 6.62849, -326.754, 206.628, 263.246, 428.628, 617.246, 56.6285, -74.754, 32.6285, -128.754, 116.628 )
+width = 10.037
+width_curve = SubResource( 18 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2( 721.714, 117.422 )
+mesh = SubResource( 7 )
+texture = ExtResource( 1 )
+
+[node name="MultiMeshInstance2D" type="MultiMeshInstance2D" parent="."]
+position = Vector2( 809.065, 246.299 )
+multimesh = SubResource( 17 )
+texture = ExtResource( 1 )
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+position = Vector2( 105.221, 26.723 )
+navpoly = SubResource( 8 )
+
+[node name="NavigationPolygonInstance2" type="NavigationPolygonInstance" parent="Navigation2D"]
+position = Vector2( 223.804, 198.752 )
+navpoly = SubResource( 8 )
+
+[node name="NavigationPolygonInstance3" type="NavigationPolygonInstance" parent="Navigation2D"]
+position = Vector2( 46.7654, 55.1163 )
+navpoly = SubResource( 9 )
+
+[node name="NavigationPolygonInstance4" type="NavigationPolygonInstance" parent="Navigation2D"]
+position = Vector2( 96.8709, -55.116 )
+navpoly = SubResource( 8 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
+position = Vector2( 784.721, 73.0306 )
+navpoly = SubResource( 10 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+position = Vector2( 794.745, 399.52 )
+motion_scale = Vector2( 1.141, 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 1071.12, 353.697 )
+scale = Vector2( 1.201, 1 )
+lifetime = 52.61
+speed_scale = 26.46
+explosiveness = 1.0
+randomness = 0.85
+visibility_rect = Rect2( -100, -100, 200.135, 200 )
+process_material = SubResource( 11 )
+texture = ExtResource( 1 )
+normal_map = ExtResource( 1 )
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2( -64.439, 73.147 )
+rotation = 0.37001
+curve = SubResource( 12 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 600.13, 43.3051 )
+rotation = 2.32475
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 600.13, 43.3051 )
+rotation = 2.32475
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 600.13, 43.3051 )
+rotation = 2.32475
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2( 1000.95, 604.292 )
+offset = 304.25
+h_offset = 0.027
+v_offset = 0.058
+rotate = false
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( 765.407, 28.5835 )
+antialiased = true
+texture = ExtResource( 1 )
+skeleton = NodePath("../Skeleton2D")
+
+[node name="Position2D_NOTHING" type="Position2D" parent="."]
+position = Vector2( 356.561, 562.765 )
+__meta__ = {
+"_gizmo_extents_": 55.4
+}
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 602.86, 448.207 )
+enabled = true
+cast_to = Vector2( 0, 50.821 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("../CollisionPolygon2D")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+position = Vector2( 715.557, 193.173 )
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D"]
+rest = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Bone2D2" type="Bone2D" parent="Skeleton2D"]
+rest = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Bone2D4" type="Bone2D" parent="Skeleton2D"]
+rest = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Bone2D3" type="Bone2D" parent="Skeleton2D"]
+rest = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Bone2D6" type="Bone2D" parent="Skeleton2D"]
+rest = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Bone2D5" type="Bone2D" parent="Skeleton2D"]
+rest = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -209.57, 743.506 )
+texture = ExtResource( 5 )
+offset = Vector2( 0.255, 1.512 )
+flip_h = true
+flip_v = true
+hframes = 11
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 207.103, 369.11 )
+mode = 1
+tile_set = SubResource( 15 )
+cell_size = Vector2( 32, 32 )
+cell_half_offset = 0
+cell_y_sort = true
+centered_textures = true
+cell_clip_uv = true
+format = 1
+tile_data = PoolIntArray( -237436027, 0, 0, -237370492, 0, 0, -237304957, 0, 0, -237239422, 0, 0, -237173887, 0, 0, -237108351, 0, 0, -237042816, 0, 0, -236977281, 0, 0, -236911746, 0, 0, -236846211, 0, 0, -236780676, 0, 0, -236715141, 0, 0, -236649606, 0, 0, -236584071, 0, 0, -236518536, 0, 0, -236453000, 0, 0, -236387465, 0, 0, -236321930, 0, 0, -236256395, 0, 0, -236190860, 0, 0, -236125325, 0, 0, -236059790, 0, 0, -235994255, 0, 0, -235928720, 0, 0, -235863184, 0, 0, -235797649, 0, 0, -235732114, 0, 0, -235666579, 0, 0, -235601044, 0, 0, -235535509, 0, 0, -235469974, 0, 0, -235404439, 0, 0, -235338904, 0, 0, -235273369, 0, 0, -235207833, 0, 0, -235142298, 0, 0, -235076763, 0, 0, -235011228, 0, 0, -234945693, 0, 0, -234880158, 0, 0, -234814623, 0, 0, -234749088, 0, 0, -234683553, 0, 0, -234618017, 0, 0, -234552482, 0, 0, -234486947, 0, 0, -234421412, 0, 0, -234355877, 0, 0, -234290342, 0, 0, -234224807, 0, 0, -234159272, 0, 0, -234093737, 0, 0, -234028202, 0, 0, -233962666, 0, 0, -233897131, 0, 0, -233831596, 0, 0, -233766061, 0, 0, -233700526, 0, 0, -233634991, 0, 0, -233569456, 0, 0, -233503921, 0, 0, -233438386, 0, 0, -233372850, 0, 0, -233307315, 0, 0, -233241780, 0, 0, -233176245, 0, 0, -233110710, 0, 0, -233045175, 0, 0, -232979640, 0, 0, -232914105, 0, 0, -232848570, 0, 0, -232783035, 0, 0, -232717499, 0, 0, -232651964, 0, 0, -232586429, 0, 0, -232520894, 0, 0, -232455359, 0, 0, -232389824, 0, 0, -232324289, 0, 0, -232258754, 0, 0, -232193219, 0, 0, -232127683, 0, 0, -232062148, 0, 0, -231996613, 0, 0, -231931078, 0, 0, -231865543, 0, 0, -231800008, 0, 0, -231734473, 0, 0, -231668938, 0, 0, -231603403, 0, 0, -231537868, 0, 0, -231472332, 0, 0, -231406797, 0, 0, -231341262, 0, 0, -231275727, 0, 0, -231210192, 0, 0, -231144657, 0, 0, -231079122, 0, 0, -231013587, 0, 0, -230948052, 0, 0, -230882516, 0, 0, -230816981, 0, 0, -230751446, 0, 0, -230685911, 0, 0, -230620376, 0, 0, -230554841, 0, 0, -230489306, 0, 0, -230423771, 0, 0, -230358236, 0, 0, -230292701, 0, 0, -230227165, 0, 0, -230161630, 0, 0, -230096095, 0, 0, -230030560, 0, 0, -229965025, 0, 0, -229899490, 0, 0, -229833955, 0, 0, -229768420, 0, 0, -229702885, 0, 0, -229637350, 0, 0, -229571814, 0, 0, -229506279, 0, 0, -229440744, 0, 0, -229375209, 0, 0, -229309674, 0, 0, -229244139, 0, 0, -229178604, 0, 0, -229113069, 0, 0, -229047534, 0, 0, -228981998, 0, 0, -228916463, 0, 0, -228850928, 0, 0, -228785393, 0, 0, -228719858, 0, 0, -228654323, 0, 0, -228588788, 0, 0, -228523253, 0, 0, -228457718, 0, 0, -228392183, 0, 0, -228326647, 0, 0, -228261112, 0, 0, -228195577, 0, 0, -228130042, 0, 0, -228064507, 0, 0, -227998972, 0, 0, -227933437, 0, 0, -227867902, 0, 0, -227802367, 0, 0, -227736831, 0, 0, -227671296, 0, 0, -227605761, 0, 0, -227540226, 0, 0, -227474691, 0, 0, -227409156, 0, 0, -227343621, 0, 0, -227278086, 0, 0, -227212551, 0, 0, -227147016, 0, 0, -227081480, 0, 0, -227015945, 0, 0, -226950410, 0, 0, -226884875, 0, 0, -226819340, 0, 0, -226753805, 0, 0, -226688270, 0, 0, -226622735, 0, 0, -226557200, 0, 0, -226491664, 0, 0, -226426129, 0, 0, -226360594, 0, 0, -226295059, 0, 0, -226229524, 0, 0, -226163989, 0, 0, -226098454, 0, 0, -226032919, 0, 0, -225967384, 0, 0, -225901849, 0, 0, -225836313, 0, 0, -225770778, 0, 0, -225705243, 0, 0, -225639708, 0, 0, -225574173, 0, 0, -225508638, 0, 0, -225443103, 0, 0, -225377568, 0, 0, -225312033, 0, 0, -225246497, 0, 0, -225180962, 0, 0, -225115427, 0, 0, -225049892, 0, 0, -224984357, 0, 0, -224918822, 0, 0, -224853287, 0, 0, -224787752, 0, 0, -224722217, 0, 0, -224656682, 0, 0, -224591146, 0, 0, -224525611, 0, 0, -224460076, 0, 0, -224394541, 0, 0, -224329006, 0, 0, -224263471, 0, 0, -224197936, 0, 0, -224132401, 0, 0, -224066866, 0, 0, -224001330, 0, 0, -223935795, 0, 0, -223870260, 0, 0, -223804725, 0, 0, -223739190, 0, 0, -223673655, 0, 0, -223608120, 0, 0, -223542585, 0, 0, -223477050, 0, 0, -223411515, 0, 0, -223345979, 0, 0, -223280444, 0, 0, -223214909, 0, 0, -223149374, 0, 0, -223083839, 0, 0, -223018304, 0, 0, -222952769, 0, 0, -222887234, 0, 0, -222821699, 0, 0, -222756163, 0, 0, -222690628, 0, 0, -222625093, 0, 0, -222559558, 0, 0, -222494023, 0, 0, -222428488, 0, 0, -222362953, 0, 0, -222297418, 0, 0, -222231883, 0, 0, -222166348, 0, 0, -222100812, 0, 0, -222035277, 0, 0, -221969742, 0, 0, -221904207, 0, 0, -221838672, 0, 0, -221773137, 0, 0, -221707602, 0, 0, -221642067, 0, 0, -221576532, 0, 0, -221510996, 0, 0, -221445461, 0, 0, -221379926, 0, 0, -221314391, 0, 0, -221248856, 0, 0, -221183321, 0, 0, -221117786, 0, 0, -221052251, 0, 0, -220986716, 0, 0, -220921181, 0, 0, -220855645, 0, 0, -220790110, 0, 0, -220724575, 0, 0, -220659040, 0, 0, -220593505, 0, 0, -220527970, 0, 0, -220462435, 0, 0, -220396900, 0, 0, -220331365, 0, 0, -220265829, 0, 0, -220200294, 0, 0, -220134759, 0, 0, -220069224, 0, 0, -220003689, 0, 0, -219938154, 0, 0, -219872619, 0, 0, -219807084, 0, 0, -219741549, 0, 0, -219676014, 0, 0, -219610478, 0, 0, -219544943, 0, 0, -219479408, 0, 0, -219413873, 0, 0, -219348338, 0, 0, -219282803, 0, 0, -219217268, 0, 0, -219151733, 0, 0, -219086198, 0, 0, -219020662, 0, 0, -218955127, 0, 0, -218889592, 0, 0, -218824057, 0, 0, -218758522, 0, 0, -218692987, 0, 0, -218627452, 0, 0, -218561917, 0, 0, -218496382, 0, 0, -218430847, 0, 0, -218365311, 0, 0, -218299776, 0, 0, -218234241, 0, 0, -218168706, 0, 0, -218103171, 0, 0, -218037636, 0, 0, -218036735, 0, 0, -217972101, 0, 0, -217906566, 0, 0, -217841031, 0, 0, -217775495, 0, 0, -217709960, 0, 0, -217644425, 0, 0, -217578890, 0, 0, -217513355, 0, 0, -217447820, 0, 0, -217382285, 0, 0, -217316750, 0, 0, -217251215, 0, 0, -217185680, 0, 0, -217120144, 0, 0, -217054609, 0, 0, -216989074, 0, 0, -216923539, 0, 0, -216858004, 0, 0, -216792469, 0, 0, -216726934, 0, 0, -216661399, 0, 0, -216595864, 0, 0, -216530329, 0, 0, -216464793, 0, 0, -216399258, 0, 0, -216333723, 0, 0, -216268188, 0, 0, -216202653, 0, 0, -216137118, 0, 0, -216071583, 0, 0, -216006048, 0, 0, -215940513, 0, 0, -215874977, 0, 0, -215809442, 0, 0, -215743907, 0, 0, -215678372, 0, 0, -215612837, 0, 0, -215547302, 0, 0, -215481767, 0, 0, -215416232, 0, 0, -215350697, 0, 0, -215285162, 0, 0, -215219626, 0, 0, -215154091, 0, 0, -215088556, 0, 0, -215023021, 0, 0, -214957486, 0, 0, -214891951, 0, 0, -214826416, 0, 0, -214760881, 0, 0, -214695346, 0, 0, -214629810, 0, 0, -214564275, 0, 0, -214498740, 0, 0, -214433205, 0, 0, -214367670, 0, 0, -214302135, 0, 0, -214236600, 0, 0, -214171065, 0, 0, -214105530, 0, 0, -214039995, 0, 0, -213974459, 0, 0, -213908924, 0, 0, -213843389, 0, 0, -213777854, 0, 0, -213712319, 0, 0, -213646784, 0, 0, -213581249, 0, 0, -213515714, 0, 0, -213450179, 0, 0, -213384643, 0, 0, -213319108, 0, 0, -213253573, 0, 0, -213188038, 0, 0, -213122503, 0, 0, -213056968, 0, 0, -212991433, 0, 0, -212925898, 0, 0, -212860363, 0, 0, -212794828, 0, 0, -212729292, 0, 0, -212663757, 0, 0, -212598222, 0, 0, -212532687, 0, 0, -212467152, 0, 0, -212401617, 0, 0, -212336082, 0, 0, -212270547, 0, 0, -212205012, 0, 0, -212139476, 0, 0, -212073941, 0, 0, -212008406, 0, 0, -211942871, 0, 0, -211877336, 0, 0, -211811801, 0, 0, -211746266, 0, 0, -211680731, 0, 0, -211615196, 0, 0, -211549661, 0, 0, -211484125, 0, 0, -211418590, 0, 0, -211353055, 0, 0, -211287520, 0, 0, -211221985, 0, 0, -211156450, 0, 0, -211090915, 0, 0, -211025380, 0, 0, -210959845, 0, 0, -210894309, 0, 0, -210828774, 0, 0, -210763239, 0, 0, -210697704, 0, 0, -210632169, 0, 0, -210566634, 0, 0, -210501099, 0, 0, -210435564, 0, 0, -210370029, 0, 0, -210304494, 0, 0, -210238958, 0, 0, -210173423, 0, 0, -210107888, 0, 0, -210042353, 0, 0, -209976818, 0, 0, -201914552, 0, 0, -101842603, 0, 0, -85458295, 0, 0, -49938839, 0, 0, -41810676, 0, 0, -41745139, 0, 0, -41679602, 0, 0, -41614066, 0, 0, -41548529, 0, 0, -41482992, 0, 0, -41417455, 0, 0, -2162651, 0, 0, -2097116, 0, 0, -2097115, 0, 0, -2031581, 0, 0, -2031580, 0, 0, -1966046, 0, 0, -1966045, 0, 0, -1900510, 0, 0, -1834976, 0, 0, -1834975, 0, 0, -1834974, 0, 0, -1769441, 0, 0, -1769439, 0, 0, -1703904, 0, 0, -1638388, 0, 0, -1638387, 0, 0, -1638386, 0, 0, -1638368, 0, 0, -1507331, 1, 0, -1572857, 0, 0, -1572856, 0, 0, -1572855, 0, 0, -1572854, 0, 0, -1572853, 0, 0, -1572833, 0, 0, -1507297, 0, 0, -1441762, 0, 0, -1376253, 0, 0, -1376252, 0, 0, -1376251, 0, 0, -1376227, 0, 0, -1310718, 0, 0, -1310691, 0, 0, -1245182, 0, 0, -1245156, 0, 0, -1179648, 0, 0, -1179647, 0, 0, -1179621, 0, 0, -1048585, 2, 0, -1048577, 0, 0, -1114085, 0, 0, -983041, 0, 0, -1048550, 0, 0, -917506, 0, 0, -983015, 0, 0, -851971, 0, 0, -851970, 0, 0, -917479, 0, 0, -786437, 0, 0, -786436, 0, 0, -851944, 0, 0, -720901, 0, 0, -786409, 0, 0, -655366, 0, 0, -720873, 0, 0, -589830, 0, 0, -655357, 0, 0, -655338, 0, 0, -524299, 1, 0, -524294, 0, 0, -589822, 0, 0, -589816, 0, 0, -589802, 0, 0, -458763, 1, 0, -458758, 0, 0, -524286, 0, 0, -524267, 0, 0, -393228, 1, 0, -393223, 0, 0, -458751, 0, 0, -458750, 0, 0, -458745, 0, 0, -458744, 0, 0, -458732, 0, 0, -327691, 1, 0, -327687, 0, 0, -393215, 0, 0, -393210, 0, 0, -393209, 0, 0, -393208, 0, 0, -393207, 0, 0, -393196, 0, 0, -262152, 0, 0, -327679, 0, 0, -327678, 0, 0, -327675, 0, 0, -327671, 0, 0, -327661, 0, 0, -196616, 0, 0, -196609, 1, 0, -262144, 1, 0, -262143, 1, 0, -262142, 1, 0, -262141, 1, 0, -262140, 0, 0, -262136, 0, 0, -262135, 0, 0, -262134, 0, 0, -262133, 0, 0, -131081, 0, 0, -196605, 1, 0, -196602, 0, 0, -196601, 0, 0, -196600, 0, 0, -196596, 0, 0, -65545, 0, 0, -131069, 0, 0, -131067, 0, 0, -131060, 0, 0, -9, 0, 0, -1, 0, 0, -65533, 0, 0, -65532, 0, 0, -65528, 0, 0, -65527, 0, 0, -65523, 0, 0, 65527, 0, 0, 65535, 0, 0, 0, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 13, 0, 0, 131059, 1, 0, 131063, 0, 0, 65536, 0, 0, 65537, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 196599, 0, 0, 196600, 0, 0, 131072, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131082, 0, 0, 131084, 0, 0, 262133, 2, 0, 262136, 0, 0, 262143, 0, 0, 196608, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196615, 0, 0, 196618, 0, 0, 196619, 0, 0, 327673, 0, 0, 327674, 0, 0, 327675, 0, 0, 327676, 0, 0, 262145, 0, 0, 262146, 2, 0, 262147, 0, 0, 262148, 0, 0, 262152, 0, 0, 262154, 0, 0, 262155, 0, 0, 393209, 0, 0, 393210, 0, 0, 393211, 0, 0, 393212, 0, 0, 393213, 0, 0, 327682, 0, 0, 327688, 0, 0, 327690, 0, 0, 458746, 0, 0, 524283, 0, 0, 458760, 0, 0, 589820, 0, 0, 655357, 0, 0, 720894, 0, 0, 720895, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 720898, 0, 0, 720902, 0, 0, 851962, 2, 0, 851967, 0, 0, 786434, 0, 0, 917502, 0, 0, 917503, 0, 0, 851968, 0, 0, 851969, 0, 0 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2( 357.419, 254.128 )
+normal = SubResource( 13 )
+pressed = ExtResource( 5 )
+shape_visible = false
+passby_press = true
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 462.439, 44.7171 )
+scale = Vector2( 9.40949, 9.60972 )
+rect = Rect2( -10.387, -10, 29, 44 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+process_parent = true
+physics_process_parent = true
+
+[node name="YSort" type="YSort" parent="."]
