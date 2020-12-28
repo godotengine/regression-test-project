@@ -7,3 +7,6 @@ margin_right = 83.0
 margin_bottom = 14.0
 text = "Stomatologia"
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

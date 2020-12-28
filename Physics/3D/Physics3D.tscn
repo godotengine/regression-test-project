@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://icon 32x32.png" type="Texture" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Physics/3D/StaticArena.gd" type="Script" id=2]
 [ext_resource path="res://Physics/3D/RigidBody3D.tscn" type="PackedScene" id=3]
 
