@@ -153,25 +153,25 @@ func qqr(_stat : String = "TQW") -> String:
 static func ff(_rr : String = "FA") -> String:
 	return "qtqwtwey"
 	
-class ram:
-	var sa : int = 0
-	var qq
-	static func rr() -> ram:
-		return ram.new()
-	static func Wr() -> Node:
-		return Node.new()
-	static func rqq() -> String:
-		return "as"
-	func roman() ->  String:
-		return "wqr"
-	func wykop() ->  String:
-		return "wqr"
-
-func func_ready() -> void:
-	var rr : ram = ram.new()
-	rr.sa = 125
-	rr.qq  = "qw"
-	var _s = rr.rr()
-	var _r = rr.rqq()
-	var _t = rr.roman()
-	var _y = rr.wykop()
+#class ram:
+#	var sa : int = 0
+#	var qq
+#	static func rr() -> ram:
+#		return ram.new()
+#	static func Wr() -> Node:
+#		return Node.new()
+#	static func rqq() -> String:
+#		return "as"
+#	func roman() ->  String:
+#		return "wqr"
+#	func wykop() ->  String:
+#		return "wqr"
+#
+#func func_ready() -> void:
+#	var rr : ram = ram.new()
+#	rr.sa = 125
+#	rr.qq  = "qw"
+#	var _s = rr.rr()
+#	var _r = rr.rqq()
+#	var _t = rr.roman()
+#	var _y = rr.wykop()
