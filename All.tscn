@@ -45,4 +45,3 @@ script = null
 script = null
 
 [node name="Text" parent="." instance=ExtResource( 10 )]
-script = null

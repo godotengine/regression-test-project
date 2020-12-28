@@ -38,7 +38,7 @@ func _ready():
 		add_child(VSlider.new())
 		add_child(ProgressBar.new())
 		add_child(SpinBox.new())
-		add_child(TextureProgress.new())
+		add_child(TextureProgressBar.new())
 		add_child(GraphEdit.new())
 		add_child(HSeparator.new())
 		add_child(VSeparator.new())
