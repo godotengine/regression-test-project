@@ -139,6 +139,7 @@ func _process(delta: float) -> void:
 
 enum {TILE, MILE}
 enum State {STATE_IDLE, STATE_JUMP = 5, STATE_SHOOT}
+#const Roman = {IDLE = 0, JUMP = 5, SHOOT = 6} # TODO Not working in Godot 4
 const TITLE = 0
 const TITLE2 : int = 0
 var describtion
@@ -153,7 +154,7 @@ func qqr(_stat : String = "TQW") -> String:
 static func ff(_rr : String = "FA") -> String:
 	return "qtqwtwey"
 	
-#class ram:
+#class ram: # TODO this version leaks in Godot 4
 #	var sa : int = 0
 #	var qq
 #	static func rr() -> ram:

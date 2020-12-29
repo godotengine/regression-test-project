@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Rendering/Lights2D/PointLight2D.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture2D" id=2]
+
+[node name="PointLight2D" type="PointLight2D"]
+position = Vector2( 36.375, 37.875 )
+energy = 6.7
+shadow_enabled = true
+texture = ExtResource( 2 )
+texture_scale = 3.39
+script = ExtResource( 1 )

@@ -7,6 +7,24 @@ Sadly it can't find any logic errors.
 
 For now it is really simple, but some I think that it can be improved over time.
 
+## How it works?
+### Autoload
+There is only one scene which is loaded when project starts - "Autoload.gd".
+It handle exiting project after selected number of seconds
+
+When opening any scene, automatically time to exit is set.
+
+### Checking All scenes
+There are two scenes which opens all scenes:
+- All.tscn - opens all scenes at once
+- Start.tscn - opens each scene one by one
+
+### AIO
+This are scenes which only opens once, because there is no need to open it more times(no scripts or only with `_ready` function).
+
+### Other Scenes
+Each other scenes checks specific types of nodes like lights, rendering or physics.
+
 ## Contributions 
 Contributions are welcome.
 

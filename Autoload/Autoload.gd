@@ -17,18 +17,19 @@ const alone_steps : Array = [
 	"res://MainScenes/Control.tscn",
 	"res://MainScenes/Node2D.tscn",
 	"res://MainScenes/Other.tscn",
-	"res://MainScenes/Spatial.tscn",
+	"res://MainScenes/Node3D.tscn",
 	"res://Physics/2D/Physics2D.tscn",
 	"res://Physics/3D/Physics3D.tscn",
 	"res://Rendering/Lights2D/Lights2D.tscn",
 	"res://Rendering/Lights3D/Lights3D.tscn",
-	"res://Text/Text.tscn"
+	"res://Text/Text.tscn",
 ]
 
 # All scenes run in one step
 # This should be put regression scripts which needs to run only once
 const all_in_one : Array = [
 "res://AIO/Operators/Operators.tscn",
+"res://AIO/AllNodes/ALL.tscn",
 ]
 
 func _init(): 
@@ -54,5 +55,5 @@ func _process(delta: float) -> void:
 		time_to_print_next_time += PRINT_TIME_EVERY_MILISECONDS
 		
 	if current_run_time > time_to_show:
-		print("Ending test")
+		print("######################## Ending test ########################")
 		get_tree().quit()
