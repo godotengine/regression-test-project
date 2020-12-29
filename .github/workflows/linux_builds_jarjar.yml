@@ -56,5 +56,5 @@ jobs:
       - name: Use Godot
         run: |
           echo "-------------------- RUN PROJECT -----------------------"
-          DRI_PRIME=0 xvfb-run ./godot.linuxbsd.tools.64s 60 --rendering-driver GLES2 --audio-driver Dummy --video-driver GLES3 --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
+          DRI_PRIME=0 xvfb-run ./godot.linuxbsd.tools.64s 60 --rendering-driver GLES2 --audio-driver Dummy --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
           misc/check_ci_log.py sanitizers_log.txt
