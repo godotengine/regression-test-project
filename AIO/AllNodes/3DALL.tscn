@@ -686,6 +686,3 @@ angular_spring_z/stiffness = 0.5
 angular_spring_z/damping = 0.64
 angular_spring_z/equilibrium_point = -0.9
 
-[node name="SoftBody" type="SoftBody" parent="."]
-mesh = SubResource( 32 )
-material/0 = null
