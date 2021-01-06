@@ -67,7 +67,7 @@ func _ready():
 		add_child(GPUParticlesAttractorVectorField.new())
 		
 		add_child(GPUParticlesCollisionBox.new())
-		add_child(GPUParticlesCollisionHeightField.new())
+#		add_child(GPUParticlesCollisionHeightField.new())
 		add_child(GPUParticlesCollisionSphere.new())
 		add_child(GPUParticlesCollisionSDF.new())
 
