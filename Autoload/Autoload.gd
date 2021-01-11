@@ -17,12 +17,13 @@ const alone_steps : Array = [
 	"res://MainScenes/Control.tscn",
 	"res://MainScenes/Node2D.tscn",
 	"res://MainScenes/Other.tscn",
-	"res://MainScenes/Node3D.tscn",
+	"res://MainScenes/Spatial.tscn",
 	"res://Physics/2D/Physics2D.tscn",
 	"res://Physics/3D/Physics3D.tscn",
 	"res://Rendering/Lights2D/Lights2D.tscn",
 	"res://Rendering/Lights3D/Lights3D.tscn",
 	"res://Text/Text.tscn",
+	"res://Reparenting/Reparenting.tscn",
 ]
 
 # All scenes run in one step
@@ -39,12 +40,11 @@ func _init():
 	time_for_each_step = time_to_show / (alone_steps.size() + 1)
 	
 	for argument in OS.get_cmdline_args():
-		var rr: String = argument
-		if rr.ends_with("tscn"):  # Ignore all tscn scenes/names
-			continue
-		time_to_show = int(argument.to_float() * 1000)
-		time_for_each_step = time_to_show / (alone_steps.size() + 1)
-		print("Time set to: " + str(time_to_show / 1000.0) + " seconds with "+ str(alone_steps.size() + 1) + " steps, each step will take " + str(time_for_each_step / 1000.0) + " seconds.")
+		if argument.is_valid_float(): # Ignore all non numeric arguments 
+			time_to_show = int(argument.to_float() * 1000)
+			time_for_each_step = time_to_show / (alone_steps.size() + 1)
+			print("Time set to: " + str(time_to_show / 1000.0) + " seconds with "+ str(alone_steps.size() + 1) + " steps, each step will take " + str(time_for_each_step / 1000.0) + " seconds.")
+			break # We only need to take first argument
 
 
 func _process(delta: float) -> void:
