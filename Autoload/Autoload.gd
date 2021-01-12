@@ -17,7 +17,7 @@ const alone_steps : Array = [
 	"res://MainScenes/Control.tscn",
 	"res://MainScenes/Node2D.tscn",
 	"res://MainScenes/Other.tscn",
-	"res://MainScenes/Spatial.tscn",
+	"res://MainScenes/Node3D.tscn",
 	"res://Physics/2D/Physics2D.tscn",
 	"res://Physics/3D/Physics3D.tscn",
 	"res://Rendering/Lights2D/Lights2D.tscn",
