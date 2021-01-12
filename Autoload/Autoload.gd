@@ -22,8 +22,8 @@ const alone_steps : Array = [
 	"res://Physics/3D/Physics3D.tscn",
 	"res://Rendering/Lights2D/Lights2D.tscn",
 	"res://Rendering/Lights3D/Lights3D.tscn",
-	"res://Text/Text.tscn",
 	"res://Reparenting/Reparenting.tscn",
+	"res://Text/Text.tscn",
 ]
 
 # All scenes run in one step
