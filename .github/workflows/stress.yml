@@ -64,9 +64,6 @@ jobs:
         run: |
           sed -i "s|NUMBER_OF_INSTANCES : int = 1|NUMBER_OF_INSTANCES : int = 10|" Start.gd
           echo "-------------------- OPEN EDITOR TO IMPORT PROJECT -----------------------"
-          DRI_PRIME=0 timeout 25s xvfb-run ./godot.x11.tools.64s --audio-driver Dummy -e --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
-          misc/check_ci_log.py sanitizers_log.txt || true
-          echo "-------------------- OPEN EDITOR SECOND TIME TO BE SURE THAT EVERYTHING WAS IMPORTED -----------------------"
           DRI_PRIME=0 xvfb-run ./godot.x11.tools.64s --audio-driver Dummy -e -q --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
           misc/check_ci_log.py sanitizers_log.txt || true
           echo "-------------------- RUN PROJECT -----------------------"
