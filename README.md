@@ -3,9 +3,17 @@ This repository contains Godot project which is tested in offical Godot reposito
 
 It aims to be complex project, which will allow to find crashes, leaks and invalid memory writes before PR is merged.
 
-Sadly it can't find any logic errors.
+Sadly it can't find automatically any logic errors.
 
-For now it is really simple, but some I think that it can be improved over time.
+## Reproduce bugs
+If CI find bug, you can easily without much effort check which scene cause problems.
+
+Each scene is independent of the other, so it is easy to disable some for testing.
+
+To create minimal test scene:
+- Look at the console output - there is printed info about current used scene
+- If you run `Start.tscn` scene(which run other scenes in queue) then you can modify list of scenes which needs to be run in `Autoload.gd` by commenting records in `alone_steps` or `all_in_one` array(just like in picture)
+![Zrzut ekranu z 2021-01-13 11-52-41](https://user-images.githubusercontent.com/41945903/104442905-060e7c00-5596-11eb-9000-f9bb338ece79.png)
 
 ## How it works?
 ### Autoload
@@ -14,7 +22,13 @@ It handle exiting project after selected number of seconds
 
 When opening any scene, automatically time to exit is set.
 
-### Checking All scenes
+If running projet with e.g. this parameters
+```
+godot 20 -v
+```
+Then time is set to 20 seconds so it means that if scenes is 10 (EACH in `alone_steps` array + one for ALL scenes in `all_in_one` array), then each scene will be show for 2 seconds
+
+### Checking All scenes at once
 There are two scenes which opens all scenes:
 - All.tscn - opens all scenes at once
 - Start.tscn - opens each scene one by one
@@ -23,7 +37,7 @@ There are two scenes which opens all scenes:
 This are scenes which only opens once, because there is no need to open it more times(no scripts or only with `_ready` function).
 
 ### Other Scenes
-Each other scenes checks specific types of nodes like lights, rendering or physics.
+Each other scenes checks specific types of nodes like lights, rendering, physics, text or reparenting.
 
 ## Contributions 
 Contributions are welcome.

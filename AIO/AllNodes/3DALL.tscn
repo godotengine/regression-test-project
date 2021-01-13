@@ -1,6 +1,8 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=50]
+
+[sub_resource type="SpatialMaterial" id=33]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -86,6 +88,8 @@ bind/9/name = ""
 bind/9/bone = -1
 bind/9/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
+[sub_resource type="SpatialMaterial" id=34]
+
 [sub_resource type="CubeMesh" id=16]
 
 [sub_resource type="MultiMesh" id=17]
@@ -107,6 +111,8 @@ radial_accel = 6.0
 radial_accel_random = 1.0
 tangential_accel = 3.1
 tangential_accel_random = 1.0
+
+[sub_resource type="CubeMesh" id=35]
 
 [sub_resource type="BakedLightmapData" id=19]
 energy = 5.7
@@ -175,23 +181,39 @@ extents = Vector3( 1, 1.77, 1.71 )
 [node name="3DALL" type="Spatial"]
 
 [node name="ARVROrigin" type="ARVROrigin" parent="."]
+world_scale = 1.01
 
 [node name="ARVRAnchor" type="ARVRAnchor" parent="ARVROrigin"]
+anchor_id = 32
 
 [node name="ARVRCamera_NOTHING" type="ARVRCamera" parent="ARVROrigin"]
-size = 16004.7
+h_offset = 0.159
+v_offset = -0.909
+doppler_tracking = 1
+projection = 1
+size = 91.71
+near = 2235.15
+far = 1.1
 
 [node name="ARVRController" type="ARVRController" parent="ARVROrigin"]
+controller_id = 3
 
 [node name="Camera" type="Camera" parent="."]
 h_offset = 0.032
 v_offset = 0.03
+doppler_tracking = 1
+projection = 1
 fov = 75.7
+size = 1.23
 near = 0.42
-far = 1134.3
+far = 356.3
 
 [node name="ClippedCamera" type="ClippedCamera" parent="."]
+h_offset = 0.038
+v_offset = -0.146
+fov = 64.8
 size = 15954.2
+near = 0.45
 margin = 23.09
 
 [node name="InterpolatedCamera" type="InterpolatedCamera" parent="."]
@@ -200,8 +222,15 @@ target = NodePath("../ARVROrigin/ARVRController")
 speed = 1.06
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+material_override = SubResource( 33 )
 offset = Vector2( 0.026, 0 )
 flip_h = true
+flip_v = true
+modulate = Color( 0.454902, 0.25098, 0.25098, 1 )
+opacity = 0.74
+pixel_size = 0.0526
+billboard = 1
+shaded = true
 frames = SubResource( 1 )
 playing = true
 
@@ -210,18 +239,30 @@ flip_h = true
 flip_v = true
 texture = ExtResource( 50 )
 hframes = 13
+frame = 2
 
 [node name="CPUParticles" type="CPUParticles" parent="."]
+amount = 5
+lifetime = 1.83
+speed_scale = 2.68
+explosiveness = 0.24
+randomness = 0.87
+lifetime_randomness = 0.75
 mesh = SubResource( 2 )
+emission_shape = 1
+emission_sphere_radius = 1.0
 
 [node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25.6943 )
+operation = 1
 invert_faces = true
 width = 44.173
 height = 19.604
+depth = 5.12757
 material = SubResource( 3 )
 
 [node name="CSGCylinder" type="CSGCylinder" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.745602, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 0.745602, 0, 0, 0, 1, 0, -21.0098, 0 )
 invert_faces = true
 radius = 123.75
 height = 45.8309
@@ -297,12 +338,14 @@ use_in_baked_light = true
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = SubResource( 14 )
 skin = SubResource( 15 )
-material/0 = null
+material/0 = SubResource( 34 )
 
 [node name="MultiMeshInstance" type="MultiMeshInstance" parent="."]
 multimesh = SubResource( 17 )
 
 [node name="Particles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27.0754 )
+amount = 4
 lifetime = 1.42
 preprocess = 0.5
 speed_scale = 1.3
@@ -311,20 +354,25 @@ randomness = 0.34
 fract_delta = false
 local_coords = false
 process_material = SubResource( 18 )
+draw_pass_1 = SubResource( 35 )
 
 [node name="BakedLightmap" type="BakedLightmap" parent="."]
 bake_cell_size = 1.94
+bake_quality = 0
+bake_mode = 1
 bake_propagation = 0.0
 bake_energy = 1.58
 image_path = "res://file.jpg"
 light_data = SubResource( 19 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.639291, -0.768965, 0, 0.768965, 0.639291, 0, 21.5838, 0 )
+light_energy = 7.54
 shadow_enabled = true
 
 [node name="SpotLight" type="SpotLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.2155 )
-light_energy = 1.11
+transform = Transform( 1, 0, 0, 0, -0.171431, -0.985196, 0, 0.985196, -0.171431, 0, 0, -16.2155 )
+light_energy = 4.05
 light_negative = true
 shadow_enabled = true
 shadow_bias = 0.4
@@ -349,6 +397,7 @@ box_projection = true
 [node name="RootMotionView" type="RootMotionView" parent="."]
 
 [node name="Area" type="Area" parent="."]
+gravity = 22.39
 linear_damp = 0.126
 monitoring = false
 
@@ -417,6 +466,7 @@ shape = SubResource( 20 )
 physics_material_override = SubResource( 22 )
 engine_force = 16.41
 brake = 0.46
+steering = 0.17
 
 [node name="CollisionShape" type="CollisionShape" parent="VehicleBody"]
 shape = SubResource( 20 )
@@ -448,6 +498,7 @@ brake = 0.46
 
 [node name="StaticBody" type="StaticBody" parent="."]
 physics_material_override = SubResource( 23 )
+constant_linear_velocity = Vector3( 0.049, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 shape = SubResource( 20 )
@@ -464,6 +515,10 @@ shape = SubResource( 20 )
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource( 24 )
 attenuation_model = 1
+unit_db = 0.031
+unit_size = 5.5
+max_db = 2.953
+pitch_scale = 1.42
 
 [node name="BoneAttachment" type="BoneAttachment" parent="."]
 
@@ -478,7 +533,7 @@ shape = SubResource( 25 )
 mesh_library = SubResource( 27 )
 cell_size = Vector3( 2, 1.14, 3.08 )
 data = {
-"cells": PoolIntArray( 26, 0, 0, 27, 0, 0, 21, 1, 0, 23, 1, 0, 25, 1, 0, 26, 1, 0, 18, 2, 0, 19, 2, 0, 65523, 5, 0, 65524, 5, 0, 65516, 65524, 0, 65523, 65524, 0, 65514, 65531, 0, 65515, 65531, 0, 65513, 65532, 0, 65514, 65532, 0, 65513, 65533, 0 )
+"cells": PoolIntArray( 23, 1, 0, 25, 1, 0, 26, 1, 0, 18, 2, 0, 65523, 5, 0, 65524, 5, 0, 65530, 65515, 0, 65520, 65520, 0, 65519, 65521, 0, 65520, 65521, 0, 65519, 65522, 0, 65518, 65523, 0, 65523, 65524, 0, 65526, 65528, 0, 65513, 65533, 0 )
 }
 __meta__ = {
 "_editor_clip_": 0
@@ -488,7 +543,7 @@ __meta__ = {
 current = true
 
 [node name="Navigation_LEAK" type="Navigation" parent="."]
-up_vector = Vector3( 0, 1.228, 0 )
+up_vector = Vector3( 0, 1.318, 0 )
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation_LEAK"]
 navmesh = SubResource( 28 )
@@ -509,15 +564,20 @@ navmesh = SubResource( 28 )
 curve = SubResource( 29 )
 
 [node name="PathFollow" type="PathFollow" parent="Path"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.21835, 8.31693, -11.5007 )
 
 [node name="PathFollow2" type="PathFollow" parent="Path"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.21835, 8.31693, -11.5007 )
 
 [node name="PathFollow3" type="PathFollow" parent="Path"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.21835, 8.31693, -11.5007 )
 
 [node name="PathFollow4" type="PathFollow" parent="Path"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.21835, 8.31693, -11.5007 )
 
 [node name="PathFollow" type="PathFollow" parent="."]
-offset = 0.28
+offset = 2.09
+h_offset = 0.101
 
 [node name="Position3D_NOTHING" type="Position3D" parent="."]
 
@@ -644,7 +704,7 @@ angular_motion/restitution = 1.77
 angular_motion/damping = 4.88
 
 [node name="PinJoint" type="PinJoint" parent="."]
-nodes/node_a = NodePath("../Area")
+nodes/node_a = NodePath("../KinematicBody")
 nodes/node_b = NodePath("../StaticBody")
 params/bias = 0.99
 params/damping = 7.3
@@ -667,24 +727,6 @@ omni_range = 118.9
 omni_attenuation = 1.51572
 omni_shadow_mode = 0
 omni_shadow_detail = 0
-
-[node name="Generic6DOFJoint2" type="Generic6DOFJoint" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63619, -0.392871, 2.48948 )
-nodes/node_a = NodePath("../StaticBody")
-nodes/node_b = NodePath("../PhysicalBone")
-solver/priority = 5
-collision/exclude_nodes = false
-linear_limit_x/upper_distance = 0.18
-linear_limit_x/lower_distance = 0.059
-linear_limit_x/softness = 2.62
-linear_limit_x/restitution = 1.54
-angular_motor_z/enabled = true
-angular_motor_z/target_velocity = 0.11
-angular_motor_z/force_limit = 300.5
-angular_spring_z/enabled = true
-angular_spring_z/stiffness = 0.5
-angular_spring_z/damping = 0.64
-angular_spring_z/equilibrium_point = -0.9
 
 [node name="SoftBody" type="SoftBody" parent="."]
 mesh = SubResource( 32 )
