@@ -22,8 +22,8 @@ const alone_steps : Array = [
 	"res://Physics/3D/Physics3D.tscn",
 	"res://Rendering/Lights2D/Lights2D.tscn",
 	"res://Rendering/Lights3D/Lights3D.tscn",
-	"res://Text/Text.tscn",
 	"res://Reparenting/Reparenting.tscn",
+	"res://Text/Text.tscn",
 ]
 
 # All scenes run in one step
@@ -50,7 +50,7 @@ func _init():
 func _process(delta: float) -> void:
 	var current_run_time : int = OS.get_ticks_msec() - start_time
 	
-	if current_run_time > time_to_print_next_time:
+	while current_run_time > time_to_print_next_time: # This will allow to properly regulate time under heavy operations(e.g. Thread sanitizer)
 		print("Test is running now " + str(int(time_to_print_next_time / 1000)) + " seconds")
 		time_to_print_next_time += PRINT_TIME_EVERY_MILISECONDS
 		

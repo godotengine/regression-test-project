@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://MainScenes/Control.tscn" type="PackedScene" id=1]
 [ext_resource path="res://MainScenes/Spatial.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Physics/3D/Physics3D.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Text/Text.tscn" type="PackedScene" id=10]
 [ext_resource path="res://AIO/AllNodes/ALL.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Reparenting/Reparenting.tscn" type="PackedScene" id=12]
 
 [node name="All" type="Node"]
 
@@ -37,6 +38,8 @@
 [node name="Lights3D" parent="Rendering" instance=ExtResource( 7 )]
 
 [node name="Text" parent="." instance=ExtResource( 10 )]
+
+[node name="Reparenting" parent="." instance=ExtResource( 12 )]
 
 [node name="AIO" type="Node" parent="."]
 

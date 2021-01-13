@@ -182,22 +182,34 @@ func _ready() -> void:
 	
 	number_of_nodes = get_child_count()
 	
+## It is quite easy algorithm to reparent items
+# - Add multiple nodes to scene
+# - Set name to each
+# - In process
+#   - Get random node
+#   - Remove its parent
+#   - Get another random node
+#   - If nodes are the same, add node to root one(cannot set self as self parent) and repeat steps
+#   - If second node is child of first, add first node to root one(prevents from memory leaks due invalid reparenting)
+#   - At the end add first random node as child of second
+
 func _process(delta: float) -> void:
 	assert(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT) == 0)
 	
 	var choosen_node : Node
 	var parent_of_node : Node
-	for i in range(20):
+	for i in range(40):
 		var number = "Node " + str(randi() % number_of_nodes)
 		choosen_node = find_node(number,true,false)
 		parent_of_node = choosen_node.get_parent()
 		
 		var random_node = find_node("Node " + str(randi() % number_of_nodes),true,false)
+		parent_of_node.remove_child(choosen_node)
+		
 		if choosen_node.find_node(random_node.get_name(),true,false) != null: # Cannot set as node parent one of its child
+			add_child(choosen_node)
 			continue
 		if choosen_node == random_node: # Do not reparent node to self
-			continue
-		parent_of_node.remove_child(choosen_node)
-		random_node.add_child(choosen_node)
-		if !choosen_node.is_inside_tree() || choosen_node.get_parent() == null: # Failed to add node, due e.g. requsrive problem or similar
 			add_child(choosen_node)
+			continue
+		random_node.add_child(choosen_node)
