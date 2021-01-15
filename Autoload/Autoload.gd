@@ -30,7 +30,7 @@ const alone_steps : Array = [
 # This should be put regression scripts which needs to run only once
 const all_in_one : Array = [
 "res://AIO/Operators/Operators.tscn",
-"res://AIO/AllNodes/ALL.tscn",
+#"res://AIO/AllNodes/ALL.tscn",
 ]
 
 func _init(): 

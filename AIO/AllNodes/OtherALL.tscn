@@ -9,9 +9,18 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"values": [  ]
+"times": PoolRealArray( 1.4, 4.6, 8.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop_all"
+}, {
+"args": [  ],
+"method": "resume_all"
+}, {
+"args": [  ],
+"method": "is_active"
+} ]
 }
 
 [sub_resource type="AnimationNodeBlendSpace1D" id=2]
@@ -38,6 +47,9 @@ pitch_scale = 2.48
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 55
+offset = Vector2( 0.019, 0 )
+transform = Transform2D( 1, 0, 0, 1, 0.019, 0 )
+follow_viewport_enable = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_offset = Vector2( 0.026, 0 )

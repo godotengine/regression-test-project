@@ -198,7 +198,7 @@ func _process(delta: float) -> void:
 	
 	var choosen_node : Node
 	var parent_of_node : Node
-	for i in range(40):
+	for i in range(5):
 		var number = "Node " + str(randi() % number_of_nodes)
 		choosen_node = find_node(number,true,false)
 		parent_of_node = choosen_node.get_parent()
