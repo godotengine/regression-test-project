@@ -11,7 +11,7 @@
 [ext_resource path="res://Physics/3D/Physics3D.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Text/Text.tscn" type="PackedScene" id=10]
 [ext_resource path="res://AIO/AllNodes/ALL.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Reparenting/Reparenting.tscn" type="PackedScene" id=12]
+[ext_resource path="res://ReparentingDeleting/ReparentingDeleting.tscn" type="PackedScene" id=12]
 
 [node name="All" type="Node"]
 
@@ -39,7 +39,7 @@
 
 [node name="Text" parent="." instance=ExtResource( 10 )]
 
-[node name="Reparenting" parent="." instance=ExtResource( 12 )]
+[node name="ReparentingDeleting" parent="." instance=ExtResource( 12 )]
 
 [node name="AIO" type="Node" parent="."]
 

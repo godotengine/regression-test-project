@@ -14,7 +14,7 @@ func _ready() -> void:
 		add_child(CPUParticles2D.new())
 		add_child(Camera2D.new())
 		add_child(CanvasModulate.new())
-		add_child(CollisionPolygon2D.new()) # Errors
+		add_child(CollisionPolygon2D.new())
 		add_child(CollisionShape2D.new())
 		add_child(DampedSpringJoint2D.new())
 		add_child(GrooveJoint2D.new())
