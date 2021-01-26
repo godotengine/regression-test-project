@@ -73,7 +73,7 @@ func _ready() -> void:
 		parent_node.add_child(VideoPlayer.new())
 
 		parent_node.add_child(Node2D.new())
-		parent_node.add_child(AnimatedSprite.new())
+#		parent_node.add_child(AnimatedSprite.new()) # https://github.com/godotengine/godot/issues/45459
 		parent_node.add_child(Area2D.new())
 		parent_node.add_child(KinematicBody2D.new())
 		parent_node.add_child(RigidBody2D.new())
@@ -84,7 +84,7 @@ func _ready() -> void:
 		parent_node.add_child(CPUParticles2D.new())
 		parent_node.add_child(Camera2D.new())
 		parent_node.add_child(CanvasModulate.new())
-		parent_node.add_child(CollisionPolygon2D.new()) # Errors
+		parent_node.add_child(CollisionPolygon2D.new())
 		parent_node.add_child(CollisionShape2D.new())
 		parent_node.add_child(DampedSpringJoint2D.new())
 		parent_node.add_child(GrooveJoint2D.new())
@@ -154,7 +154,7 @@ func _ready() -> void:
 		parent_node.add_child(OmniLight.new())
 		parent_node.add_child(SpotLight.new())
 		parent_node.add_child(GIProbe.new())
-		parent_node.add_child(ReflectionProbe.new())
+#		parent_node.add_child(ReflectionProbe.new()) # https://github.com/godotengine/godot/issues/45460
 		parent_node.add_child(Area.new())
 		parent_node.add_child(KinematicBody.new())
 		parent_node.add_child(PhysicalBone.new())
