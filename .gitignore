@@ -8,3 +8,4 @@ logs/
 TEMP/
 #export_presets.cfg
 logs/
+.godot/editor
