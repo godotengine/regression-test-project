@@ -1,7 +1,10 @@
 extends GridContainer
 
-func _ready() -> void:
-	for _i in range(10):
+var TIME_TO_DELETE : float = 1.0
+var time_to_delete : float = TIME_TO_DELETE
+	
+func _populate() -> void:
+	for _i in range(4):
 		add_child(Control.new())
 		add_child(Popup.new())
 		add_child(WindowDialog.new())
@@ -58,8 +61,20 @@ func _ready() -> void:
 		add_child(Tree.new())
 		add_child(VideoPlayer.new())
 
+func _ready() -> void:
+	_populate()
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	for i in get_children():
 		if i is Control:
 			i._set_size(Vector2(200 * randf() - 100, 200 * randf() - 100))
+			
+	time_to_delete -= delta
+	if time_to_delete < 0:
+		time_to_delete += TIME_TO_DELETE
+		
+		for i in get_children():
+			i.queue_free()
+			
+		_populate()
+

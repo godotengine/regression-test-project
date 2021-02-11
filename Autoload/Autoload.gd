@@ -37,13 +37,13 @@ func _init():
 	start_time = OS.get_ticks_msec()
 	
 	# In case when user doesn't provide time
-	time_for_each_step = time_to_show / (alone_steps.size() + 1)
+	time_for_each_step = time_to_show / (alone_steps.size())
 	
 	for argument in OS.get_cmdline_args():
 		if argument.is_valid_float(): # Ignore all non numeric arguments 
 			time_to_show = int(argument.to_float() * 1000)
-			time_for_each_step = time_to_show / (alone_steps.size() + 1)
-			print("Time set to: " + str(time_to_show / 1000.0) + " seconds with "+ str(alone_steps.size() + 1) + " steps, each step will take " + str(time_for_each_step / 1000.0) + " seconds.")
+			time_for_each_step = time_to_show / (alone_steps.size())
+			print("Time set to: " + str(time_to_show / 1000.0) + " seconds with "+ str(alone_steps.size()) + " steps, each step will take " + str(time_for_each_step / 1000.0) + " seconds.")
 			break # We only need to take first argument
 
 

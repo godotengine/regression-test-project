@@ -8,7 +8,7 @@ var array_with_time_to_change : Array = []
 
 func _ready():
 	for i in Autoload.alone_steps.size() + 1:
-		array_with_time_to_change.append(OS.get_ticks_msec() + (i + 1) * Autoload.time_for_each_step)
+		array_with_time_to_change.append(OS.get_ticks_msec() + i * Autoload.time_for_each_step)
 	
 	print("Starting with scene(s):")
 	for path in  Autoload.all_in_one:

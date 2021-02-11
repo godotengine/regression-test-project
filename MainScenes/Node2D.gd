@@ -1,7 +1,10 @@
 extends Node2D
 
-func _ready() -> void:
-	for _i in range(10):
+var TIME_TO_DELETE : float = 1.0
+var time_to_delete : float = TIME_TO_DELETE
+
+func _populate() -> void:
+	for _i in range(4):
 		add_child(Node2D.new())
 		add_child(AnimatedSprite.new())
 		add_child(Area2D.new())
@@ -42,8 +45,20 @@ func _ready() -> void:
 		add_child(VisibilityEnabler2D.new())
 		add_child(YSort.new())
 
+func _ready() -> void:
+	_populate()
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	for i in get_children():
 		if i is Node2D:
 			i.set_position(Vector2(1000 * randf() - 500, 1000 * randf() - 500))
+			
+	time_to_delete -= delta
+	if time_to_delete < 0:
+		time_to_delete += TIME_TO_DELETE
+		
+		for i in get_children():
+			i.queue_free()
+			
+		_populate()
+
