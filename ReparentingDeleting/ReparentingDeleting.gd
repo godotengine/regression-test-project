@@ -239,7 +239,7 @@ func _process(delta: float) -> void:
 			continue
 		random_node.add_child(choosen_node)
 
-
+# Finds recusivelly all child nodes which are not internal
 func find_all_special_children_names(node : Node) -> Array:
 	var array : Array = []
 	array.append(node.get_name())
