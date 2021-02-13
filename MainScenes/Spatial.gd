@@ -1,8 +1,10 @@
 extends Spatial
 
+var TIME_TO_DELETE : float = 1.0
+var time_to_delete : float = TIME_TO_DELETE
 
-func _ready() -> void:
-	for _i in range(10):
+func _populate() -> void:
+	for _i in range(4):
 		add_child(Spatial.new())
 		add_child(ARVRAnchor.new())
 		add_child(Camera.new())
@@ -63,9 +65,20 @@ func _ready() -> void:
 		add_child(VisibilityNotifier.new())
 		add_child(VisibilityEnabler.new())
 
+func _ready() -> void:
+	_populate()
 
 func _process(delta: float) -> void:
 	for i in get_children():
 		if i.get_name() != "Camera":
 			i.set_scale(Vector3(delta + 1, delta + 1, delta + 1))
 			i.set_translation(Vector3(10 * randf(), 10 * randf(), 10 * randf()))
+			
+	time_to_delete -= delta
+	if time_to_delete < 0:
+		time_to_delete += TIME_TO_DELETE
+		
+		for i in get_children():
+			i.queue_free()
+			
+		_populate()
