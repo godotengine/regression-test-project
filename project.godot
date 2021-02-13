@@ -45,4 +45,5 @@ limits/debugger_stdout/max_warnings_per_second=1000
 
 [rendering]
 
+threads/thread_model=2
 environment/default_environment="res://Environment.tres"
