@@ -207,7 +207,6 @@ shape = SubResource( 4 )
 [node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
 position = Vector2( 606, 195 )
 node_a = NodePath("RigidBody2D")
-node_b = NodePath("RigidBody2D2")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="DampedSpringJoint2D"]
 

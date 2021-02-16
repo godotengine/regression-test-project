@@ -26,6 +26,8 @@ config/icon="res://icon.png"
 [autoload]
 
 Autoload="*res://Autoload/Autoload.gd"
+ValueCreator="*res://AutomaticBugs/ValueCreator.gd"
+BasicData="*res://AutomaticBugs/BasicData.gd"
 
 [debug]
 
