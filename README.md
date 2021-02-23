@@ -6,9 +6,9 @@ It aims to be complex project, which will allow to find crashes, leaks and inval
 Sadly it can't find automatically any logic errors.
 
 ## Reproduce bugs
-If CI find bug, you can easily without much effort check which scene cause problems.
+If CI find bug, you can easily without much effort check which scene cause problems(stacktrace, address or leak sanitizer log will be available).
 
-Each scene is independent of the other, so it is easy to disable some for testing.
+All main scenes are independent of each other(only `Autoload.gd` is required), so it is easy to disable some for testing.
 
 To create minimal test scene:
 - Look at the console output - there is printed info about current used scene
@@ -24,7 +24,7 @@ When opening any scene, automatically time to exit is set.
 
 If running projet with e.g. this parameters
 ```
-godot 20 -v
+godot 20 
 ```
 Then time is set to 20 seconds so it means that if scenes is 10 (EACH in `alone_steps` array + one for ALL scenes in `all_in_one` array), then each scene will be show for 2 seconds
 
@@ -33,18 +33,32 @@ There are two scenes which opens all scenes:
 - All.tscn - opens all scenes at once
 - Start.tscn - opens each scene one by one
 
+### "Safe" Fuzzer
+Available inside `AutomaticBugs` directory, check all methods with specific arguments in allowed classes.  
+During calculations, to output should be written informations about current classes and executed functions with arguments e.g.
+```
+############### CLASS ############### - PopupMenu
+add_icon_radio_check_shortcut
+Parameters [[InputEventMouseMotion:12379], [SoftBody:12380], -109, True]
+```
+This fuzzer should in most situations be safe to use, because always use same set of arguments in functions, and objects are cleared before executing next function.  
+
+This tool is developed in external repository - https://github.com/qarmin/Qarminer.
+
 ### AIO
-This are scenes which only opens once, because there is no need to open it more times(no scripts or only with `_ready` function).
+This are scenes which only opens once, because there is no need to open it more times - used to check loading of specific types of nodes or executing its `_ready` functions.
+
+### MainScenes
+Collections of all nodes, which are after some time simply removed and added to scene.
+
+### ReparentingDeleting
+This scene randomly reparent, add or delete nodes inside it, to check correctness this operations.
 
 ### Other Scenes
-Each other scenes checks specific types of nodes like lights, rendering, physics, text or reparenting.
-
-## Contributions 
-Contributions are welcome.
-
-For now there is no requirements to format code.
-
-New functionalities(e.g. physics checks) should be done in different folders(cleaner view to resources)
+Each other scenes checks specific types of nodes like lights, rendering, physics, text.
 
 ## Epilepsy Warning
 Due using by project a lot of functions from each type of Node, screen may flicker, images and objects may change randomly color and size which may lead some users to health problems.
+
+## Problems with project
+If you have problem with this project e.g. in CI, just ping me -> @qarmin <- and after that I will try help to fix issues which you have with it or add exception to project.
