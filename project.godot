@@ -34,6 +34,10 @@ BasicData="*res://AutomaticBugs/BasicData.gd"
 gdscript/warnings/enable=false
 gdscript/warnings/standalone_expression=false
 
+[logging]
+
+file_logging/enable_file_logging.pc=false
+
 [memory]
 
 limits/message_queue/max_size_kb=131072

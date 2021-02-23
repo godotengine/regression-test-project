@@ -1,6 +1,6 @@
 extends Node
 
-var function_exceptions = [
+var function_exceptions : Array = [
 # They exists without assigment like Class.method, because they may be a parent of other objects and children also should have disabled child.method, its children also etc. which is too much to do
 "align",# GH 45976
 "_screen_pick_pressed",# GH 45977
@@ -37,47 +37,117 @@ var function_exceptions = [
 "_edit_set_position", #GH 46018
 "_edit_set_rect", #GH 46018
 "get", #GH 46019
-"instance_has", #GH 
-"", #GH 
-"", #GH 
-"", #GH 
-"", #GH 
-"", #GH 
+"instance_has", #GH 46020
+"_update_shader", #GH 46062
+"generate_tangents", #GH 46059
+"get_var", #GH 46096
+"force_drag", #GH 46114
+"set_script", #GH 46120
+"getvar", #GH 46019
+"get_available_chars", #GH 46118
+"set_primary_interface", #GH 46180
+"add_feed", #GH 46181
+"open_midi_inputs", #GH 46183
+"get_unix_time_from_datetime", #GH 46188
+"set_icon", #GH 46189
+"set_window_size", #GH 46187
+"get_screen_size", #GH 46186
+"get_screen_position", #GH 46185
+"set_current_screen", #GH 46184
+"build_capsule_planes", #GH 
+"build_cylinder_planes", #GH 
+"get_latin_keyboard_variant", #GH  TODO Memory Leak
+"add_feed", #GH 
+"poll", #GH - HTTP CLIENT 
+"make_atlas", #GH 
+"set_editor_hint", #GH 
 "", #GH 
 
-	
-# TODO is workaround for removing memory leak in Thread::start, should be fixed by GH 45618
-"start",
+"collide", #GH 46137
+"collide_and_get_contacts", #GH 46137
+"collide_with_motion", #GH 46137
+"collide_with_motion_and_get_contacts", #GH 46137
 
-# TODO Adds big spam when i>100
+# TODO Check this later
+"propagate_notification",
+"notification",
+
+# TODO Adds big spam when i>100 - look for possiblity to 
 "add_sphere",
+# Spam when i~1000 - change to specific 
+"update_bitmask_region",
+
+# Slow Function
+"_update_sky",
+
+# Undo/Redo function which doesn't provide enough information about types of objects, probably due vararg(variable size argument)
+"add_do_method",
+"add_undo_method",
 
 # Do not save files and create files and folders
+"pck_start",
 "save",
 "save_png",
 "save_to_wav",
 "save_to_file",
 "make_dir",
 "make_dir_recursive",
+"save_encrypted",
+"save_encrypted_pass",
+"dump_resources_to_file",
+"dump_memory_to_file",
+# This also allow to save files
+"open",
+"open_encrypted",
+"open_encrypted_with_pass",
+"open_compressed",
 
 # Do not warp mouse
 "warp_mouse",
 "warp_mouse_position",
 
-# Looks like a bug in FuncRef, probably but not needed
-"call_func",
+# OS
+"kill",
+"shell_open",
+"execute",
+"delay_usec",
+"delay_msec",
+"alert", # Stupid alert window opens
 
 # Godot Freeze
+"wait_to_finish",
+"accept_stream",
+"connect_to_stream",
 "discover",
 "wait",
-"register_text_enter",
+
+"_create", # TODO Check
+
+
+"set_gizmo", # Stupid function, needs as parameter an object which can't be instanced # TODO, create issue to hide it 
+
+# Spams Output
+"print_tree",
+"print_stray_nodes",
+"print_tree_pretty",
+"print_all_textures_by_size",
+"print_all_resources",
+"print_resources_in_use",
 
 # Do not call other functions
 "_call_function",
 "call",
 "call_deferred",
+"callv",
+# Looks like a bug in FuncRef, probably but not needed, because it call other functions
+"call_func",
 
 # Too dangerous, because add, mix and remove randomly nodes and objects
+"replace_by",
+"create_instance",
+"set_owner",
+"set_root_node",
+"instance",
 "init_ref",
 "reference",
 "unreference",
@@ -85,39 +155,96 @@ var function_exceptions = [
 "duplicate",
 "queue_free",
 "free",
-"print_tree",
-"print_stray_nodes",
-"print_tree_pretty",
 "remove_and_skip",
 "remove_child",
 "move_child",
 "raise",
 "add_child",
 "add_child_below_node",
+
+]
+
+# List of slow functions, which may frooze project
+var slow_functions : Array = [
+	"interpolate_baked",
+	"get_baked_length",
+	"get_baked_points",
+	"get_closest_offset",
+	"get_closest_point", # Only Curve, but looks that a lot of other classes uses this
+	"get_baked_up_vectors",
+	"interpolate_baked_up_vector",
+	"tessellate",
+	"get_baked_tilts",
+	"set_enabled_inputs",
+	"grow_mask",
+	"force_update_transform",
+	
+	
+	# In 3d view some options are really slow, needs to be limited
+	"set_rings",
+	"set_amount", # Particles
+
+
+	# Just a little slow functions
+	"is_enabler_enabled",
+	"set_enabler",
+	"get_aabb",
+	"set_aabb",
+	"is_on_screen"
+]
+# Specific classes which are initialized in specific way e.g. var undo_redo = get_undo_redo() instead var undo_redo = UndoRedo.new()
+var only_instance : Array = [
+	"UndoRedo",
+	"Object",
+	"JSONRPC",
+	"MainLoop",
+	"SceneTree",
+	"ARVRPositionalTracker",
+]
+var invalid_signals : Array = [
+	"multi_selected",
+	"item_collapsed",
+	"button_pressed",
+	"",
+	"",
+	"",
+	
+	
+	# Probably Vararg
+	"tween_step",
+	"tween_completed",
+	"tween_started",
+	"data_channel_received",
+	"",
+]
+
+var disabled_classes : Array = [
+	"ProjectSettings", # Don't mess with project settings, because they can broke entire your workflow
+	"EditorSettings", # Also don't mess with editor settings
+	"SceneTree", # Broke camera visibility
 ]
 
 # Return all available classes to instance and test
 func get_list_of_available_classes() -> Array:
-	var debug_print : bool = false
 	var full_class_list : Array = Array(ClassDB.get_class_list())
 	var classes : Array = []
 	full_class_list.sort()
 	var c = 0
+	var rr = 0
 	for name_of_class in full_class_list:
-		if name_of_class == "AudioServer": # Crash GH #45972
-			continue
-		if name_of_class == "NetworkedMultiplayerENet": # TODO - create leaked reference instance, look at it later
+		rr += 1
+		if name_of_class in disabled_classes:
 			continue
 		
-		if ClassDB.is_parent_class(name_of_class,"Node") or ClassDB.is_parent_class(name_of_class,"Reference"): # Only instance childrens of this 
-			if debug_print:
-				print(name_of_class)
-			if ClassDB.can_instance(name_of_class):
-				classes.push_back(name_of_class)
-				c+= 1
-		else:
-			if debug_print:
-				push_error("Failed to instance " + str(name_of_class) )
-
+		if name_of_class.find("Server") != -1:
+			continue
+		
+		if !ClassDB.is_parent_class(name_of_class, "Node") && !ClassDB.is_parent_class(name_of_class, "Reference"):
+			continue
+		
+		if ClassDB.can_instance(name_of_class):
+			classes.push_back(name_of_class)
+			c+= 1
+			
 	print(str(c) + " choosen classes from all " + str(full_class_list.size()) + " classes.")
 	return classes

@@ -8,16 +8,13 @@ var last_time : int
 const PRINT_TIME_EVERY_MILISECONDS : int = 5000
 var time_to_print_next_time : int = PRINT_TIME_EVERY_MILISECONDS
 
-var time_to_show: int = 15 * 1000 # How long test works in miliseconds
+var time_to_show: int = 25 * 1000 # How long test works in miliseconds
 
 var time_for_each_step : int = -1 
 
 # Each scene runs alone
 const alone_steps : Array = [
-	"res://MainScenes/Control.tscn",
-	"res://MainScenes/Node2D.tscn",
-	"res://MainScenes/Other.tscn",
-	"res://MainScenes/Spatial.tscn",
+	"res://MainScenes/MainScenes.tscn",
 	"res://Physics/2D/Physics2D.tscn",
 	"res://Physics/3D/Physics3D.tscn",
 	"res://Rendering/Lights2D/Lights2D.tscn",
@@ -30,8 +27,8 @@ const alone_steps : Array = [
 # This should be put regression scripts which needs to run only once
 const all_in_one : Array = [
 "res://AIO/Operators/Operators.tscn",
-"res://AutomaticBugs/RealFunctionExecutor.tscn",
-#"res://AIO/AllNodes/ALL.tscn",
+"res://AutomaticBugs/FunctionExecutor.tscn",
+#"res://AIO/AllNodes/ALL.tscn", # Take too much time - opens ~ 20 seconds in CI inside xvfb-run
 ]
 
 func _init(): 
