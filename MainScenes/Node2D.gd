@@ -25,7 +25,6 @@ func _ready():
 		add_child(Line2D.new())
 		add_child(MeshInstance2D.new())
 		add_child(MultiMeshInstance2D.new())
-		add_child(Navigation2D.new())
 		add_child(ParallaxLayer.new())
 		add_child(GPUParticles2D.new())
 		add_child(Path2D.new())

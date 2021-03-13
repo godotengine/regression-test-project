@@ -48,7 +48,6 @@ func _ready():
 		add_child(SliderJoint3D.new())
 		add_child(GridMap.new())
 		add_child(Listener3D.new())
-		add_child(Navigation3D.new())
 		add_child(Path3D.new())
 		add_child(PathFollow3D.new())
 		add_child(Position3D.new())
