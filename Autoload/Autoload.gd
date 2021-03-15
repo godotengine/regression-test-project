@@ -14,7 +14,7 @@ var time_for_each_step : int = -1
 
 # Each scene runs alone
 const alone_steps : Array = [
-	"res://MainScenes/MainScenes.tscn",
+	"res://Nodes/Nodes.tscn",
 	"res://Physics/2D/Physics2D.tscn",
 	"res://Physics/3D/Physics3D.tscn",
 	"res://Rendering/Lights2D/Lights2D.tscn",
