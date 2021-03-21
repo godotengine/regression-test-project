@@ -1,10 +1,10 @@
-name: 🐧 Thread Sanitizer 1h
+name: 🐧 Exported Build
 on: [push, pull_request]
 
 jobs:
   linux-sanitizer:
     runs-on: "ubuntu-20.04"
-    name: Editor and exported project with sanitizers (target=debug/release, tools=yes/no, debug_symbols=yes, use_tsan=yes)
+    name: Editor and exported project with sanitizers (target=debug/release, tools=yes/no, debug_symbols=yes, use_ubsan=yes, use_asan=yes)
 
     steps:
       - uses: actions/checkout@v2
@@ -21,14 +21,14 @@ jobs:
         run: |
           sudo apt-get install build-essential pkg-config libx11-dev libxcursor-dev \
             libxinerama-dev libgl1-mesa-dev libglu-dev libasound2-dev libpulse-dev libudev-dev libxi-dev libxrandr-dev yasm \
-            xvfb wget2 unzip python scons git llvm clang
+            xvfb wget2 unzip python scons git
 
 #      - name: Download Godot
 #        run: |
 #          wget2 https://downloads.tuxfamily.org/godotengine/3.2.4/beta1/Godot_v3.2.4-beta1_x11.64.zip
 #          unzip Godot_v3.2.4-beta1_x11.64.zip
 #          rm Godot_v3.2.4-beta1_x11.64.zip
-#          mv Godot_v3.2.4-beta1_x11.64 godot.x11.tools.64.llvms
+#          mv Godot_v3.2.4-beta1_x11.64 godot.x11.tools.64s
 #          wget2 https://downloads.tuxfamily.org/godotengine/3.2.4/beta1/Godot_v3.2.4-beta1_export_templates.tpz
 #          unzip Godot_v3.2.4-beta1_export_templates.tpz
 #          mv templates/linux_x11_64_debug godot.x11.opt.64s
@@ -53,25 +53,28 @@ jobs:
       - name: Compile Godot
         run: |
           cd godot
-          scons p=x11 -j2 use_tsan=yes use_llvm=yes
-          cp bin/godot.x11.tools.64.llvms ../
+          scons p=x11 -j2 use_asan=yes use_ubsan=yes CCFLAGS="-fsanitize=shift,shift-exponent,integer-divide-by-zero,unreachable,vla-bound,null,return,signed-integer-overflow,bounds,float-divide-by-zero,float-cast-overflow,nonnull-attribute,returns-nonnull-attribute,bool,enum,vptr"
+          scons tools=no target=release debug_symbols=yes use_asan=yes use_ubsan=yes CCFLAGS="-fsanitize=shift,shift-exponent,integer-divide-by-zero,unreachable,vla-bound,null,return,signed-integer-overflow,bounds,float-divide-by-zero,float-cast-overflow,nonnull-attribute,returns-nonnull-attribute,bool,enum,vptr"
+          cp bin/godot.x11.tools.64s ../
+          cp bin/godot.x11.opt.64s ../
           cd ../
           rm -rf godot
 
       - name: Use Godot
         run: |
-          sed -i "s|NUMBER_OF_INSTANCES : int = 1|NUMBER_OF_INSTANCES : int = 10|" Start.gd
           echo "-------------------- OPEN EDITOR TO IMPORT PROJECT -----------------------"
-          DRI_PRIME=0 xvfb-run ./godot.x11.tools.64.llvms --audio-driver Dummy -e -q --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
+          DRI_PRIME=0 xvfb-run ./godot.x11.tools.64s --audio-driver Dummy -e -q --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
+          misc/check_ci_log.py sanitizers_log.txt
           echo "-------------------- RUN PROJECT -----------------------"
-          DRI_PRIME=0 xvfb-run ./godot.x11.tools.64.llvms 3600 --audio-driver Dummy --video-driver GLES3 --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
+          DRI_PRIME=0 xvfb-run ./godot.x11.tools.64s 3600 --audio-driver Dummy --video-driver GLES3 --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
+          misc/check_ci_log.py sanitizers_log.txt
 
-#      # Export project and run it to check for possible leaks and invalid memory usage
-#      - name: Exporting and running project
-#        run: |
-#          curr="$(pwd)/godot.x11.opt.64s"
-#          sed -i "s|PATH_TO_CHANGE|$curr|" export_presets.cfg
-#          DRI_PRIME=0 xvfb-run ./godot.x11.tools.64.llvms --export-debug "Linux/X11" test_project 2>&1 | tee sanitizers_log.txt || true
-#          misc/check_ci_log.py sanitizers_log.txt
-#          DRI_PRIME=0 xvfb-run ./test_project 20 2>&1 | tee sanitizers_log.txt || true
-#          misc/check_ci_log.py sanitizers_log.txt
+      # Export project and run it to check for possible leaks and invalid memory usage
+      - name: Exporting and running project
+        run: |
+          curr="$(pwd)/godot.x11.opt.64s"
+          sed -i "s|PATH_TO_CHANGE|$curr|" export_presets.cfg
+          DRI_PRIME=0 xvfb-run ./godot.x11.tools.64s --export-debug "Linux/X11" test_project 2>&1 | tee sanitizers_log.txt || true
+          misc/check_ci_log.py sanitizers_log.txt
+          DRI_PRIME=0 xvfb-run ./test_project 3600 --audio-driver Dummy 2>&1 | tee sanitizers_log.txt || true
+          misc/check_ci_log.py sanitizers_log.txt
