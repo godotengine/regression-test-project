@@ -1,6 +1,6 @@
 .DS_Store
 *~
-.import/
+#.import/
 logs/
 .~lock.*#
 .mono/
@@ -8,4 +8,6 @@ logs/
 TEMP/
 #export_presets.cfg
 logs/
+.godot/
+.godot/imported/
 .godot/editor

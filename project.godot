@@ -26,11 +26,17 @@ config/icon="res://icon.png"
 [autoload]
 
 Autoload="*res://Autoload/Autoload.gd"
+ValueCreator="*res://AutomaticBugs/ValueCreator.gd"
+BasicData="*res://AutomaticBugs/BasicData.gd"
 
 [debug]
 
 gdscript/warnings/enable=false
 gdscript/warnings/standalone_expression=false
+
+[logging]
+
+file_logging/enable_file_logging.pc=false
 
 [memory]
 

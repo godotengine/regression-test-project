@@ -1,105 +1,103 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=37 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=50]
+[ext_resource path="res://icon.png" type="Texture2D" id=50]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="StandardMaterial3D" id=1]
+
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 50 ), ExtResource( 50 ), ExtResource( 50 ) ],
 "loop": true,
-"name": "default",
+"name": @"default",
 "speed": 5.0
 } ]
 
-[sub_resource type="CubeMesh" id=2]
-
-[sub_resource type="StandardMaterial3D" id=3]
+[sub_resource type="BoxMesh" id=3]
 
 [sub_resource type="StandardMaterial3D" id=4]
 
 [sub_resource type="StandardMaterial3D" id=5]
 
-[sub_resource type="CapsuleMesh" id=6]
-material = SubResource( 5 )
+[sub_resource type="StandardMaterial3D" id=6]
+
+[sub_resource type="CapsuleMesh" id=7]
+material = SubResource( 6 )
 radius = 1.272
 mid_height = 0.001
 radial_segments = 4
 rings = 2
 
-[sub_resource type="CameraTexture" id=7]
+[sub_resource type="CameraTexture" id=8]
 camera_feed_id = 1
 which_feed = 1
 
-[sub_resource type="StandardMaterial3D" id=8]
-roughness_texture = SubResource( 7 )
+[sub_resource type="StandardMaterial3D" id=9]
+roughness_texture = SubResource( 8 )
 roughness_texture_channel = 1
 
-[sub_resource type="StandardMaterial3D" id=9]
-
 [sub_resource type="StandardMaterial3D" id=10]
-vertex_color_use_as_albedo = true
 
 [sub_resource type="StandardMaterial3D" id=11]
+vertex_color_use_as_albedo = true
 
 [sub_resource type="StandardMaterial3D" id=12]
 
 [sub_resource type="StandardMaterial3D" id=13]
-params_diffuse_mode = 1
-params_specular_mode = 1
-params_blend_mode = 1
-params_cull_mode = 1
-params_depth_draw_mode = 1
 
-[sub_resource type="CubeMesh" id=14]
-material = SubResource( 13 )
+[sub_resource type="StandardMaterial3D" id=14]
+blend_mode = 1
+cull_mode = 1
+diffuse_mode = 1
+specular_mode = 1
+
+[sub_resource type="BoxMesh" id=15]
+material = SubResource( 14 )
 size = Vector3( 2.25, 1.56, 2.49 )
 
-[sub_resource type="Skin" id=15]
+[sub_resource type="Skin" id=16]
 bind_count = 10
-bind/0/name = ""
+bind/0/name = @""
 bind/0/bone = -1
 bind/0/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-bind/1/name = ""
+bind/1/name = @""
 bind/1/bone = -1
 bind/1/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-bind/2/name = ""
+bind/2/name = @""
 bind/2/bone = -1
 bind/2/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-bind/3/name = ""
+bind/3/name = @""
 bind/3/bone = -1
 bind/3/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-bind/4/name = ""
+bind/4/name = @""
 bind/4/bone = -1
 bind/4/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-bind/5/name = ""
+bind/5/name = @""
 bind/5/bone = -1
 bind/5/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-bind/6/name = ""
+bind/6/name = @""
 bind/6/bone = -1
 bind/6/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-bind/7/name = ""
+bind/7/name = @""
 bind/7/bone = -1
 bind/7/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-bind/8/name = ""
+bind/8/name = @""
 bind/8/bone = -1
 bind/8/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-bind/9/name = ""
+bind/9/name = @""
 bind/9/bone = -1
 bind/9/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
-[sub_resource type="CubeMesh" id=16]
+[sub_resource type="StandardMaterial3D" id=17]
 
-[sub_resource type="MultiMesh" id=17]
-color_format = 2
+[sub_resource type="BoxMesh" id=18]
+
+[sub_resource type="MultiMesh" id=19]
 transform_format = 1
-custom_data_format = 2
-instance_count = 15
-visible_instance_count = 121212
-mesh = SubResource( 16 )
-transform_array = PoolVector3Array( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-color_array = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 )
-custom_data_array = PoolColorArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+instance_count = 3
+mesh = SubResource( 18 )
+buffer = PackedFloat32Array( 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0 )
 
-[sub_resource type="ParticlesMaterial" id=18]
+[sub_resource type="ParticlesMaterial" id=20]
 render_priority = 127
 emission_shape = 2
 emission_box_extents = Vector3( 1, 1, 1 )
@@ -108,35 +106,45 @@ radial_accel_random = 1.0
 tangential_accel = 3.1
 tangential_accel_random = 1.0
 
-[sub_resource type="BakedLightmapData" id=19]
-energy = 5.7
+[sub_resource type="BoxMesh" id=21]
 
-[sub_resource type="BoxShape" id=20]
+[sub_resource type="BakedLightmapData" id=22]
+user_data = [  ]
+probe_data = {
+"bounds": AABB( 0, 0, 0, 0, 0, 0 ),
+"bsp": PackedInt32Array(  ),
+"interior": false,
+"points": PackedVector3Array(  ),
+"sh": PackedColorArray(  ),
+"tetrahedra": PackedInt32Array(  )
+}
+
+[sub_resource type="BoxShape3D" id=23]
 margin = 0.5
-extents = Vector3( 1, 26.5038, 3.22286 )
 
-[sub_resource type="PhysicsMaterial" id=21]
+[sub_resource type="PhysicsMaterial" id=24]
 
-[sub_resource type="PhysicsMaterial" id=22]
+[sub_resource type="PhysicsMaterial" id=25]
 
-[sub_resource type="PhysicsMaterial" id=23]
+[sub_resource type="PhysicsMaterial" id=26]
 friction = 0.53
 
-[sub_resource type="AudioStreamGenerator" id=24]
+[sub_resource type="AudioStreamGenerator" id=27]
 
-[sub_resource type="ConcavePolygonShape" id=25]
+[sub_resource type="ConcavePolygonShape3D" id=28]
 margin = 0.067
 
-[sub_resource type="CapsuleMesh" id=26]
+[sub_resource type="CapsuleMesh" id=29]
 
-[sub_resource type="MeshLibrary" id=27]
+[sub_resource type="MeshLibrary" id=30]
 item/0/name = ""
-item/0/mesh = SubResource( 26 )
+item/0/mesh = SubResource( 29 )
 item/0/mesh_transform = null
 item/0/shapes = [  ]
 item/0/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
-[sub_resource type="NavigationMesh" id=28]
+[sub_resource type="NavigationMesh" id=31]
+polygons = [  ]
 sample_partition_type/sample_partition_type = 2
 geometry/parsed_geometry_type = 1
 geometry/collision_mask = 2147483647
@@ -157,152 +165,188 @@ filter/low_hanging_obstacles = true
 filter/ledge_spans = true
 filter/filter_walkable_low_height_spans = true
 
-[sub_resource type="Curve3D" id=29]
+[sub_resource type="Curve3D" id=32]
 bake_interval = 10.0
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -4.21835, 8.31693, -11.5007, 0, 0, 0, 0, 0, 0, -18.4839, 0.381447, -2.2567, 0, 0, 0, 0, 0, 0, -9.25256, -1.66295, 1.34504, 0, 0, 0, 0, 0, 0, 14.3498, 1.51124, -0.660617, 0, 0, 0, 0, 0, 0, 16.5666, 7.48303, -8.42252, 0, 0, 0, 0, 0, 0, 5.21951, 11.8408, -15.3123, 0, 0, 0, 0, 0, 0, -6.34309, 13.0513, -18.0214, 0, 0, 0, 0, 0, 0, -22.2367, 9.90402, -15.3228, 0, 0, 0, 0, 0, 0, -5.97389, 1.40365, -2.43845, 0, 0, 0, 0, 0, 0, 1.22511, 4.12054, -5.38451, 0, 0, 0, 0, 0, 0, -4.21835, 8.31693, -11.5007 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+"points": PackedVector3Array( 0, 0, 0, 0, 0, 0, -4.21835, 8.31693, -11.5007, 0, 0, 0, 0, 0, 0, -18.4839, 0.381447, -2.2567, 0, 0, 0, 0, 0, 0, -9.25256, -1.66295, 1.34504, 0, 0, 0, 0, 0, 0, 14.3498, 1.51124, -0.660617, 0, 0, 0, 0, 0, 0, 16.5666, 7.48303, -8.42252, 0, 0, 0, 0, 0, 0, 5.21951, 11.8408, -15.3123, 0, 0, 0, 0, 0, 0, -6.34309, 13.0513, -18.0214, 0, 0, 0, 0, 0, 0, -22.2367, 9.90402, -15.3228, 0, 0, 0, 0, 0, 0, -5.97389, 1.40365, -2.43845, 0, 0, 0, 0, 0, 0, 1.22511, 4.12054, -5.38451, 0, 0, 0, 0, 0, 0, -4.21835, 8.31693, -11.5007 ),
+"tilts": PackedFloat32Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 }
 
-[sub_resource type="BoxShape" id=30]
+[sub_resource type="BoxShape3D" id=33]
 margin = 1.21
-extents = Vector3( 1, 1.77, 1.71 )
 
-[sub_resource type="CapsuleShape" id=31]
+[sub_resource type="CapsuleShape3D" id=34]
 
-[sub_resource type="CubeMesh" id=32]
+[sub_resource type="BoxMesh" id=35]
 
 [node name="3DALL" type="Node3D"]
+script = null
 
-[node name="ARVROrigin" type="ARVROrigin" parent="."]
+[node name="ARVROrigin" type="XROrigin3D" parent="."]
+world_scale = 1.01
+script = null
 
-[node name="ARVRAnchor" type="ARVRAnchor" parent="ARVROrigin"]
+[node name="ARVRAnchor" type="XRAnchor3D" parent="ARVROrigin"]
+anchor_id = 32
+script = null
 
-[node name="ARVRCamera3D_NOTHING" type="ARVRCamera" parent="ARVROrigin"]
-size = 16004.7
+[node name="ARVRCamera_NOTHING" type="XRCamera3D" parent="ARVROrigin"]
+h_offset = 0.159
+v_offset = -0.909
+doppler_tracking = 1
+projection = 1
+size = 91.71
+near = 2235.15
+far = 1.1
+script = null
 
-[node name="ARVRController" type="ARVRController" parent="ARVROrigin"]
+[node name="ARVRController" type="XRController3D" parent="ARVROrigin"]
+controller_id = 3
+script = null
 
-[node name="Camera3D" type="Camera" parent="."]
+[node name="Camera" type="Camera3D" parent="."]
 h_offset = 0.032
 v_offset = 0.03
+doppler_tracking = 1
+projection = 1
 fov = 75.7
+size = 1.23
 near = 0.42
-far = 1134.3
+far = 356.3
+script = null
 
-[node name="ClippedCamera3D" type="ClippedCamera" parent="."]
+[node name="ClippedCamera" type="ClippedCamera3D" parent="."]
+h_offset = 0.038
+v_offset = -0.146
+fov = 64.8
 size = 15954.2
+near = 0.45
 margin = 23.09
+script = null
 
-[node name="InterpolatedCamera3D" type="InterpolatedCamera" parent="."]
-size = 16384.0
-target = NodePath("../ARVROrigin/ARVRController")
-speed = 1.06
+[node name="InterpolatedCamera" type="Node" parent="."]
+script = null
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+material_override = SubResource( 1 )
 offset = Vector2( 0.026, 0 )
 flip_h = true
-frames = SubResource( 1 )
+flip_v = true
+modulate = Color( 0.454902, 0.25098, 0.25098, 1 )
+opacity = 0.74
+pixel_size = 0.0526
+billboard = 1
+shaded = true
+frames = SubResource( 2 )
+frame = 2
 playing = true
+script = null
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 flip_h = true
 flip_v = true
 texture = ExtResource( 50 )
 hframes = 13
+frame = 2
+script = null
 
-[node name="CPUParticles" type="CPUParticles" parent="."]
-mesh = SubResource( 2 )
+[node name="CPUParticles" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 5
+lifetime = 1.83
+speed_scale = 2.68
+explosiveness = 0.24
+randomness = 0.87
+lifetime_randomness = 0.75
+mesh = SubResource( 3 )
+emission_shape = 1
+emission_sphere_radius = 1.0
+script = null
 
-[node name="CSGBox" type="CSGBox" parent="."]
+[node name="CSGBox" type="CSGBox3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25.6943 )
+operation = 1
 invert_faces = true
-width = 44.173
-height = 19.604
-material = SubResource( 3 )
+material = SubResource( 4 )
+script = null
 
-[node name="CSGCylinder" type="CSGCylinder" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.745602, 0, 0, 0, 1, 0, 0, 0 )
+[node name="CSGCylinder" type="CSGCylinder3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.745602, 0, 0, 0, 1, 0, -21.0098, 0 )
 invert_faces = true
 radius = 123.75
 height = 45.8309
 sides = 3
 cone = true
-material = SubResource( 4 )
+material = SubResource( 5 )
+script = null
 
-[node name="CSGMesh" type="CSGMesh" parent="."]
+[node name="CSGMesh" type="CSGMesh3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 3.78, 0, 0, 0, 7.64, 5.27772, 5.196, 0 )
 invert_faces = true
-mesh = SubResource( 6 )
-material = SubResource( 8 )
-
-[node name="CSGPolygon" type="CSGPolygon" parent="."]
-polygon = PoolVector2Array( 1.3, 0.59, 1, 0.06, 1, -6.56, 0, 0, 0, 0, 0, 0 )
-depth = 1.123
+mesh = SubResource( 7 )
 material = SubResource( 9 )
+script = null
 
-[node name="CSGSphere" type="CSGSphere" parent="."]
+[node name="CSGPolygon" type="CSGPolygon3D" parent="."]
+polygon = PackedVector2Array( 1.3, 0.59, 1, 0.06, 1, -6.56, 0, 0, 0, 0, 0, 0 )
+depth = 1.123
+material = SubResource( 10 )
+script = null
+
+[node name="CSGSphere" type="CSGSphere3D" parent="."]
 invert_faces = true
 radius = 19.668
 radial_segments = 4
-rings = 4
+rings = 3
 smooth_faces = false
-material = SubResource( 10 )
+material = SubResource( 11 )
+script = null
 
-[node name="CSGTorus" type="CSGTorus" parent="."]
+[node name="CSGTorus" type="CSGTorus3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.71423, -3.42086 )
 invert_faces = true
 inner_radius = 0.001
 outer_radius = 19.109
-sides = 5
-material = SubResource( 11 )
+sides = 4
+ring_sides = 5
+material = SubResource( 12 )
+script = null
 
-[node name="CSGCombiner_NOTHING" type="CSGCombiner" parent="."]
+[node name="CSGCombiner_NOTHING" type="CSGCombiner3D" parent="."]
 operation = 1
+script = null
 
-[node name="CSGBox" type="CSGBox" parent="CSGCombiner_NOTHING"]
+[node name="CSGBox" type="CSGBox3D" parent="CSGCombiner_NOTHING"]
 invert_faces = true
-width = 44.173
-height = 19.604
-material = SubResource( 3 )
+material = SubResource( 4 )
+script = null
 
-[node name="CSGBox2" type="CSGBox" parent="CSGCombiner_NOTHING"]
+[node name="CSGBox2" type="CSGBox3D" parent="CSGCombiner_NOTHING"]
 invert_faces = true
-width = 44.173
-height = 19.604
-material = SubResource( 3 )
+material = SubResource( 4 )
+script = null
 
-[node name="CSGBox3" type="CSGBox" parent="CSGCombiner_NOTHING"]
-invert_faces = true
-width = 44.173
-height = 19.604
-material = SubResource( 3 )
-
-[node name="CSGBox4" type="CSGBox" parent="CSGCombiner_NOTHING"]
-invert_faces = true
-width = 44.173
-height = 19.604
-material = SubResource( 3 )
-
-[node name="CSGBox5" type="CSGBox" parent="CSGCombiner_NOTHING"]
-invert_faces = true
-width = 44.173
-height = 19.604
-material = SubResource( 3 )
-
-[node name="ImmediateGeometry" type="ImmediateGeometry" parent="."]
-material_override = SubResource( 12 )
+[node name="ImmediateGeometry" type="ImmediateGeometry3D" parent="."]
+material_override = SubResource( 13 )
 extra_cull_margin = 0.08
-use_in_baked_light = true
+gi_mode = 1
+script = null
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-mesh = SubResource( 14 )
-skin = SubResource( 15 )
-material/0 = null
+[node name="MeshInstance" type="MeshInstance3D" parent="."]
+mesh = SubResource( 15 )
+skin = SubResource( 16 )
+material/0 = SubResource( 17 )
+script = null
 
-[node name="MultiMeshInstance" type="MultiMeshInstance" parent="."]
-multimesh = SubResource( 17 )
+[node name="MultiMeshInstance" type="MultiMeshInstance3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.9485, 0 )
+multimesh = SubResource( 19 )
+script = null
 
-[node name="Particles" type="Particles" parent="."]
+[node name="Particles" type="GPUParticles3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27.0754 )
+emitting = false
+amount = 4
 lifetime = 1.42
 preprocess = 0.5
 speed_scale = 1.3
@@ -310,290 +354,226 @@ explosiveness = 0.41
 randomness = 0.34
 fract_delta = false
 local_coords = false
-process_material = SubResource( 18 )
+process_material = SubResource( 20 )
+draw_pass_1 = SubResource( 21 )
+script = null
 
 [node name="BakedLightmap" type="BakedLightmap" parent="."]
-bake_cell_size = 1.94
-bake_propagation = 0.0
-bake_energy = 1.58
-image_path = "res://file.jpg"
-light_data = SubResource( 19 )
+light_data = SubResource( 22 )
+script = null
 
-[node name="DirectionalLight3D" type="DirectionalLight" parent="."]
+[node name="DirectionalLight" type="DirectionalLight3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.639291, -0.768965, 0, 0.768965, 0.639291, 0, 21.5838, 0 )
+light_energy = 7.54
 shadow_enabled = true
+script = null
 
-[node name="SpotLight3D" type="SpotLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.2155 )
-light_energy = 1.11
+[node name="SpotLight" type="SpotLight3D" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.171431, -0.985196, 0, 0.985196, -0.171431, 0, 0, -16.2155 )
+light_energy = 4.05
 light_negative = true
 shadow_enabled = true
 shadow_bias = 0.4
+script = null
 
 [node name="GIProbe" type="GIProbe" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.945391, 1.15135, 1.78806 )
 extents = Vector3( 10, 10, 22.3077 )
-energy = 1.89
-propagation = 1.0
-bias = 1.58
-normal_bias = 0.061
-interior = true
-compress = true
+script = null
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
-update_mode = 1
 intensity = 0.51
 max_distance = 1.7
 extents = Vector3( 1, 1.583, 1 )
 box_projection = true
+script = null
 
 [node name="RootMotionView" type="RootMotionView" parent="."]
+script = null
 
-[node name="Area" type="Area" parent="."]
+[node name="Area" type="Area3D" parent="."]
+gravity = 22.39
 linear_damp = 0.126
 monitoring = false
+script = null
 
-[node name="CollisionShape" type="CollisionShape" parent="Area"]
-shape = SubResource( 20 )
+[node name="CollisionShape" type="CollisionShape3D" parent="Area"]
+shape = SubResource( 23 )
+script = null
 
-[node name="CollisionShape2" type="CollisionShape" parent="Area"]
-shape = SubResource( 20 )
-
-[node name="CollisionShape3" type="CollisionShape" parent="Area"]
-shape = SubResource( 20 )
-
-[node name="CollisionShape4" type="CollisionShape" parent="Area"]
-shape = SubResource( 20 )
-
-[node name="KinematicBody" type="KinematicBody" parent="."]
+[node name="KinematicBody" type="KinematicBody3D" parent="."]
 collision/safe_margin = 0.033
+script = null
 
-[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
-shape = SubResource( 20 )
+[node name="CollisionShape" type="CollisionShape3D" parent="KinematicBody"]
+shape = SubResource( 23 )
+script = null
 
-[node name="CollisionShape2" type="CollisionShape" parent="KinematicBody"]
-shape = SubResource( 20 )
-
-[node name="CollisionShape3" type="CollisionShape" parent="KinematicBody"]
-shape = SubResource( 20 )
-
-[node name="CollisionShape4" type="CollisionShape" parent="KinematicBody"]
-shape = SubResource( 20 )
-
-[node name="PhysicalBone" type="PhysicalBone" parent="."]
+[node name="PhysicalBone" type="PhysicalBone3D" parent="."]
 mass = 1.21
-weight = 11.858
+script = null
 
-[node name="CollisionShape" type="CollisionShape" parent="PhysicalBone"]
-shape = SubResource( 20 )
+[node name="CollisionShape" type="CollisionShape3D" parent="PhysicalBone"]
+shape = SubResource( 23 )
+script = null
 
-[node name="CollisionShape2" type="CollisionShape" parent="PhysicalBone"]
-shape = SubResource( 20 )
-
-[node name="CollisionShape3" type="CollisionShape" parent="PhysicalBone"]
-shape = SubResource( 20 )
-
-[node name="CollisionShape4" type="CollisionShape" parent="PhysicalBone"]
-shape = SubResource( 20 )
-
-[node name="RigidBody" type="RigidBody" parent="."]
+[node name="RigidBody" type="RigidBody3D" parent="."]
 mass = 1.19
-physics_material_override = SubResource( 21 )
+physics_material_override = SubResource( 24 )
 gravity_scale = 1.12
 axis_lock_linear_x = true
+script = null
 
-[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
-shape = SubResource( 20 )
+[node name="CollisionShape" type="CollisionShape3D" parent="RigidBody"]
+shape = SubResource( 23 )
+script = null
 
-[node name="CollisionShape2" type="CollisionShape" parent="RigidBody"]
-shape = SubResource( 20 )
-
-[node name="CollisionShape3" type="CollisionShape" parent="RigidBody"]
-shape = SubResource( 20 )
-
-[node name="CollisionShape4" type="CollisionShape" parent="RigidBody"]
-shape = SubResource( 20 )
-
-[node name="VehicleBody" type="VehicleBody" parent="."]
-physics_material_override = SubResource( 22 )
+[node name="VehicleBody" type="VehicleBody3D" parent="."]
+physics_material_override = SubResource( 25 )
 engine_force = 16.41
 brake = 0.46
+steering = 0.17
+script = null
 
-[node name="CollisionShape" type="CollisionShape" parent="VehicleBody"]
-shape = SubResource( 20 )
+[node name="CollisionShape" type="CollisionShape3D" parent="VehicleBody"]
+shape = SubResource( 23 )
+script = null
 
-[node name="CollisionShape2" type="CollisionShape" parent="VehicleBody"]
-shape = SubResource( 20 )
-
-[node name="CollisionShape3" type="CollisionShape" parent="VehicleBody"]
-shape = SubResource( 20 )
-
-[node name="CollisionShape4" type="CollisionShape" parent="VehicleBody"]
-shape = SubResource( 20 )
-
-[node name="VehicleWheel" type="VehicleWheel" parent="VehicleBody"]
+[node name="VehicleWheel4" type="VehicleWheel3D" parent="VehicleBody"]
 engine_force = 5.60519e-45
 brake = 0.46
+script = null
 
-[node name="VehicleWheel2" type="VehicleWheel" parent="VehicleBody"]
-engine_force = 5.60519e-45
-brake = 0.46
+[node name="StaticBody" type="StaticBody3D" parent="."]
+physics_material_override = SubResource( 26 )
+constant_linear_velocity = Vector3( 0.049, 0, 0 )
+script = null
 
-[node name="VehicleWheel3" type="VehicleWheel" parent="VehicleBody"]
-engine_force = 5.60519e-45
-brake = 0.46
-
-[node name="VehicleWheel4" type="VehicleWheel" parent="VehicleBody"]
-engine_force = 5.60519e-45
-brake = 0.46
-
-[node name="StaticBody" type="StaticBody" parent="."]
-physics_material_override = SubResource( 23 )
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-shape = SubResource( 20 )
-
-[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
-shape = SubResource( 20 )
-
-[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
-shape = SubResource( 20 )
-
-[node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]
-shape = SubResource( 20 )
+[node name="CollisionShape" type="CollisionShape3D" parent="StaticBody"]
+shape = SubResource( 23 )
+script = null
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = SubResource( 24 )
+stream = SubResource( 27 )
 attenuation_model = 1
+unit_db = 0.031
+unit_size = 5.5
+max_db = 2.953
+pitch_scale = 1.42
+script = null
 
-[node name="BoneAttachment" type="BoneAttachment" parent="."]
+[node name="BoneAttachment" type="BoneAttachment3D" parent="."]
+script = null
 
-[node name="CollisionPolygon" type="CollisionPolygon" parent="."]
-polygon = PoolVector2Array( 66.9045, 31.0067, 286.784, -62.3473, 22.8219, -35.2817, -25.9028, -19.5722, -43.33, 5.94586, -43.7357, 15.5874, -36.475, 6.06905, -45.3994, 19.6661 )
+[node name="CollisionPolygon" type="CollisionPolygon3D" parent="."]
+polygon = PackedVector2Array( 66.9045, 31.0067, 286.784, -62.3473, 22.8219, -35.2817, -25.9028, -19.5722, -43.33, 5.94586, -43.7357, 15.5874, -36.475, 6.06905, -45.3994, 19.6661 )
+script = null
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -26.583 )
-shape = SubResource( 25 )
+shape = SubResource( 28 )
+script = null
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = SubResource( 27 )
+mesh_library = SubResource( 30 )
 cell_size = Vector3( 2, 1.14, 3.08 )
 data = {
-"cells": PoolIntArray( 26, 0, 0, 27, 0, 0, 21, 1, 0, 23, 1, 0, 25, 1, 0, 26, 1, 0, 18, 2, 0, 19, 2, 0, 65523, 5, 0, 65524, 5, 0, 65516, 65524, 0, 65523, 65524, 0, 65514, 65531, 0, 65515, 65531, 0, 65513, 65532, 0, 65514, 65532, 0, 65513, 65533, 0 )
+"cells": PackedInt32Array( 23, 1, 0, 25, 1, 0, 26, 1, 0, 18, 2, 0, 65523, 5, 0, 65524, 5, 0, 65530, 65515, 0, 65520, 65520, 0, 65519, 65521, 0, 65520, 65521, 0, 65519, 65522, 0, 65518, 65523, 0, 65523, 65524, 0, 65526, 65528, 0, 65513, 65533, 0 )
 }
+script = null
 __meta__ = {
 "_editor_clip_": 0
 }
 
-[node name="Listener" type="Listener" parent="."]
+[node name="Listener" type="Listener3D" parent="."]
 current = true
+script = null
 
-[node name="Navigation_LEAK" type="Navigation" parent="."]
-up_vector = Vector3( 0, 1.228, 0 )
+[node name="Navigation" type="Node" parent="."]
+script = null
 
-[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation_LEAK"]
-navmesh = SubResource( 28 )
+[node name="NavigationMeshInstance" type="NavigationRegion3D" parent="Navigation"]
+navmesh = SubResource( 31 )
+script = null
 
-[node name="NavigationMeshInstance2" type="NavigationMeshInstance" parent="Navigation_LEAK"]
-navmesh = SubResource( 28 )
+[node name="NavigationMeshInstance" type="NavigationRegion3D" parent="."]
+navmesh = SubResource( 31 )
+script = null
 
-[node name="NavigationMeshInstance3" type="NavigationMeshInstance" parent="Navigation_LEAK"]
-navmesh = SubResource( 28 )
+[node name="Path" type="Path3D" parent="."]
+curve = SubResource( 32 )
+script = null
 
-[node name="NavigationMeshInstance4" type="NavigationMeshInstance" parent="Navigation_LEAK"]
-navmesh = SubResource( 28 )
+[node name="PathFollow" type="PathFollow3D" parent="Path"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.21835, 8.31693, -11.5007 )
+script = null
 
-[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="."]
-navmesh = SubResource( 28 )
-
-[node name="Path" type="Path" parent="."]
-curve = SubResource( 29 )
-
-[node name="PathFollow" type="PathFollow" parent="Path"]
-
-[node name="PathFollow2" type="PathFollow" parent="Path"]
-
-[node name="PathFollow3" type="PathFollow" parent="Path"]
-
-[node name="PathFollow4" type="PathFollow" parent="Path"]
-
-[node name="PathFollow" type="PathFollow" parent="."]
-offset = 0.28
+[node name="PathFollow" type="PathFollow3D" parent="."]
+offset = 2.09
+h_offset = 0.101
+script = null
 
 [node name="Position3D_NOTHING" type="Position3D" parent="."]
+script = null
 
-[node name="Camera3D_DEFAULT_CAMERA" type="Camera" parent="."]
+[node name="Camera_DEFAULT_CAMERA" type="Camera3D" parent="."]
 current = true
+script = null
 
-[node name="ProximityGroup" type="ProximityGroup" parent="."]
+[node name="ProximityGroup" type="ProximityGroup3D" parent="."]
 dispatch_mode = 1
+script = null
 
-[node name="RayCast" type="RayCast" parent="."]
-enabled = true
+[node name="RayCast" type="RayCast3D" parent="."]
+script = null
 
-[node name="RemoteTransform" type="RemoteTransform" parent="."]
-remote_path = NodePath("../Camera3D")
+[node name="RemoteTransform" type="RemoteTransform3D" parent="."]
+remote_path = NodePath("../Camera")
+script = null
 
-[node name="Skeleton" type="Skeleton" parent="."]
+[node name="Skeleton" type="Skeleton3D" parent="."]
+script = null
 
-[node name="PhysicalBone" type="PhysicalBone" parent="Skeleton"]
+[node name="PhysicalBone" type="PhysicalBone3D" parent="Skeleton"]
+script = null
 
-[node name="BoneAttachment" type="BoneAttachment" parent="Skeleton/PhysicalBone"]
+[node name="BoneAttachment" type="BoneAttachment3D" parent="Skeleton/PhysicalBone"]
 transform = Transform( 1, -1.78814e-07, -1.78814e-07, -9.68575e-08, 1, -5.96046e-08, 0, 0, 1, 0, 0, 0 )
+script = null
 
-[node name="BoneAttachment2" type="BoneAttachment" parent="Skeleton/PhysicalBone"]
-transform = Transform( 1, -1.78814e-07, -1.78814e-07, -9.68575e-08, 1, -5.96046e-08, 0, 0, 1, 0, 0, 0 )
+[node name="CollisionShape4" type="CollisionShape3D" parent="Skeleton/PhysicalBone"]
+shape = SubResource( 33 )
+script = null
 
-[node name="BoneAttachment3" type="BoneAttachment" parent="Skeleton/PhysicalBone"]
-transform = Transform( 1, -1.78814e-07, -1.78814e-07, -9.68575e-08, 1, -5.96046e-08, 0, 0, 1, 0, 0, 0 )
-
-[node name="BoneAttachment4" type="BoneAttachment" parent="Skeleton/PhysicalBone"]
-transform = Transform( 1, -1.78814e-07, -1.78814e-07, -9.68575e-08, 1, -5.96046e-08, 0, 0, 1, 0, 0, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Skeleton/PhysicalBone"]
-shape = SubResource( 30 )
-
-[node name="CollisionShape2" type="CollisionShape" parent="Skeleton/PhysicalBone"]
-shape = SubResource( 30 )
-
-[node name="CollisionShape3" type="CollisionShape" parent="Skeleton/PhysicalBone"]
-shape = SubResource( 30 )
-
-[node name="CollisionShape4" type="CollisionShape" parent="Skeleton/PhysicalBone"]
-shape = SubResource( 30 )
-
-[node name="PhysicalBone 3" type="PhysicalBone" parent="Skeleton"]
+[node name="PhysicalBone 3" type="PhysicalBone3D" parent="Skeleton"]
 mass = 0.958163
-weight = 9.39
 friction = 0.62
 bounce = 0.3
 gravity_scale = 0.6
+script = null
 
-[node name="CollisionShape" type="CollisionShape" parent="Skeleton/PhysicalBone 3"]
-shape = SubResource( 30 )
+[node name="CollisionShape" type="CollisionShape3D" parent="Skeleton/PhysicalBone 3"]
+shape = SubResource( 33 )
+script = null
 
-[node name="CollisionShape2" type="CollisionShape" parent="Skeleton/PhysicalBone 3"]
-shape = SubResource( 30 )
+[node name="SpringArm" type="SpringArm3D" parent="."]
+shape = SubResource( 34 )
+script = null
 
-[node name="CollisionShape3" type="CollisionShape" parent="Skeleton/PhysicalBone 3"]
-shape = SubResource( 30 )
-
-[node name="CollisionShape4" type="CollisionShape" parent="Skeleton/PhysicalBone 3"]
-shape = SubResource( 30 )
-
-[node name="SpringArm" type="SpringArm" parent="."]
-shape = SubResource( 31 )
-
-[node name="VehicleWheel" type="VehicleWheel" parent="."]
+[node name="VehicleWheel" type="VehicleWheel3D" parent="."]
 engine_force = 0.49
 brake = 0.74
 steering = -0.63
+script = null
 
-[node name="VisibilityNotifier" type="VisibilityNotifier" parent="."]
+[node name="VisibilityNotifier" type="VisibilityNotifier3D" parent="."]
 aabb = AABB( -1, -0.982, -1, 2, 2.078, 2 )
+script = null
 
-[node name="VisibilityEnabler" type="VisibilityEnabler" parent="."]
+[node name="VisibilityEnabler" type="VisibilityEnabler3D" parent="."]
+script = null
 
-[node name="Generic6DOFJoint" type="Generic6DOFJoint" parent="."]
+[node name="Generic6DOFJoint" type="Generic6DOFJoint3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63619, -0.392871, 2.48948 )
 nodes/node_a = NodePath("../StaticBody")
 nodes/node_b = NodePath("../PhysicalBone")
@@ -607,8 +587,9 @@ angular_spring_z/enabled = true
 angular_spring_z/stiffness = 0.5
 angular_spring_z/damping = 0.64
 angular_spring_z/equilibrium_point = -0.9
+script = null
 
-[node name="HingeJoint" type="HingeJoint" parent="."]
+[node name="HingeJoint" type="HingeJoint3D" parent="."]
 nodes/node_a = NodePath("../StaticBody")
 nodes/node_b = NodePath("../PhysicalBone")
 params/bias = 0.99
@@ -621,8 +602,9 @@ angular_limit/relaxation = 3.6
 motor/enable = true
 motor/target_velocity = -1.3
 motor/max_impulse = 30.2
+script = null
 
-[node name="SliderJoint" type="SliderJoint" parent="."]
+[node name="SliderJoint" type="SliderJoint3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17785, 0.25203, 4.6063 )
 nodes/node_a = NodePath("../VehicleBody")
 nodes/node_b = NodePath("../StaticBody")
@@ -642,15 +624,17 @@ angular_limit/lower_angle = 38.8
 angular_motion/softness = 2.18
 angular_motion/restitution = 1.77
 angular_motion/damping = 4.88
+script = null
 
-[node name="PinJoint" type="PinJoint" parent="."]
-nodes/node_a = NodePath("../Area")
+[node name="PinJoint" type="PinJoint3D" parent="."]
+nodes/node_a = NodePath("../KinematicBody")
 nodes/node_b = NodePath("../StaticBody")
 params/bias = 0.99
 params/damping = 7.3
 params/impulse_clamp = 7.2
+script = null
 
-[node name="ConeTwistJoint" type="ConeTwistJoint" parent="."]
+[node name="ConeTwistJoint" type="ConeTwistJoint3D" parent="."]
 nodes/node_a = NodePath("../PhysicalBone")
 nodes/node_b = NodePath("../RigidBody")
 solver/priority = 8
@@ -658,31 +642,19 @@ twist_span = 9500.4
 bias = 0.46
 softness = 0.95
 relaxation = 0.83
+script = null
 
-[node name="OmniLight3D" type="OmniLight" parent="."]
+[node name="OmniLight" type="OmniLight3D" parent="."]
 light_energy = 1.61
 light_indirect_energy = 1.35
 light_specular = 0.68
 omni_range = 118.9
 omni_attenuation = 1.51572
 omni_shadow_mode = 0
-omni_shadow_detail = 0
+script = null
 
-[node name="Generic6DOFJoint2" type="Generic6DOFJoint" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63619, -0.392871, 2.48948 )
-nodes/node_a = NodePath("../StaticBody")
-nodes/node_b = NodePath("../PhysicalBone")
-solver/priority = 5
-collision/exclude_nodes = false
-linear_limit_x/upper_distance = 0.18
-linear_limit_x/lower_distance = 0.059
-linear_limit_x/softness = 2.62
-linear_limit_x/restitution = 1.54
-angular_motor_z/enabled = true
-angular_motor_z/target_velocity = 0.11
-angular_motor_z/force_limit = 300.5
-angular_spring_z/enabled = true
-angular_spring_z/stiffness = 0.5
-angular_spring_z/damping = 0.64
-angular_spring_z/equilibrium_point = -0.9
-
+[node name="SoftBody" type="SoftBody3D" parent="."]
+mesh = SubResource( 35 )
+material/0 = null
+pinned_points = [  ]
+script = null

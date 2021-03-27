@@ -8,7 +8,7 @@
 friction = 0.89
 rough = true
 
-[sub_resource type="StandardMaterial3D" id=2]
+[sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 1, 1, 1, 0.521569 )
 albedo_texture = ExtResource( 1 )
 metallic = 1.0
@@ -18,7 +18,7 @@ metallic_texture = ExtResource( 1 )
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 50, 2, 50 )
 
-[sub_resource type="StandardMaterial3D" id=4]
+[sub_resource type="SpatialMaterial" id=4]
 params_diffuse_mode = 1
 albedo_texture = ExtResource( 1 )
 metallic = 0.8
@@ -32,13 +32,13 @@ extents = Vector3( 11.8794, 1.37845, 22.281 )
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 11.8794, 1.37845, 22.281 )
 
-[node name="Physics3D" type="Node3D"]
+[node name="Physics3D" type="Spatial"]
 
-[node name="DirectionalLight3D" type="DirectionalLight" parent="."]
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.959707, 0.281002, 0, -0.281002, -0.959707, 0, 35.3705, 0 )
 light_energy = 1.45
 
-[node name="StaticArena" type="Node3D" parent="."]
+[node name="StaticArena" type="Spatial" parent="."]
 script = ExtResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="StaticArena"]
@@ -156,26 +156,26 @@ width = 23.9394
 depth = 44.6359
 
 [node name="StaticBody9" type="StaticBody" parent="StaticArena"]
-transform = Transform( 0.289683, -0.599318, 0.746259, -0.123608, -0.796586, -0.591753, 0.949107, 0.0791774, -0.304838, 10.0702, 12.1813, -25.555 )
+transform = Transform( 0.289683, -0.599318, 0.746259, -0.123608, -0.796586, -0.591753, 0.949107, 0.0791774, -0.304838, 10.0702, 0.940654, -25.555 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticArena/StaticBody9"]
-transform = Transform( 1, -9.31323e-10, 0, 0, 1, 1.49012e-08, 3.72529e-09, 1.49012e-08, 1, 0, 0, 0 )
+transform = Transform( 1, 7.45058e-09, 0, 1.49012e-08, 1, 4.84288e-08, 0, -3.1665e-08, 1, 0, 0, 0 )
 shape = SubResource( 7 )
 
 [node name="CSGBox" type="CSGBox" parent="StaticArena/StaticBody9"]
 width = 23.9394
 depth = 44.6359
 
-[node name="Objects" type="Node3D" parent="."]
+[node name="Objects" type="Spatial" parent="."]
 
 [node name="RigidBody" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.50424, 25.2791, 14.7363 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.50424, 17.1047, 14.7363 )
 
 [node name="RigidBody2" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7864, 12.6031, 19.1751 )
 
 [node name="RigidBody3" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9896, 12.6031, 28.8764 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9896, 10.6319, 28.8764 )
 
 [node name="RigidBody4" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.0866, 12.6031, -18.3703 )
@@ -192,149 +192,27 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9278, 12.6031, 23.4173 )
 [node name="RigidBody8" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.85186, 24.8548, -9.87658 )
 
-[node name="RigidBody10" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1328, 29.5375, -0.570342 )
-
-[node name="RigidBody11" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.6287, 22.3987, -15.733 )
-
-[node name="RigidBody12" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4547, 22.3987, -24.854 )
-
-[node name="RigidBody13" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.76971, 22.3987, -22.9999 )
-
-[node name="RigidBody14" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8426, 17.5784, -8.49029 )
-
-[node name="RigidBody9" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.188, 12.6031, 9.26155 )
-
-[node name="RigidBody15" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25014, 31.7526, 22.4342 )
-
-[node name="RigidBody16" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0405, 19.0766, 26.873 )
-
-[node name="RigidBody17" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7355, 19.0766, 36.5743 )
-
-[node name="RigidBody18" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8325, 19.0766, -10.6724 )
-
-[node name="RigidBody19" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5046, 19.0765, -13.0753 )
-
-[node name="RigidBody20" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3391, 19.0765, 15.9916 )
-
-[node name="RigidBody21" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.1819, 19.0765, 31.1152 )
-
-[node name="RigidBody22" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.40224, 31.3283, -2.17871 )
-
-[node name="RigidBody23" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.3869, 36.0109, 7.12753 )
-
-[node name="RigidBody24" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.8828, 28.8722, -8.03515 )
-
-[node name="RigidBody25" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2006, 28.8722, -17.1562 )
-
-[node name="RigidBody26" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.48439, 28.8722, -15.3021 )
-
-[node name="RigidBody27" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5885, 24.0519, -0.792418 )
-
-[node name="RigidBody28" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9338, 19.0765, 16.9594 )
-
-[node name="RigidBody29" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5598, 33.131, 4.91325 )
-
-[node name="RigidBody30" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.26917, 20.455, 9.35204 )
-
-[node name="RigidBody31" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.0452, 20.455, 19.0534 )
-
-[node name="RigidBody32" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.1422, 20.455, -28.1934 )
-
-[node name="RigidBody33" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1949, 20.455, -30.5962 )
-
-[node name="RigidBody34" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0294, 20.455, -1.52936 )
-
-[node name="RigidBody35" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8723, 20.455, 13.5943 )
-
-[node name="RigidBody36" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.90743, 32.7067, -19.6996 )
-
-[node name="RigidBody37" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0773, 37.3894, -10.3934 )
-
-[node name="RigidBody38" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5731, 30.2506, -25.5561 )
-
-[node name="RigidBody39" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5103, 30.2506, -34.6771 )
-
-[node name="RigidBody40" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.82528, 30.2506, -32.823 )
-
-[node name="RigidBody41" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.8981, 25.4303, -18.3134 )
-
-[node name="RigidBody42" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.2435, 20.455, -0.56151 )
-
-[node name="RigidBody43" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.30571, 39.6045, 12.6111 )
-
-[node name="RigidBody44" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98493, 26.9285, 17.0499 )
-
-[node name="RigidBody45" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7911, 26.9285, 26.7513 )
-
-[node name="RigidBody46" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8881, 26.9285, -20.4955 )
-
-[node name="RigidBody47" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.449, 26.9285, -22.8984 )
-
-[node name="RigidBody48" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2835, 26.9285, 6.16852 )
-
-[node name="RigidBody49" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1264, 26.9285, 21.2921 )
-
-[node name="Camera3D" type="Camera" parent="."]
+[node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.922114, 0.23703, -0.305815, 0.0163102, 0.765871, 0.642787, 0.386575, -0.597711, 0.702354, -25.392, 55.117, 39.851 )
 current = true
 far = 200.0
 
-[node name="Joints" type="Node3D" parent="."]
+[node name="Joints" type="Spatial" parent="."]
 
-[node name="Cone" type="Node3D" parent="Joints"]
+[node name="Cone" type="Spatial" parent="Joints"]
 
 [node name="RigidBody2" parent="Joints/Cone" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2888, 6.73046, 77.026 )
 gravity_scale = -3.0
 
 [node name="RigidBody" parent="Joints/Cone" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2888, 15.3482, 19.1751 )
 
 [node name="ConeTwistJoint" type="ConeTwistJoint" parent="Joints/Cone"]
 nodes/node_a = NodePath("../RigidBody")
 nodes/node_b = NodePath("../RigidBody2")
 
-[node name="Generic" type="Node3D" parent="Joints"]
+[node name="Generic" type="Spatial" parent="Joints"]
 
 [node name="RigidBody" parent="Joints/Generic" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2888, 33.1278, 67.0796 )
@@ -347,7 +225,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2888, 33.1278, -0.445078 )
 nodes/node_a = NodePath("../RigidBody")
 nodes/node_b = NodePath("../RigidBody2")
 
-[node name="Hinge" type="Node3D" parent="Joints"]
+[node name="Hinge" type="Spatial" parent="Joints"]
 
 [node name="RigidBody" parent="Joints/Hinge" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6153, 33.1278, 59.2096 )
@@ -360,26 +238,27 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.17695, 33.1278, 19.1751 )
 nodes/node_a = NodePath("../RigidBody")
 nodes/node_b = NodePath("../RigidBody2")
 
-[node name="Pin" type="Node3D" parent="Joints"]
+[node name="Pin" type="Spatial" parent="Joints"]
 
 [node name="RigidBody" parent="Joints/Pin" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2888, 4.83369, 116.28 )
 gravity_scale = -3.0
 
 [node name="RigidBody2" parent="Joints/Pin" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2888, 33.1278, 10.7729 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2888, 18.4589, 10.7729 )
 
 [node name="PinJoint" type="PinJoint" parent="Joints/Pin"]
 nodes/node_a = NodePath("../RigidBody")
 nodes/node_b = NodePath("../RigidBody2")
 
-[node name="Slider" type="Node3D" parent="Joints"]
+[node name="Slider" type="Spatial" parent="Joints"]
 
 [node name="RigidBody" parent="Joints/Slider" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2888, 17.7427, 19.1751 )
 gravity_scale = -3.0
 
 [node name="RigidBody2" parent="Joints/Slider" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.3355, 33.1278, 19.1751 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.3355, 16.2845, 19.1751 )
 
 [node name="SliderJoint" type="SliderJoint" parent="Joints/Slider"]
 nodes/node_a = NodePath("../RigidBody")
