@@ -48,7 +48,7 @@ func _process(delta: float) -> void:
 	if time_to_delete < 0:
 		time_to_delete += TIME_TO_DELETE
 		
-		for i in get_children():
-			i.queue_free()
-			
-		_populate()
+#		for i in get_children():
+#			i.queue_free()
+#
+#		_populate()
