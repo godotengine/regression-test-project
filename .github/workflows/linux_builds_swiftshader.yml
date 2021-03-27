@@ -1,8 +1,8 @@
-name: 🐧 Linux GLES2
+name: 🐧 Linux Vulkan SwiftShader
 on: [push, pull_request]
 
 jobs:
-  gles2:
+  vulkan-normal:
     runs-on: "ubuntu-20.04"
     name: Editor and exported project with sanitizers (target=debug/release, tools=yes/no, debug_symbols=yes, use_ubsan=yes, use_asan=yes)
 
@@ -39,22 +39,34 @@ jobs:
 
       - name: Download Godot(GIT)
         run: |
-          git clone https://github.com/lawnjelly/godot.git
+          git clone https://github.com/godotengine/godot.git
           cd godot
-          git checkout jarjar
+          git checkout master
           cd ../
 
       - name: Compile Godot
         run: |
           cd godot
+          sed -i "s|ERR_FAIL_COND_V(p_rasterization_state.patch_control_points|//ERR_FAIL_COND_V(p_rasterization_state.patch_control_points|" drivers/vulkan/rendering_device_vulkan.cpp
           scons p=linuxbsd -j2 use_asan=yes use_ubsan=yes CCFLAGS="-fsanitize=shift,shift-exponent,integer-divide-by-zero,unreachable,vla-bound,null,return,signed-integer-overflow,bounds,float-divide-by-zero,float-cast-overflow,nonnull-attribute,returns-nonnull-attribute,bool,enum,vptr"
           cp bin/godot.linuxbsd.tools.64s ../
-          true || cp bin/godot.linuxbsd.opt.64s ../
           cd ../
           rm -rf godot
 
+      # Download, unzip and setup SwiftShader library
+      - name: Download SwiftShader
+        run: |
+          wget https://github.com/qarmin/gtk_library_store/releases/download/3.24.0/swiftshader.zip
+          unzip swiftshader.zip
+          rm swiftshader.zip
+          curr="$(pwd)/libvk_swiftshader.so"
+          sed -i "s|PATH_TO_CHANGE|$curr|" vk_swiftshader_icd.json
+
       - name: Use Godot
         run: |
+          echo "-------------------- OPEN EDITOR  -----------------------"
+          VK_ICD_FILENAMES=$(pwd)/vk_swiftshader_icd.json DRI_PRIME=0 xvfb-run ./godot.linuxbsd.tools.64s --audio-driver Dummy -e -q --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
+          misc/check_ci_log.py sanitizers_log.txt
           echo "-------------------- RUN PROJECT -----------------------"
-          DRI_PRIME=0 xvfb-run ./godot.linuxbsd.tools.64s 60 --rendering-driver GLES2 --audio-driver Dummy --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
+          VK_ICD_FILENAMES=$(pwd)/vk_swiftshader_icd.json DRI_PRIME=0 xvfb-run ./godot.linuxbsd.tools.64s 60 --audio-driver Dummy --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
           misc/check_ci_log.py sanitizers_log.txt

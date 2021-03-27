@@ -1,8 +1,8 @@
-name: 🐧 Linux Builds
+name: 🐧 Linux Vulkan
 on: [push, pull_request]
 
 jobs:
-  linux-sanitizer:
+  vulkan-normal:
     runs-on: "ubuntu-20.04"
     name: Editor and exported project with sanitizers (target=debug/release, tools=yes/no, debug_symbols=yes, use_ubsan=yes, use_asan=yes)
 
