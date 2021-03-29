@@ -40,7 +40,7 @@ func tests_all_functions() -> void:
 					continue
 
 				if debug_print:
-					print(method_data.get("name"))
+					print(name_of_class + "." + method_data.get("name"))
 
 				var arguments: Array = return_for_all(method_data)
 				object.callv(method_data.get("name"), arguments)
