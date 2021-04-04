@@ -28,6 +28,7 @@ config/icon="res://icon.png"
 Autoload="*res://Autoload/Autoload.gd"
 ValueCreator="*res://AutomaticBugs/ValueCreator.gd"
 BasicData="*res://AutomaticBugs/BasicData.gd"
+ParseArgumentType="*res://AutomaticBugs/ParseArgumentType.gd"
 
 [debug]
 
