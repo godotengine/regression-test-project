@@ -29,8 +29,6 @@ if (
     print("FATAL ERROR: Godot has been crashed.")
     sys.exit(1)
 
-sys.exit(0)
-
 # Finding memory leaks in Godot is quite difficult, because we need to take into
 # account leaks also in external libraries. They are usually provided without
 # debugging symbols, so the leak report from it usually has only 2/3 lines,

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Nodes/Nodes.tscn" type="PackedScene" id=1]
 [ext_resource path="res://AIO/Operators/Operators.tscn" type="PackedScene" id=5]
@@ -6,8 +6,6 @@
 [ext_resource path="res://Rendering/Lights3D/Lights3D.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Rendering/Lights2D/Lights2D.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Physics/3D/Physics3D.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Text/Text.tscn" type="PackedScene" id=10]
-[ext_resource path="res://AIO/AllNodes/ALL.tscn" type="PackedScene" id=11]
 [ext_resource path="res://ReparentingDeleting/ReparentingDeleting.tscn" type="PackedScene" id=12]
 
 [node name="All" type="Node"]
@@ -24,14 +22,10 @@
 
 [node name="Lights3D" parent="Rendering" instance=ExtResource( 7 )]
 
-[node name="Text" parent="." instance=ExtResource( 10 )]
-
 [node name="ReparentingDeleting" parent="." instance=ExtResource( 12 )]
 
 [node name="AIO" type="Node" parent="."]
 
-[node name="ALL" parent="AIO" instance=ExtResource( 11 )]
-
-[node name="Node2D" parent="AIO" instance=ExtResource( 5 )]
+[node name="Operators" parent="AIO" instance=ExtResource( 5 )]
 
 [node name="MainScenes" parent="." instance=ExtResource( 1 )]
