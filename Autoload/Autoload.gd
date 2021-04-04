@@ -20,7 +20,6 @@ const alone_steps : Array = [
 	"res://Rendering/Lights2D/Lights2D.tscn",
 	"res://Rendering/Lights3D/Lights3D.tscn",
 	"res://ReparentingDeleting/ReparentingDeleting.tscn",
-	"res://Text/Text.tscn",
 ]
 
 # All scenes run in one step
@@ -28,7 +27,6 @@ const alone_steps : Array = [
 const all_in_one : Array = [
 "res://AIO/Operators/Operators.tscn",
 "res://AutomaticBugs/FunctionExecutor.tscn",
-#"res://AIO/AllNodes/ALL.tscn", # Take too much time - opens ~ 20 seconds in CI inside xvfb-run
 ]
 
 func _init(): 
@@ -48,7 +46,8 @@ func _init():
 func _process(delta: float) -> void:
 	var current_run_time : int = OS.get_ticks_msec() - start_time
 	
-	while current_run_time > time_to_print_next_time: # This will allow to properly regulate time under heavy operations(e.g. Thread sanitizer)
+	# While loop instead if, will allow to properly flush results under heavy operations(e.g. Thread sanitizer)
+	while current_run_time > time_to_print_next_time: 
 		print("Test is running now " + str(int(time_to_print_next_time / 1000)) + " seconds")
 		time_to_print_next_time += PRINT_TIME_EVERY_MILISECONDS
 		
