@@ -60,14 +60,14 @@ func _process(delta: float) -> void:
 		var random_node = find_node("Special Node " + str(randi() % number_of_nodes),true,false)
 		parent_of_node.remove_child(choosen_node)
 		
-		if randi() % 6 == 0: # 16% chance to remove node with children
-			var names_to_remove : Array = find_all_special_children_names(choosen_node)
-			for name_to_remove in names_to_remove:
-				var node : Node = ClassDB.instance(collected_nodes[randi() % collected_nodes.size()])
-				node.set_name(name_to_remove)
-				add_child(node)
-			choosen_node.queue_free()
-			continue
+#		if randi() % 6 == 0: # 16% chance to remove node with children
+#			var names_to_remove : Array = find_all_special_children_names(choosen_node)
+#			for name_to_remove in names_to_remove:
+#				var node : Node = ClassDB.instance(collected_nodes[randi() % collected_nodes.size()])
+#				node.set_name(name_to_remove)
+#				add_child(node)
+#			choosen_node.queue_free()
+#			continue
 		
 		
 		if choosen_node.find_node(random_node.get_name(),true,false) != null: # Cannot set as node parent one of its child
