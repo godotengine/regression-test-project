@@ -261,6 +261,8 @@ func check_if_is_allowed(method_data : Dictionary) -> bool:
 		var name_of_class : String = arg["class_name"]
 		if name_of_class.empty():
 			continue
+		if !ClassDB.class_exists(name_of_class): # This is enum not object, but we allow it
+			continue
 		if name_of_class in disabled_classes:
 			return false
 		if name_of_class.find("Server") != -1 && ClassDB.class_exists(name_of_class) && !ClassDB.is_parent_class(name_of_class,"Reference"):
