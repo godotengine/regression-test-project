@@ -12,15 +12,16 @@ var time_to_show: int = 25 * 1000 # How long test works in miliseconds
 
 var time_for_each_step : int = -1 
 
+
 # Each scene runs alone
 const alone_steps : Array = [
 	"res://Nodes/Nodes.tscn",
 	"res://ReparentingDeleting/ReparentingDeleting.tscn",
 	"res://Physics/2D/Physics2D.tscn",
-	"res://Rendering/Lights2D/Lights2D.tscn",
-	"res://Rendering/Lights3D/Lights3D.tscn",
+#	"res://Rendering/Lights2D/Lights2D.tscn",
+#	"res://Rendering/Lights3D/Lights3D.tscn",
 	"res://AutomaticBugs/FunctionExecutor.tscn", # Only Needs to be executed once, but this is workaround a little
-	"res://Physics/3D/Physics3D.tscn", # Loads very long but isn't necessarry so we skip it now
+#	"res://Physics/3D/Physics3D.tscn", # Loads very long but isn't necessarry so we skip it now
 ]
 
 # All scenes run in one step

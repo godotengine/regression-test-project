@@ -281,6 +281,15 @@ var disabled_classes : Array = [
 	"_Thread",
 	"_Semaphore",
 	"_Mutex",
+	
+	
+	# Creating them is really slow in Godot 4.0
+	"ColorPicker",
+	"FileDialog",
+	"ColorPickerButton",
+	"PhysicalSkyMaterial",
+	"ProceduralSkyMaterial"
+	
 ]
 
 # GH 47358
