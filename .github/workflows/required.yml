@@ -29,12 +29,6 @@ jobs:
 #          unzip Godot_v3.2.4-beta1_x11.64.zip
 #          rm Godot_v3.2.4-beta1_x11.64.zip
 #          mv Godot_v3.2.4-beta1_x11.64 godot.x11.tools.64s
-#          wget2 https://downloads.tuxfamily.org/godotengine/3.2.4/beta1/Godot_v3.2.4-beta1_export_templates.tpz
-#          unzip Godot_v3.2.4-beta1_export_templates.tpz
-#          mv templates/linux_x11_64_debug godot.x11.opt.64s
-#          rm -rf templates
-#          rm Godot_v3.2.4-beta1_export_templates.tpz
-#          ls -alr
 
 #      - name: Download Godot(ZIP)
 #        run: |
@@ -53,28 +47,23 @@ jobs:
       - name: Compile Godot
         run: |
           cd godot
-          scons p=x11 -j2 use_asan=yes use_ubsan=yes CCFLAGS="-fsanitize=shift,shift-exponent,integer-divide-by-zero,unreachable,vla-bound,null,return,signed-integer-overflow,bounds,float-divide-by-zero,float-cast-overflow,nonnull-attribute,returns-nonnull-attribute,bool,enum,vptr"
-          true || scons tools=no target=release debug_symbols=yes use_asan=yes use_ubsan=yes CCFLAGS="-fsanitize=shift,shift-exponent,integer-divide-by-zero,unreachable,vla-bound,null,return,signed-integer-overflow,bounds,float-divide-by-zero,float-cast-overflow,nonnull-attribute,returns-nonnull-attribute,bool,enum,vptr"
+          scons p=x11 -j2 use_asan=yes use_ubsan=yes
           cp bin/godot.x11.tools.64s ../
-          true || cp bin/godot.x11.opt.64s ../
           cd ../
           rm -rf godot
 
-      - name: Use Godot
+      - name: Open and close editor
         run: |
-          echo "-------------------- OPEN EDITOR TO IMPORT PROJECT -----------------------"
           DRI_PRIME=0 xvfb-run ./godot.x11.tools.64s --audio-driver Dummy -e -q --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
           misc/check_ci_log.py sanitizers_log.txt
-          echo "-------------------- RUN PROJECT -----------------------"
+
+      - name: Test project
+        run: |
           DRI_PRIME=0 xvfb-run ./godot.x11.tools.64s 60 --audio-driver Dummy --video-driver GLES3 --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
           misc/check_ci_log.py sanitizers_log.txt
 
-#      # Export project and run it to check for possible leaks and invalid memory usage
-#      - name: Exporting and running project
-#        run: |
-#          curr="$(pwd)/godot.x11.opt.64s"
-#          sed -i "s|PATH_TO_CHANGE|$curr|" export_presets.cfg
-#          DRI_PRIME=0 xvfb-run ./godot.x11.tools.64s --export-debug "Linux/X11" test_project 2>&1 | tee sanitizers_log.txt || true
-#          misc/check_ci_log.py sanitizers_log.txt
-#          DRI_PRIME=0 xvfb-run ./test_project 20 2>&1 | tee sanitizers_log.txt || true
-#          misc/check_ci_log.py sanitizers_log.txt
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ${{ github.job }}
+          path: godot.x11.tools.64s
+          retention-days: 14
