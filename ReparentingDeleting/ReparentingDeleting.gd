@@ -5,7 +5,14 @@ var number_of_nodes : int = 0
 var collected_nodes : Array = []
 var disabled_classes : Array = [
 	"NavigationAgent2D", "NavigationAgent3D","GPUParticlesCollisionHeightField",
-	"ReflectionProbe", # Cause errors, not sure about it
+	"ReflectionProbe",# Cause errors, not sure about it
+	
+	# Creating them is really slow in Godot 4.0
+	"ColorPicker",
+	"FileDialog",
+	"ColorPickerButton",
+	"PhysicalSkyMaterial",
+	"ProceduralSkyMaterial" 
 ] # Just add name of any class if cause problems
 
 func collect() -> void:
@@ -23,7 +30,7 @@ func collect() -> void:
 func _ready() -> void:
 	seed(405)
 	collect()
-	number_of_nodes = max(collected_nodes.size(),200) # Use at least all nodes, or more if you want(168 is probably number nodes)
+	number_of_nodes = max(collected_nodes.size(),11) # Use at least all nodes, or more if you want(168 is probably number nodes)
 	for i in range(number_of_nodes): 
 		var index = i
 		if i >= collected_nodes.size(): # Wrap values
