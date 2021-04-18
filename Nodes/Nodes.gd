@@ -3,10 +3,17 @@ extends Node
 var TIME_TO_DELETE : float = 1.0
 var time_to_delete : float = TIME_TO_DELETE
 	
-var disabled_classes : Array = ["NavigationAgent2D", "NavigationAgent3D","GPUParticlesCollisionHeightField"]
+var disabled_classes : Array = ["NavigationAgent2D", "NavigationAgent3D","GPUParticlesCollisionHeightField",
+
+	# Creating them is really slow in Godot 4.0
+	"ColorPicker",
+	"FileDialog",
+	"ColorPickerButton",
+	"PhysicalSkyMaterial",
+	"ProceduralSkyMaterial"]
 	
 func _populate() -> void:
-	for _i in range(2): # Number of created 
+	for _i in range(1): # Number of created 
 		for name_of_class in ClassDB.get_class_list():
 			if name_of_class in disabled_classes:
 				continue
