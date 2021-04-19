@@ -9,14 +9,6 @@ var array_with_time_to_change : Array = []
 func _ready():
 	for i in Autoload.alone_steps.size() + 1:
 		array_with_time_to_change.append(OS.get_ticks_msec() + i * Autoload.time_for_each_step)
-	
-	print("Starting with scene(s):")
-	for path in  Autoload.all_in_one:
-		for _i in range(NUMBER_OF_INSTANCES):
-			var scene : Node = load(path).instance()
-			add_child(scene)
-		print("   - " + path)
-	
 
 func _process(_delta):
 	if current_scene < Autoload.alone_steps.size() - 1 && OS.get_ticks_msec() > array_with_time_to_change[current_scene + 1]:

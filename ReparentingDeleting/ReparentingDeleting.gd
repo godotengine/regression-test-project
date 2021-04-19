@@ -47,7 +47,7 @@ func _ready() -> void:
 #   - At the end add first random node as child of second
 
 func _process(delta: float) -> void:
-	assert(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT) == 0) # Don't work good with running more than 1 this scene
+#	assert(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT) == 0) # Don't work good with running more than 1 this scene
 	
 	var choosen_node : Node
 	var parent_of_node : Node

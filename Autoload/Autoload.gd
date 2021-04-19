@@ -17,16 +17,8 @@ const alone_steps : Array = [
 	"res://Nodes/Nodes.tscn",
 	"res://Physics/2D/Physics2D.tscn",
 	"res://Physics/3D/Physics3D.tscn",
-	"res://Rendering/Lights2D/Lights2D.tscn",
-	"res://Rendering/Lights3D/Lights3D.tscn",
 	"res://ReparentingDeleting/ReparentingDeleting.tscn",
-]
-
-# All scenes run in one step
-# This should be put regression scripts which needs to run only once
-const all_in_one : Array = [
-"res://AIO/Operators/Operators.tscn",
-"res://AutomaticBugs/FunctionExecutor.tscn",
+	"res://AutomaticBugs/FunctionExecutor.tscn", # Only runs 
 ]
 
 func _init(): 
