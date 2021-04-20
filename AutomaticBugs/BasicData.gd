@@ -5,12 +5,6 @@ var regression_test_project : bool = true # Set it to true in RegressionTestProj
 # Contains info about disabled classes 
 # Also allows to get list of available classes
 
-var properties_exceptions : Array = [
-	"user_data",
-	"config_file",
-	"",
-	"",
-]
 var function_exceptions : Array = [
 		#GODOT 4.0
 	"create_from_image",
@@ -198,59 +192,6 @@ var exported : Array = [
 	"get_bind_pose",
 ]
 
-# List of slow functions, which may frooze project(not simple executing each function alone)
-var slow_functions : Array = [
-	"interpolate_baked",
-	"get_baked_length",
-	"get_baked_points",
-	"get_closest_offset",
-	"get_closest_point", # Only Curve, but looks that a lot of other classes uses this
-	"get_baked_up_vectors",
-	"interpolate_baked_up_vector",
-	"tessellate",
-	"get_baked_tilts",
-	"set_enabled_inputs",
-	"grow_mask",
-	"force_update_transform",
-	
-	
-	# In 3d view some options are really slow, needs to be limited
-	"set_rings",
-	"set_amount", # Particles
-
-
-	# Just a little slow functions
-	"is_enabler_enabled",
-	"set_enabler",
-	"get_aabb",
-	"set_aabb",
-	"is_on_screen"
-]
-# Specific classes which are initialized in specific way e.g. var undo_redo = get_undo_redo() instead var undo_redo = UndoRedo.new()
-var only_instance : Array = [
-	"UndoRedo",
-	"Object",
-	"JSONRPC",
-	"MainLoop",
-	"SceneTree",
-	"ARVRPositionalTracker",
-]
-var invalid_signals : Array = [
-	"multi_selected",
-	"item_collapsed",
-	"button_pressed",
-	"",
-	"",
-	"",
-	
-	
-	# Probably Vararg
-	"tween_step",
-	"tween_completed",
-	"tween_started",
-	"data_channel_received",
-	"",
-]
 # Used only in ValueCreator
 var disabled_classes : Array = [
 	"ProjectSettings", # Don't mess with project settings, because they can broke entire your workflow
@@ -301,6 +242,14 @@ func _init():
 func check_if_is_allowed(method_data : Dictionary) -> bool:
 	# Function is virtual, so we just skip it
 	if method_data.get("flags") == method_data.get("flags") | METHOD_FLAG_VIRTUAL:
+		return false
+		
+	# Function is vararg, so we just skip it
+	if method_data.get("flags") == method_data.get("flags") | 128:
+		return false
+		
+	# Function is static, so we just skip it
+	if method_data.get("flags") == method_data.get("flags") | 256:
 		return false
 		
 	for arg in method_data.get("args"):
