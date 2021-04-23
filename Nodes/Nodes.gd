@@ -1,6 +1,6 @@
 extends Node
 
-var TIME_TO_DELETE : float = 1.0
+var TIME_TO_DELETE : float = 100.0
 var time_to_delete : float = TIME_TO_DELETE
 	
 var disabled_classes : Array = ["NavigationAgent2D", "NavigationAgent3D","GPUParticlesCollisionHeightField",
@@ -41,15 +41,15 @@ func _ready() -> void:
 
 # Move nodes a little and delete and readd them later
 func _process(delta: float) -> void:
-	for i in get_children():
-		if i is Control:
-			i._set_size(Vector2(200 * randf() - 100, 200 * randf() - 100))
-		if i is Node2D:
-			i.set_position(Vector2(1000 * randf() - 500, 1000 * randf() - 500))
-		if i is Node3D:
-			if i.get_name() != "Camera":
-				i.set_scale(Vector3(delta + 1, delta + 1, delta + 1))
-				i.set_translation(Vector3(10 * randf(), 10 * randf(), 10 * randf()))
+#	for i in get_children():
+#		if i is Control:
+#			i._set_size(Vector2(200 * randf() - 100, 200 * randf() - 100))
+#		if i is Node2D:
+#			i.set_position(Vector2(1000 * randf() - 500, 1000 * randf() - 500))
+#		if i is Node3D:
+#			if i.get_name() != "Camera":
+#				i.set_scale(Vector3(delta + 1, delta + 1, delta + 1))
+#				i.set_translation(Vector3(10 * randf(), 10 * randf(), 10 * randf()))
 			
 	time_to_delete -= delta
 	if time_to_delete < 0:
