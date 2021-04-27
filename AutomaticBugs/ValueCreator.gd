@@ -85,11 +85,11 @@ func get_aabb() -> AABB:
 func get_aabb_string() -> String:
 	return "AABB(" + get_vector3_string() + ", " + get_vector3_string() + ")"
 	
-func get_transform() -> Transform:
-	return Transform(get_vector3(),get_vector3(),get_vector3(),get_vector3())
-	
-func get_transform_string() -> String:
-	return "Transform(" + get_vector3_string() + ", " + get_vector3_string() + ", " + get_vector3_string() + ", " + get_vector3_string() + ")"
+#func get_transform() -> Transform:
+#	return Transform(get_vector3(),get_vector3(),get_vector3(),get_vector3())
+#
+#func get_transform_string() -> String:
+#	return "Transform(" + get_vector3_string() + ", " + get_vector3_string() + ", " + get_vector3_string() + ", " + get_vector3_string() + ")"
 	
 func get_transform2D() -> Transform2D:
 	return Transform2D(get_vector2(),get_vector2(),get_vector2())
