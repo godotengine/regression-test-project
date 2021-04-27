@@ -47,7 +47,7 @@ jobs:
         run: |
           git clone https://github.com/godotengine/godot.git
           cd godot
-          git checkout 3.x
+          git checkout 3.3
           cd ../
 
       - name: Compile Godot
@@ -60,21 +60,13 @@ jobs:
           cd ../
           rm -rf godot
 
-      - name: Use Godot
+      - name: Open and close editor
         run: |
-          echo "-------------------- OPEN EDITOR TO IMPORT PROJECT -----------------------"
           DRI_PRIME=0 xvfb-run ./godot.x11.tools.64s --audio-driver Dummy -e -q --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
           misc/check_ci_log.py sanitizers_log.txt
-          echo "-------------------- RUN PROJECT -----------------------"
+
+      - name: Test project
+        run: |
           DRI_PRIME=0 xvfb-run ./godot.x11.tools.64s 3600 --audio-driver Dummy --video-driver GLES3 --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
           misc/check_ci_log.py sanitizers_log.txt
 
-#      # Export project and run it to check for possible leaks and invalid memory usage
-#      - name: Exporting and running project
-#        run: |
-#          curr="$(pwd)/godot.x11.opt.64s"
-#          sed -i "s|PATH_TO_CHANGE|$curr|" export_presets.cfg
-#          DRI_PRIME=0 xvfb-run ./godot.x11.tools.64s --export-debug "Linux/X11" test_project 2>&1 | tee sanitizers_log.txt || true
-#          misc/check_ci_log.py sanitizers_log.txt
-#          DRI_PRIME=0 xvfb-run ./test_project 20 2>&1 | tee sanitizers_log.txt || true
-#          misc/check_ci_log.py sanitizers_log.txt

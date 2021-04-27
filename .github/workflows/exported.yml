@@ -25,11 +25,11 @@ jobs:
 
 #      - name: Download Godot
 #        run: |
-#          wget2 https://downloads.tuxfamily.org/godotengine/3.2.4/beta1/Godot_v3.2.4-beta1_x11.64.zip
+#          wget2 https://downloads.tuxfamily.org/godotengine/3.3/beta1/Godot_v3.2.4-beta1_x11.64.zip
 #          unzip Godot_v3.2.4-beta1_x11.64.zip
 #          rm Godot_v3.2.4-beta1_x11.64.zip
 #          mv Godot_v3.2.4-beta1_x11.64 godot.x11.tools.64s
-#          wget2 https://downloads.tuxfamily.org/godotengine/3.2.4/beta1/Godot_v3.2.4-beta1_export_templates.tpz
+#          wget2 https://downloads.tuxfamily.org/godotengine/3.3/beta1/Godot_v3.2.4-beta1_export_templates.tpz
 #          unzip Godot_v3.2.4-beta1_export_templates.tpz
 #          mv templates/linux_x11_64_debug godot.x11.opt.64s
 #          rm -rf templates
@@ -47,7 +47,7 @@ jobs:
         run: |
           git clone https://github.com/godotengine/godot.git
           cd godot
-          git checkout 3.x
+          git checkout 3.3
           cd ../
 
       - name: Compile Godot
