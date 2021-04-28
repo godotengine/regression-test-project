@@ -6,7 +6,7 @@ var regression_test_project : bool = true # Set it to true in RegressionTestProj
 # Also allows to get list of available classes
 
 var function_exceptions : Array = [
-	#GODOT 4.0
+		#GODOT 4.0
 	"create_from_image",
 	"set_point_position",
 	"connect", # OTHER THINGS
@@ -209,7 +209,7 @@ var disabled_classes : Array = [
 	"IP_Unix",
 	"JNISingleton",
 	
-	# Godot 4.0 Leaks, crashes etc.
+		# Godot 4.0 Leaks, crashes etc.
 	"World3D",
 	"GPUParticlesCollisionHeightField", #4.0 Crash
 	"NavigationAgent2D",
@@ -272,9 +272,7 @@ func check_if_is_allowed(method_data : Dictionary) -> bool:
 		var t : int = arg.get("type")
 		if t == TYPE_CALLABLE:
 			return false
-#		if t == TYPE_TRANSFORM: # Look at GH 38430
-#			return false
-		elif !(t == TYPE_NIL|| t == TYPE_MAX|| t == TYPE_AABB|| t == TYPE_ARRAY|| t == TYPE_BASIS|| t == TYPE_BOOL|| t == TYPE_COLOR|| t == TYPE_COLOR_ARRAY|| t == TYPE_DICTIONARY|| t == TYPE_INT|| t == TYPE_INT32_ARRAY|| t == TYPE_INT64_ARRAY|| t == TYPE_NODE_PATH|| t == TYPE_OBJECT|| t == TYPE_PLANE|| t == TYPE_QUAT|| t == TYPE_RAW_ARRAY|| t == TYPE_FLOAT|| t == TYPE_FLOAT32_ARRAY|| t == TYPE_FLOAT64_ARRAY|| t == TYPE_RECT2|| t == TYPE_RECT2I|| t == TYPE_RID|| t == TYPE_STRING|| t == TYPE_STRING_NAME|| t == TYPE_STRING_ARRAY|| t == TYPE_TRANSFORM2D|| t == TYPE_VECTOR2|| t == TYPE_VECTOR2I|| t == TYPE_VECTOR2_ARRAY|| t == TYPE_VECTOR3|| t == TYPE_VECTOR3I|| t == TYPE_VECTOR3_ARRAY):
+		elif !(t == TYPE_NIL|| t == TYPE_MAX|| t == TYPE_AABB|| t == TYPE_ARRAY|| t == TYPE_BASIS|| t == TYPE_BOOL|| t == TYPE_COLOR|| t == TYPE_COLOR_ARRAY|| t == TYPE_DICTIONARY|| t == TYPE_INT|| t == TYPE_INT32_ARRAY|| t == TYPE_INT64_ARRAY|| t == TYPE_NODE_PATH|| t == TYPE_OBJECT|| t == TYPE_PLANE|| t == TYPE_QUAT|| t == TYPE_RAW_ARRAY|| t == TYPE_FLOAT|| t == TYPE_FLOAT32_ARRAY|| t == TYPE_FLOAT64_ARRAY|| t == TYPE_RECT2|| t == TYPE_RECT2I|| t == TYPE_RID|| t == TYPE_STRING|| t == TYPE_STRING_NAME|| t == TYPE_STRING_ARRAY|| t == TYPE_TRANSFORM|| t == TYPE_TRANSFORM2D|| t == TYPE_VECTOR2|| t == TYPE_VECTOR2I|| t == TYPE_VECTOR2_ARRAY|| t == TYPE_VECTOR3|| t == TYPE_VECTOR3I|| t == TYPE_VECTOR3_ARRAY):
 			print("----------------------------------------------------------- TODO - MISSING TYPE, ADD SUPPORT IT")
 			return false
 			

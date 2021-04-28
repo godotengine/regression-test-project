@@ -105,9 +105,9 @@ func create_gdscript_arguments(arguments: Array) -> Array:
 		elif typ ==TYPE_STRING_ARRAY:
 				sa.type = "PackedStringArray"
 				sa.value = "PackedStringArray([])"
-#		elif typ ==TYPE_TRANSFORM:
-#				sa.type = "Transform"
-#				sa.value = ValueCreator.get_transform_string()
+		elif typ ==TYPE_TRANSFORM:
+				sa.type = "Transform"
+				sa.value = ValueCreator.get_transform_string()
 		elif typ ==TYPE_TRANSFORM2D:
 				sa.type = "Transform2D"
 				sa.value = ValueCreator.get_transform2D_string()
@@ -210,8 +210,8 @@ func parse_and_return_objects(method_data: Dictionary, debug_print: bool = false
 				arguments_array.push_back(StringName(ValueCreator.get_string()))
 		elif type == TYPE_STRING_ARRAY:
 				arguments_array.push_back(PackedStringArray([]))
-#		elif type == TYPE_TRANSFORM:
-#				arguments_array.push_back(ValueCreator.get_transform())
+		elif type == TYPE_TRANSFORM:
+				arguments_array.push_back(ValueCreator.get_transform())
 		elif type == TYPE_TRANSFORM2D:
 				arguments_array.push_back(ValueCreator.get_transform2D())
 		elif type == TYPE_VECTOR2:
