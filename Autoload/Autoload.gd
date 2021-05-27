@@ -64,6 +64,5 @@ func _process(delta: float) -> void:
 
 func _exit_tree():
 	os.free()
-	if !ClassDB.class_exists("Time"):
-		time.free()    
+	time.free()    
 
