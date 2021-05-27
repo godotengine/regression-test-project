@@ -13,6 +13,7 @@ var time_to_show: int = 25 * 1000 # How long test works in miliseconds
 var time_for_each_step : int = -1 
 
 var os 
+var time
 
 # Each scene runs alone
 const alone_steps : Array = [
@@ -29,7 +30,14 @@ func _init():
 	else:
 		os = ClassDB.instance("_Platform")
 		
-	start_time = os.get_ticks_msec()
+	if ClassDB.class_exists("Time"):
+		time = ClassDB.instance("Time")
+	elif ClassDB.class_exists("_OS"):
+		time = ClassDB.instance("_OS")
+	else:
+		time = ClassDB.instance("_Platform")
+		
+	start_time = time.get_ticks_msec()
 	
 	# In case when user doesn't provide time
 	time_for_each_step = time_to_show / (alone_steps.size())
@@ -43,7 +51,7 @@ func _init():
 
 
 func _process(delta: float) -> void:
-	var current_run_time : int = os.get_ticks_msec() - start_time
+	var current_run_time : int = time.get_ticks_msec() - start_time
 	
 	# While loop instead if, will allow to properly flush results under heavy operations(e.g. Thread sanitizer)
 	while current_run_time > time_to_print_next_time: 
@@ -56,3 +64,6 @@ func _process(delta: float) -> void:
 
 func _exit_tree():
 	os.free()
+	if !ClassDB.class_exists("Time"):
+		time.free()    
+
