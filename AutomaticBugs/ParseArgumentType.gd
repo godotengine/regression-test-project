@@ -78,7 +78,7 @@ func parse_and_return_objects(method_data: Dictionary, name_of_class: String, de
 			arguments_array.push_back(StringName(ValueCreator.get_string()))
 		elif type == TYPE_STRING_ARRAY:
 			arguments_array.push_back(PackedStringArray([]))
-		elif type == TYPE_TRANSFORM:
+		elif type == TYPE_TRANSFORM3D:
 			arguments_array.push_back(ValueCreator.get_transform())
 		elif type == TYPE_TRANSFORM2D:
 			arguments_array.push_back(ValueCreator.get_transform2D())
@@ -267,7 +267,7 @@ func return_gdscript_code_which_run_this_object(data) -> String:
 			if i != data.size() - 1:
 				return_string += ", "
 		return_string += "])"
-	elif type == TYPE_TRANSFORM:
+	elif type == TYPE_TRANSFORM3D:
 		return_string = "Transform("
 		return_string += return_gdscript_code_which_run_this_object(data.basis)
 		return_string += ", "
