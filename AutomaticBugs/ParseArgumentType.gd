@@ -193,7 +193,7 @@ func return_gdscript_code_which_run_this_object(data) -> String:
 			if (
 				ClassDB.is_parent_class(name_of_class, "Object")
 				&& !ClassDB.is_parent_class(name_of_class, "Node")
-				&& !ClassDB.is_parent_class(name_of_class, "Reference")
+				&& !obj_is_reference(name_of_class)
 				&& !ClassDB.class_has_method(name_of_class, "new")
 			):
 				return_string += "ClassDB.instance(\"" + name_of_class + "\")"
@@ -334,3 +334,8 @@ func return_gdscript_code_which_run_this_object(data) -> String:
 		assert(false, "Missing type, needs to be added to project")
 
 	return return_string
+
+func obj_is_reference(name_of_class : String) -> bool:
+	if ClassDB.class_exists("Reference"):
+		return ClassDB.is_parent_class(name_of_class, "Reference")
+	return ClassDB.is_parent_class(name_of_class, "RefCounted")
