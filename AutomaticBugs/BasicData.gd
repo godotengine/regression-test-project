@@ -232,7 +232,7 @@ func check_if_is_allowed(method_data : Dictionary) -> bool:
 			continue
 		if name_of_class in disabled_classes:
 			return false
-		if name_of_class.find("Server") != -1 && ClassDB.class_exists(name_of_class) && !ClassDB.is_parent_class(name_of_class,"Reference"):
+		if name_of_class.find("Server") != -1 && ClassDB.class_exists(name_of_class) && !obj_is_reference(name_of_class):
 			return false
 		# Editor stuff usually aren't good choice for arhuments	
 		if name_of_class.find("Editor") != -1 || name_of_class.find("SkinReference") != -1:
@@ -267,6 +267,8 @@ func remove_disabled_methods(method_list : Array, exceptions : Array) -> void:
 		if index != -1:
 			method_list.remove(index)
 
+
+
 # Return all available classes which can be used
 func get_list_of_available_classes(must_be_instantable : bool = true) -> Array:
 	var full_class_list : Array = Array(ClassDB.get_class_list())
@@ -284,10 +286,10 @@ func get_list_of_available_classes(must_be_instantable : bool = true) -> Array:
 
 		#This is only for RegressionTestProject, because it needs for now clear visual info what is going on screen, but some nodes broke view
 		if regression_test_project:
-			if !ClassDB.is_parent_class(name_of_class, "Node") && !ClassDB.is_parent_class(name_of_class, "Reference"):
+			if !ClassDB.is_parent_class(name_of_class, "Node") && !obj_is_reference(name_of_class):
 				continue
 
-		if name_of_class.find("Server") != -1 && !ClassDB.is_parent_class(name_of_class,"Reference"):
+		if name_of_class.find("Server") != -1 && !(obj_is_reference(name_of_class)):
 			continue
 		if name_of_class.find("Editor") != -1 && regression_test_project:
 			continue
@@ -299,3 +301,8 @@ func get_list_of_available_classes(must_be_instantable : bool = true) -> Array:
 			
 	print(str(c) + " choosen classes from all " + str(full_class_list.size()) + " classes.")
 	return classes
+
+func obj_is_reference(name_of_class : String) -> bool:
+	if ClassDB.class_exists("Reference"):
+		return ClassDB.is_parent_class(name_of_class, "Reference")
+	return ClassDB.is_parent_class(name_of_class, "RefCounted")

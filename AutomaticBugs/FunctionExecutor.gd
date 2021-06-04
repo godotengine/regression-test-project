@@ -62,7 +62,7 @@ func tests_all_functions() -> void:
 					if (
 						ClassDB.is_parent_class(name_of_class, "Object")
 						&& !ClassDB.is_parent_class(name_of_class, "Node")
-						&& !ClassDB.is_parent_class(name_of_class, "Reference")
+						&& !obj_is_reference(name_of_class)
 						&& !ClassDB.class_has_method(name_of_class, "new")
 					):
 						to_print += "ClassDB.instance(\"" + name_of_class + "\")." + method_data.get("name") + "("
@@ -81,13 +81,13 @@ func tests_all_functions() -> void:
 				for argument in arguments:
 					if argument is Node:
 						argument.queue_free()
-					elif argument is Object && !(argument is Reference):
+					elif argument is Object && !(obj_is_reference(argument.get_class())):
 						argument.free()
 
 				if use_always_new_object:
 					if object is Node:
 						object.queue_free()
-					elif object is Object && !(object is Reference):
+					elif object is Object && !(obj_is_reference(object.get_class())):
 						object.free()
 
 					object = ClassDB.instance(name_of_class)
@@ -97,5 +97,10 @@ func tests_all_functions() -> void:
 
 		if object is Node:
 			object.queue_free()
-		elif object is Object && !(object is Reference):
+		elif object is Object && !(obj_is_reference(object.get_class())):
 			object.free()
+
+func obj_is_reference(name_of_class : String) -> bool:
+	if ClassDB.class_exists("Reference"):
+		return ClassDB.is_parent_class(name_of_class, "Reference")
+	return ClassDB.is_parent_class(name_of_class, "RefCounted")
