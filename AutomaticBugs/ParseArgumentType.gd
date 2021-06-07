@@ -56,8 +56,8 @@ func parse_and_return_objects(method_data: Dictionary, name_of_class: String, de
 			arguments_array.push_back(ValueCreator.get_object(argument.get("class_name")))
 		elif type == TYPE_PLANE:
 			arguments_array.push_back(ValueCreator.get_plane())
-		elif type == TYPE_QUAT:
-			arguments_array.push_back(ValueCreator.get_quat())
+		elif type == TYPE_QUATERNION:
+			arguments_array.push_back(ValueCreator.get_quaternion())
 		elif type == TYPE_RAW_ARRAY:
 			arguments_array.push_back(PackedByteArray([]))
 		elif type == TYPE_FLOAT:
@@ -211,8 +211,8 @@ func return_gdscript_code_which_run_this_object(data) -> String:
 		return_string += ", "
 		return_string += return_gdscript_code_which_run_this_object(data.d)
 		return_string += ")"
-	elif type == TYPE_QUAT:
-		return_string = "Quat("
+	elif type == TYPE_QUATERNION:
+		return_string = "Quaternion("
 		return_string += return_gdscript_code_which_run_this_object(data.x)
 		return_string += ", "
 		return_string += return_gdscript_code_which_run_this_object(data.y)
