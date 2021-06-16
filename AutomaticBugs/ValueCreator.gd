@@ -102,12 +102,12 @@ func get_aabb_string() -> String:
 	return "AABB(" + get_vector3_string() + ", " + get_vector3_string() + ")"
 
 
-func get_transform() -> Transform:
-	return Transform(get_vector3(), get_vector3(), get_vector3(), get_vector3())
+func get_transform3D() -> Transform3D:
+	return Transform3D(get_vector3(), get_vector3(), get_vector3(), get_vector3())
 
 
-func get_transform_string() -> String:
-	return "Transform(" + get_vector3_string() + ", " + get_vector3_string() + ", " + get_vector3_string() + ", " + get_vector3_string() + ")"
+func get_transform3D_string() -> String:
+	return "Transform3D(" + get_vector3_string() + ", " + get_vector3_string() + ", " + get_vector3_string() + ", " + get_vector3_string() + ")"
 
 
 func get_transform2D() -> Transform2D:
