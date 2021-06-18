@@ -36,7 +36,7 @@ func _ready() -> void:
 		if i >= collected_nodes.size(): # Wrap values
 			index = i % collected_nodes.size()
 			
-		var child : Node = ClassDB.instance(collected_nodes[index])
+		var child : Node = Autoload.get_instance_from_name(collected_nodes[index])
 		child.set_name("Special Node " + str(i))
 		add_child(child)
 	
@@ -70,7 +70,7 @@ func _process(delta: float) -> void:
 #		if randi() % 6 == 0: # 16% chance to remove node with children
 #			var names_to_remove : Array = find_all_special_children_names(choosen_node)
 #			for name_to_remove in names_to_remove:
-#				var node : Node = ClassDB.instance(collected_nodes[randi() % collected_nodes.size()])
+#				var node : Node = Autoload.get_instance_from_name(collected_nodes[randi() % collected_nodes.size()])
 #				node.set_name(name_to_remove)
 #				add_child(node)
 #			choosen_node.queue_free()
