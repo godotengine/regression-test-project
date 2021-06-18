@@ -40,7 +40,7 @@ func tests_all_functions() -> void:
 		if debug_print:
 			print("\n#################### " + name_of_class + " ####################")
 
-		var object: Object = ClassDB.instance(name_of_class)
+		var object: Object = Autoload.get_instance_from_name(name_of_class)
 		assert(object != null, "Object must be instantable")
 		if add_to_tree:
 			if object is Node:
@@ -90,7 +90,7 @@ func tests_all_functions() -> void:
 					elif object is Object && !(obj_is_reference(object.get_class())):
 						object.free()
 
-					object = ClassDB.instance(name_of_class)
+					object = Autoload.get_instance_from_name(name_of_class)
 					if add_to_tree:
 						if object is Node:
 							add_child(object)

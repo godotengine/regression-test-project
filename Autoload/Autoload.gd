@@ -12,8 +12,7 @@ var time_to_show: int = 25 * 1000 # How long test works in miliseconds
 
 var time_for_each_step : int = -1 
 
-var os 
-var time
+var os
 
 # Each scene runs alone
 const alone_steps : Array = [
@@ -26,18 +25,11 @@ const alone_steps : Array = [
 
 func _init(): 
 	if ClassDB.class_exists("_OS"):
-		os = ClassDB.instance("_OS")
+		os = get_instance_from_name("_OS")
 	else:
-		os = ClassDB.instance("_Platform")
+		os = get_instance_from_name("_Platform")
 		
-	if ClassDB.class_exists("Time"):
-		time = ClassDB.instance("Time")
-	elif ClassDB.class_exists("_OS"):
-		time = ClassDB.instance("_OS")
-	else:
-		time = ClassDB.instance("_Platform")
-		
-	start_time = time.get_ticks_msec()
+	start_time = Time.get_ticks_msec()
 	
 	# In case when user doesn't provide time
 	time_for_each_step = time_to_show / (alone_steps.size())
@@ -51,7 +43,7 @@ func _init():
 
 
 func _process(delta: float) -> void:
-	var current_run_time : int = time.get_ticks_msec() - start_time
+	var current_run_time : int = Time.get_ticks_msec() - start_time
 	
 	# While loop instead if, will allow to properly flush results under heavy operations(e.g. Thread sanitizer)
 	while current_run_time > time_to_print_next_time: 
@@ -62,7 +54,12 @@ func _process(delta: float) -> void:
 		print("######################## Ending test ########################")
 		get_tree().quit()
 
+func get_instance_from_name(method: String):
+	if ClassDB.class_has_method("_ClassDB","instance"):
+		return ClassDB.call("instance",method)
+	else:
+		return ClassDB.call("instantiate",method)
+	
+
 func _exit_tree():
 	os.free()
-	time.free()    
-

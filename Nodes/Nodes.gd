@@ -22,16 +22,16 @@ func _populate() -> void:
 				
 				
 			if ClassDB.is_parent_class(name_of_class,"Control"):
-				add_child(ClassDB.instance(name_of_class))
+				add_child(Autoload.get_instance_from_name(name_of_class))
 				continue
 			if ClassDB.is_parent_class(name_of_class,"Node3D"):
-				add_child(ClassDB.instance(name_of_class))
+				add_child(Autoload.get_instance_from_name(name_of_class))
 				continue
 			if ClassDB.is_parent_class(name_of_class,"Node2D"):
-				add_child(ClassDB.instance(name_of_class))
+				add_child(Autoload.get_instance_from_name(name_of_class))
 				continue
 			if ClassDB.is_parent_class(name_of_class,"Node"):
-				add_child(ClassDB.instance(name_of_class))
+				add_child(Autoload.get_instance_from_name(name_of_class))
 				continue
 				
 				
