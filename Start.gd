@@ -22,5 +22,5 @@ func _process(_delta):
 		print("Changed scene to " + Autoload.alone_steps[current_scene])
 
 		for _i in range(NUMBER_OF_INSTANCES):
-			var scene: Node = load(Autoload.alone_steps[current_scene]).instance()
+			var scene: Node = load(Autoload.alone_steps[current_scene]).instantiate()
 			add_child(scene)
