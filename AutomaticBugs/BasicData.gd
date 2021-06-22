@@ -295,7 +295,7 @@ func get_list_of_available_classes(must_be_instantable : bool = true) -> Array:
 			continue
 			
 			
-		if !must_be_instantable || ClassDB.can_instance(name_of_class):
+		if !must_be_instantable || ClassDB.can_instantiate(name_of_class):
 			classes.push_back(name_of_class)
 			c+= 1
 			

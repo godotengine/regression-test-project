@@ -17,7 +17,7 @@ func _populate() -> void:
 		for name_of_class in ClassDB.get_class_list():
 			if name_of_class in disabled_classes:
 				continue
-			if !ClassDB.can_instance(name_of_class):
+			if !ClassDB.can_instantiate(name_of_class):
 				continue
 				
 				

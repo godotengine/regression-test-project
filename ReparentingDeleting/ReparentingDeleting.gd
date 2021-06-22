@@ -24,7 +24,7 @@ func collect() -> void:
 				continue
 			if disabled_classes.has(name_of_class): # Class is disabled
 				continue
-			if ClassDB.can_instance(name_of_class): # Only instantable nodes can be used
+			if ClassDB.can_instantiate(name_of_class): # Only instantable nodes can be used
 				collected_nodes.append(name_of_class)
 
 func _ready() -> void:
