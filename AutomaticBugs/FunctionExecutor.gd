@@ -48,7 +48,7 @@ func tests_all_functions() -> void:
 		var method_list: Array = ClassDB.class_get_method_list(name_of_class, !use_parent_methods)
 
 		# Removes excluded methods
-		BasicData.remove_disabled_methods(method_list, BasicData.function_exceptions)
+		method_list = BasicData.remove_disabled_methods(method_list, BasicData.function_exceptions)
 
 		for _i in range(1):
 			for method_data in method_list:

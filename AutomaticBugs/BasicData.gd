@@ -257,16 +257,19 @@ func check_if_is_allowed(method_data : Dictionary) -> bool:
 	
 	return true
 
-func remove_disabled_methods(method_list : Array, exceptions : Array) -> void:
-	for exception in exceptions:
+func remove_disabled_methods(method_list : Array, exceptions : Array) -> Array:
+	var new_list : Array = [] # Workaround for GH 50139 renaming remove to remove_at
+	for method_index in range(method_list.size()):
 		var index: int = -1
-		for method_index in range(method_list.size()):
+		for exception in exceptions:
 			if method_list[method_index].get("name") == exception:
 				index = method_index
 				break
-		if index != -1:
-			method_list.remove(index)
-
+		if index == -1:
+			new_list.append(method_list[method_index])
+			
+	method_list = new_list
+	return new_list
 
 
 # Return all available classes which can be used
