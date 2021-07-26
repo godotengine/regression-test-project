@@ -62,12 +62,15 @@ jobs:
           curr="$(pwd)/libvk_swiftshader.so"
           sed -i "s|PATH_TO_CHANGE|$curr|" vk_swiftshader_icd.json
 
-      - name: Use Godot
+      - name: Open Editor
         run: |
-          sed -i "s|NUMBER_OF_INSTANCES : int = 1|NUMBER_OF_INSTANCES : int = 10|" Start.gd
           echo "-------------------- OPEN EDITOR  -----------------------"
           VK_ICD_FILENAMES=$(pwd)/vk_swiftshader_icd.json DRI_PRIME=0 xvfb-run ./godot.linuxbsd.tools.64.llvms --audio-driver Dummy -e -q --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
           misc/check_ci_log.py sanitizers_log.txt
+
+      - name: Use Godot
+        run: |
+          sed -i "s|NUMBER_OF_INSTANCES : int = 1|NUMBER_OF_INSTANCES : int = 2|" Start.gd
           echo "-------------------- RUN PROJECT -----------------------"
           VK_ICD_FILENAMES=$(pwd)/vk_swiftshader_icd.json DRI_PRIME=0 xvfb-run ./godot.linuxbsd.tools.64.llvms 3600 --audio-driver Dummy --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
           misc/check_ci_log.py sanitizers_log.txt
