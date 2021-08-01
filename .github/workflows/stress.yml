@@ -1,5 +1,9 @@
 name: 🐧 Stress 2h
-on: [push, pull_request]
+on: 
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
   linux-sanitizer:
@@ -60,13 +64,15 @@ jobs:
           cd ../
           rm -rf godot
 
-      - name: Use Godot
+      - name: Open and close editor
         run: |
-          sed -i "s|NUMBER_OF_INSTANCES : int = 1|NUMBER_OF_INSTANCES : int = 10|" Start.gd
           echo "-------------------- OPEN EDITOR TO IMPORT PROJECT -----------------------"
           DRI_PRIME=0 xvfb-run ./godot.x11.tools.64s --audio-driver Dummy -e -q --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
           misc/check_ci_log.py sanitizers_log.txt || true
-          echo "-------------------- RUN PROJECT -----------------------"
+          
+      - name: Use Godot
+        run: |
+          sed -i "s|NUMBER_OF_INSTANCES : int = 1|NUMBER_OF_INSTANCES : int = 10|" Start.gd
           DRI_PRIME=0 xvfb-run ./godot.x11.tools.64s 7200 --audio-driver Dummy --video-driver GLES3 --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
           misc/check_ci_log.py sanitizers_log.txt || true
 
