@@ -1,15 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://c30wdiq4o3bog"]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://Physics/2D/KinematicBody2D.gd" type="Script" id=2]
+[ext_resource type="Texture2D" uid="uid://bp1jqfv4eumxi" path="res://icon.png" id="1"]
+[ext_resource type="Script" path="res://Physics/2D/KinematicBody2D.gd" id="2"]
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
-script = ExtResource( 2 )
+[node name="KinematicBody2D" type="CharacterBody2D"]
+script = ExtResource( "2" )
 
-[node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.74902, 0.133333, 0.133333, 1 )
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(0.74902, 0.133333, 0.133333, 1)
 rotation = 4.45932
-texture = ExtResource( 1 )
+texture = ExtResource( "1" )
+script = null
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -10.6781, -7.48182, -12.4953, 17.1263, 15.2543, 6.19464, 4.32263, -14.4073 )
+polygon = PackedVector2Array(-10.6781, -7.48182, -12.4953, 17.1263, 15.2543, 6.19464, 4.32263, -14.4073)
+script = null
