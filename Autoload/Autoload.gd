@@ -24,10 +24,10 @@ const alone_steps : Array = [
 ]
 
 func _init(): 
-	if ClassDB.class_exists("_OS"):
-		os = get_instance_from_name("_OS")
+	if ClassDB.class_exists("OS"):
+		os = get_instance_from_name("OS")
 	else:
-		os = get_instance_from_name("_Platform")
+		os = get_instance_from_name("Platform")
 		
 	start_time = Time.get_ticks_msec()
 	
