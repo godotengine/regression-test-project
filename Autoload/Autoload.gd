@@ -18,9 +18,7 @@ var os
 const alone_steps : Array = [
 	"res://Nodes/Nodes.tscn",
 #	"res://ReparentingDeleting/ReparentingDeleting.tscn", # Really slow in 4.0
-#	"res://Physics/2D/Physics2D.tscn", # Too slow still
 	"res://AutomaticBugs/FunctionExecutor.tscn", # Only Needs to be executed once, but this is workaround a little
-#	"res://Physics/3D/Physics3D.tscn", # Loads very long but isn't necessarry so we skip it now
 ]
 
 func _init(): 
