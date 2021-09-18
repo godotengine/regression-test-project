@@ -16,6 +16,7 @@ var can_be_closed: bool = true
 
 # Each scene runs alone
 const alone_steps: Array = [
+	"res://CreatingAllThings/CreatingAllThings.tscn",
 	"res://Nodes/Nodes.tscn",
 	"res://Physics/2D/Physics2D.tscn",
 	"res://Physics/3D/Physics3D.tscn",
