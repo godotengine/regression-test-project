@@ -16,6 +16,7 @@ var os
 
 # Each scene runs alone
 const alone_steps : Array = [
+	"res://CreatingAllThings/CreatingAllThings.tscn",
 	"res://Nodes/Nodes.tscn",
 #	"res://ReparentingDeleting/ReparentingDeleting.tscn", # Really slow in 4.0
 	"res://AutomaticBugs/FunctionExecutor.tscn", # Only Needs to be executed once, but this is workaround a little
