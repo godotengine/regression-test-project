@@ -19,7 +19,7 @@ func _ready():
 		print("GDSCRIPT CODE:  str(" + name_of_class + ")")
 		
 		var thing = ClassDB.instantiate(name_of_class)
-		str(thing)
+		str(thing)#
 		
 		if thing is Node:
 			print("GDSCRIPT CODE:  thing.queue_free()")
