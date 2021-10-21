@@ -12,3 +12,4 @@ logs/
 .godot/imported/
 .godot/editor
 shader_cache/
+.import/

@@ -24,9 +24,18 @@ const alone_steps: Array = [
 	"res://AutomaticBugs/FunctionExecutor.tscn",  # Only runs
 ]
 
+var time_object : Object
 
 func _init():
-	start_time = OS.get_ticks_msec()
+	if ClassDB.class_exists("_Time"):
+		time_object = ClassDB.instance("_Time")
+	elif ClassDB.class_exists("Time"):
+		time_object = ClassDB.instance("_Time")
+	else:
+		time_object = ClassDB.instance("_OS")
+		
+	
+	start_time = time_object.get_ticks_msec()
 
 	# In case when user doesn't provide time
 	time_for_each_step = time_to_show / (alone_steps.size())
@@ -40,7 +49,7 @@ func _init():
 
 
 func _process(delta: float) -> void:
-	var current_run_time: int = OS.get_ticks_msec() - start_time
+	var current_run_time: int = time_object.get_ticks_msec() - start_time
 
 	# While loop instead if, will allow to properly flush results under heavy operations(e.g. Thread sanitizer)
 	while current_run_time > time_to_print_next_time:
@@ -50,3 +59,6 @@ func _process(delta: float) -> void:
 	if current_run_time > time_to_show && can_be_closed:
 		print("######################## Ending test ########################")
 		get_tree().quit()
+		
+func _exit_tree() -> void:
+	time_object.free()
