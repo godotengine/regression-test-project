@@ -135,7 +135,7 @@ func get_quaternion_string() -> String:
 
 
 func get_basis() -> Basis:
-	return Basis(get_vector3())
+	return Basis(get_vector3(),get_vector3(),get_vector3())
 
 
 func get_basis_string() -> String:
