@@ -30,7 +30,7 @@ func _init():
 	if ClassDB.class_exists("_Time"):
 		time_object = ClassDB.instance("_Time")
 	elif ClassDB.class_exists("Time"):
-		time_object = ClassDB.instance("_Time")
+		time_object = ClassDB.instance("Time")
 	else:
 		time_object = ClassDB.instance("_OS")
 		
