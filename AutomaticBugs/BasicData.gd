@@ -166,6 +166,10 @@ var disabled_classes : Array = [
 	"IP_Unix",
 	"JNISingleton",
 	
+	# Backported Navigation changes also backport bugged classes
+	"NavigationAgent2D", 
+	"NavigationAgent", 
+	
 	# Only one class - JavaClass returns Null when using JavaClass.new().get_class
 	"JavaClass",
 	
