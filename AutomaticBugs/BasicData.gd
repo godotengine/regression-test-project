@@ -224,6 +224,7 @@ var function_exceptions: Array = [
 
 # Globally disabled classes which causes bugs or are very hard to use properly
 var disabled_classes: Array = [
+	"GLTFDocument", # TODO memory leak
 	###
 	### Crashes, Freezes
 	###
