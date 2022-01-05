@@ -8,10 +8,8 @@ logs/
 TEMP/
 #export_presets.cfg
 logs/
-.import/
-#.godot/
+.godot/
 .godot/imported/
 .godot/editor
-.godot/shader_cache/
 shader_cache/
-.godot/
+.import/

@@ -1,29 +1,10 @@
 extends Node
 
-### Scripts to arguments and return needed info about them.
-
-
-### Class which contains informations about used
-class SingleArgument:
-	var name: String  # E.G. var roman, can be empty, so temp variable isn't created(nodes and objects must be created with temp_variable due to memory leaks)
-	var type: String  # np. Vector2 or Object
-	var value: String  # np. randi() % 100 or
-	var is_object: bool = false  # Check if this is object e.g. Node not Vector2
-	var is_only_object: bool = false  # Only needs to freed with .free()
-	var is_only_reference: bool = false  # Don't needs to be removed manually
-	var is_only_node: bool = false  # Needs to be removed with .queue_free()
-
 
 func parse_and_return_objects(method_data: Dictionary, name_of_class: String, debug_print: bool = false) -> Array:
 	var arguments_array: Array = Array([])
 
-	if BasicData.regression_test_project:
-		ValueCreator.number = 100
-		ValueCreator.random = false  # Results in RegressionTestProject must be always reproducible
-	else:
-		ValueCreator.number = 1000
-		ValueCreator.random = true
-	ValueCreator.should_be_always_valid = false
+	ValueCreator.number = 100
 
 	for argument in method_data.get("args"):
 		var type = argument.get("type")
@@ -193,10 +174,10 @@ func return_gdscript_code_which_run_this_object(data) -> String:
 			if (
 				ClassDB.is_parent_class(name_of_class, "Object")
 				&& !ClassDB.is_parent_class(name_of_class, "Node")
-				&& !obj_is_reference(name_of_class)
+				&& !ClassDB.is_parent_class(name_of_class, "RefCounted")
 				&& !ClassDB.class_has_method(name_of_class, "new")
 			):
-				return_string += "ClassDB.instance(\"" + name_of_class + "\")"
+				return_string += 'ClassDB.instance("' + name_of_class + '")'
 			else:
 				return_string = name_of_class.trim_prefix("_")
 				return_string += ".new()"
@@ -259,7 +240,7 @@ func return_gdscript_code_which_run_this_object(data) -> String:
 	elif type == TYPE_RID:
 		return_string = "RID()"
 	elif type == TYPE_STRING:
-		return_string = "\"" + data + "\""
+		return_string = '"' + data + '"'
 	elif type == TYPE_STRING_ARRAY:
 		return_string = "PackedStringArray(["
 		for i in data.size():
@@ -328,14 +309,9 @@ func return_gdscript_code_which_run_this_object(data) -> String:
 				return_string += ", "
 		return_string += "])"
 	elif type == TYPE_CALLABLE:
-		return_string = "Callable(BoxMesh.new(),\"\")"
+		return_string = 'Callable(BoxMesh.new(),"")'
 	else:
 		print(type)
 		assert(false, "Missing type, needs to be added to project")
 
 	return return_string
-
-func obj_is_reference(name_of_class : String) -> bool:
-	if ClassDB.class_exists("Reference"):
-		return ClassDB.is_parent_class(name_of_class, "Reference")
-	return ClassDB.is_parent_class(name_of_class, "RefCounted")
