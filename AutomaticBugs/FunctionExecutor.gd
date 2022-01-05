@@ -6,6 +6,7 @@ extends Node
 ### - checks each argument if is allowed(in case e.g. adding new, to prevent crashes due not recognizing types)
 ### - print info if needed to console
 ### - execute function with parameters
+### - removes all objects/nodes to prevent memory leak
 
 var debug_print: bool = true
 var add_to_tree: bool = false  # Adds nodes to tree, freeze godot when removing a lot of nodes
@@ -15,23 +16,9 @@ var exiting: bool = false
 
 
 func _ready() -> void:
-	if BasicData.regression_test_project:
-		ValueCreator.random = false  # Results in RegressionTestProject must be always reproducible
-	else:
-		ValueCreator.random = true
-
 	ValueCreator.number = 100
-	ValueCreator.should_be_always_valid = false
 
-	if BasicData.regression_test_project:
-		tests_all_functions()
-
-
-func _process(_delta: float) -> void:
-	if !BasicData.regression_test_project:
-		tests_all_functions()
-		if exiting:
-			get_tree().quit()
+	tests_all_functions()
 
 
 # Test all functions
@@ -39,7 +26,7 @@ func tests_all_functions() -> void:
 	for name_of_class in BasicData.get_list_of_available_classes():
 		if debug_print:
 			print("\n#################### " + name_of_class + " ####################")
-			
+
 		var object: Object = ClassDB.instance(name_of_class)
 		assert(object != null, "Object must be instantable")
 		if add_to_tree:
@@ -50,50 +37,49 @@ func tests_all_functions() -> void:
 		# Removes excluded methods
 		BasicData.remove_disabled_methods(method_list, BasicData.function_exceptions)
 
-		for _i in range(1):
-			for method_data in method_list:
-				if !BasicData.check_if_is_allowed(method_data):
-					continue
+		for method_data in method_list:
+			if !BasicData.check_if_is_allowed(method_data):
+				continue
 
-				var arguments: Array = ParseArgumentType.parse_and_return_objects(method_data, name_of_class, debug_print)
+			var arguments: Array = ParseArgumentType.parse_and_return_objects(method_data, name_of_class, debug_print)
 
-				if debug_print:
-					var to_print: String = "GDSCRIPT CODE:     "
-					if (
-						ClassDB.is_parent_class(name_of_class, "Object")
-						&& !ClassDB.is_parent_class(name_of_class, "Node")
-						&& !ClassDB.is_parent_class(name_of_class, "Reference")
-						&& !ClassDB.class_has_method(name_of_class, "new")
-					):
-						to_print += "ClassDB.instance(\"" + name_of_class + "\")." + method_data["name"] + "("
-					else:
-						to_print += name_of_class.trim_prefix("_") + ".new()." + method_data["name"] + "("
+			if debug_print:
+				var to_print: String = "GDSCRIPT CODE:     "
+				if (
+					ClassDB.is_parent_class(name_of_class, "Object")
+					&& !ClassDB.is_parent_class(name_of_class, "Node")
+					&& !ClassDB.is_parent_class(name_of_class, "Reference")
+					&& !ClassDB.class_has_method(name_of_class, "new")
+				):
+					to_print += 'ClassDB.instance("' + name_of_class + '").' + method_data["name"] + "("
+				else:
+					to_print += name_of_class.trim_prefix("_") + ".new()." + method_data["name"] + "("
 
-					for i in arguments.size():
-						to_print += ParseArgumentType.return_gdscript_code_which_run_this_object(arguments[i])
-						if i != arguments.size() - 1:
-							to_print += ", "
-					to_print += ")"
-					print(to_print)
+				for i in arguments.size():
+					to_print += ParseArgumentType.return_gdscript_code_which_run_this_object(arguments[i])
+					if i != arguments.size() - 1:
+						to_print += ", "
+				to_print += ")"
+				print(to_print)
 
-				object.callv(method_data["name"], arguments)
+			object.callv(method_data["name"], arguments)
 
-				for argument in arguments:
-					if argument is Node:
-						argument.queue_free()
-					elif argument is Object && !(argument is Reference):
-						argument.free()
+			for argument in arguments:
+				if argument is Node:
+					argument.queue_free()
+				elif argument is Object && !(argument is Reference):
+					argument.free()
 
-				if use_always_new_object:
+			if use_always_new_object:
+				if object is Node:
+					object.queue_free()
+				elif object is Object && !(object is Reference):
+					object.free()
+
+				object = ClassDB.instance(name_of_class)
+				if add_to_tree:
 					if object is Node:
-						object.queue_free()
-					elif object is Object && !(object is Reference):
-						object.free()
-
-					object = ClassDB.instance(name_of_class)
-					if add_to_tree:
-						if object is Node:
-							add_child(object)
+						add_child(object)
 
 		if object is Node:
 			object.queue_free()

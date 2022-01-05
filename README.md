@@ -1,7 +1,7 @@
 # Godot regression test project
 This repository contains project which is used to find regressions in Godot.
 
-It aims to check as much as possible functions and states, be easy in maintain and provide reproducible results.
+It aims to check as much as possible functions and states, be easy in maintain and provide quite reproducible results.
 
 ## Basic Informations
 This project contains a few different scenes and `Start.tscn`(default one) which opens every other scene. 
@@ -116,25 +116,18 @@ It is used to catch early very obvious and easy to reproduce bugs.
 This is more advanced variation of Nodes scene.  
 In random order adds, remove and move in scene tree nodes. It may not sound spectacular, but it sometimes allows you to find bugs that are hard to detect.
 
+## CreatingAllThings
+This scene creates, prints and removes object.  
+Can be used to quicly check if classes don't crash when executing simple commands on them.  
+
 ## Others
 Scenes like `Physics2D.tscn` or `Lights3D.tscn` are normal scenes with specific types of nodes. They are only used to manually check visual differences between different Godot versions.
 
 ![Physics](https://user-images.githubusercontent.com/41945903/115050994-9da8a100-9edc-11eb-99f6-9375ef917be1.png)
-
-## TODO
-- Add physics test - currently blocked by several crashes - https://github.com/godotengine/godot/issues/47440
-
-## 4.0 version limitations
-ReparentingDeleting is in 4.0 only Reparenting - bug https://github.com/godotengine/godot/issues/45471  
-Some scenes available in 3.x branch, but due freezes and long loading times are disabled(mostly Vulkan fault).
-Some patches are applied to e.g. handle rename `OS` -> `Platform` or `Transform` -> `Transform3D`
 
 ## Epilepsy Warning
 Due using by project a lot of functions from each type of Node, screen may flicker, images and objects may change randomly color and size which may lead some users to health problems.
 
 ## Problems with project
 The project should not cause too many problems in CI when adding and removing features in Godot, since it don't uses too much functions but for example removing a base type e.g. `TYPE_INT` or changes in GDScript(e.g. changing `instance` to `instantiate`) can mess it up.
-
-If you have problem with this project e.g. in CI, just ping me -> @qarmin <- and after that I will try help to fix issues which you have with it or add exception to project.
-
 
