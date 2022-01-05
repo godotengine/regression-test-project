@@ -41,7 +41,7 @@ func collect() -> void:
 		var to_print: String = "DEBUG: List of classes used in Nodes scene:\n"
 		to_print += "DEBUG: ["
 		for index in range(classes.size()):
-			to_print += "\"" + classes[index] + "\""
+			to_print += '"' + classes[index] + '"'
 			if index != classes.size() - 1:
 				to_print += ", "
 		print(to_print)

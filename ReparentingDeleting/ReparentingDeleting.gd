@@ -2,6 +2,7 @@ extends Node
 
 # Script first adds nodes to scene, then choose some random nodes and reparents
 # them or delete and replace with new ones
+# This is not really reproducible, but crashes find by this tool should be quite easy to recreate
 
 ## Algorithm
 # - Add multiple nodes to scene
@@ -45,7 +46,7 @@ func collect() -> void:
 		var to_print: String = "DEBUG: List of classes used in ReparentingDeleting scene:\n"
 		to_print += "DEBUG: ["
 		for index in range(classes.size()):
-			to_print += "\"" + classes[index] + "\""
+			to_print += '"' + classes[index] + '"'
 			if index != classes.size() - 1:
 				to_print += ", "
 		print(to_print)

@@ -20,21 +20,22 @@ const alone_steps: Array = [
 	"res://Nodes/Nodes.tscn",
 	"res://Physics/2D/Physics2D.tscn",
 	"res://Physics/3D/Physics3D.tscn",
-	"res://ReparentingDeleting/ReparentingDeleting.tscn",
-	"res://AutomaticBugs/FunctionExecutor.tscn",  # Only runs
+	# "res://ReparentingDeleting/ReparentingDeleting.tscn", Not always reproducible
+	"res://AutomaticBugs/FunctionExecutor.tscn",  # Only need to run once
 ]
 
-var time_object : Object
+var time_object: Object
+
 
 func _init():
+	# Workaround for Time/OS breaking change - https://github.com/godotengine/godot/pull/54056
 	if ClassDB.class_exists("_Time"):
 		time_object = ClassDB.instance("_Time")
 	elif ClassDB.class_exists("Time"):
 		time_object = ClassDB.instance("Time")
 	else:
 		time_object = ClassDB.instance("_OS")
-		
-	
+
 	start_time = time_object.get_ticks_msec()
 
 	# In case when user doesn't provide time
@@ -45,13 +46,13 @@ func _init():
 			time_to_show = int(argument.to_float() * 1000)
 			time_for_each_step = time_to_show / (alone_steps.size())
 			print("Time set to: " + str(time_to_show / 1000.0) + " seconds with " + str(alone_steps.size()) + " steps, each step will take " + str(time_for_each_step / 1000.0) + " seconds.")
-			break  # We only need to take first argument
+			break  # We only need to take first numeric argument
 
 
 func _process(delta: float) -> void:
 	var current_run_time: int = time_object.get_ticks_msec() - start_time
 
-	# While loop instead if, will allow to properly flush results under heavy operations(e.g. Thread sanitizer)
+	# While loop instead simple if, because will allow to properly flush results under heavy operations(e.g. Thread sanitizer)
 	while current_run_time > time_to_print_next_time:
 		print("Test is running now " + str(int(time_to_print_next_time / 1000)) + " seconds")
 		time_to_print_next_time += PRINT_TIME_EVERY_MILISECONDS
@@ -59,6 +60,7 @@ func _process(delta: float) -> void:
 	if current_run_time > time_to_show && can_be_closed:
 		print("######################## Ending test ########################")
 		get_tree().quit()
-		
+
+
 func _exit_tree() -> void:
 	time_object.free()
