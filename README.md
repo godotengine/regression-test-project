@@ -1,7 +1,7 @@
 # Godot regression test project
 This repository contains project which is used to find regressions in Godot.
 
-It aims to check as much as possible functions and states, be easy in maintain and provide reproducible results.
+It aims to check as much as possible functions and states, be easy in maintain and provide quite reproducible results.
 
 ## Basic Informations
 This project contains a few different scenes and `Start.tscn`(default one) which opens every other scene. 
@@ -50,18 +50,19 @@ A scene that will probably give people a hard time quite often is `FunctionExecu
 This is a fuzzer, but with removed ability to use random argument values (the arguments are identical every time it is run).  
 When the engine crashes, in logs usually will be something like this:
 ```
-#################### SkeletonModification2DPhysicalBones ####################
-SkeletonModification2DPhysicalBones.set_physical_bone_node
-Parameters [100, ]
-ERROR: Joint index out of range!
-   at: set_physical_bone_node (scene/resources/skeleton_modification_2d_physicalbones.cpp:259)
-SkeletonModification2DPhysicalBones.get_physical_bone_node
-Parameters [100]
-ERROR: Joint index out of range!
-   at: get_physical_bone_node (scene/resources/skeleton_modification_2d_physicalbones.cpp:265)
-SkeletonModification2DPhysicalBones.fetch_physical_bones
-Parameters []
-scene/resources/skeleton_modification_2d_physicalbones.cpp:186:2: runtime error: member access within null pointer of type 'struct SkeletonModificationStack2D'
+#################### LineEdit ####################
+
+LineEdit._text_changed --- executing with 0 parameters []
+GDSCRIPT CODE:     LineEdit.new()._text_changed()
+
+LineEdit._toggle_draw_caret --- executing with 0 parameters []
+GDSCRIPT CODE:     LineEdit.new()._toggle_draw_caret()
+
+LineEdit.set_align --- executing with 1 parameters [100]
+GDSCRIPT CODE:     LineEdit.new().set_align(100)
+ERROR: set_align: Index (int)p_align = 100 is out of bounds (4 = 4).
+   At: scene/gui/line_edit.cpp:592.
+scene/resources/line_edit.cpp:186:2: runtime error: member access within null pointer of type 'struct LineEdit'
 handle_crash: Program crashed with signal 11
 Dumping the backtrace. Please include this when reporting the bug on godotengine/godot/issues
 [1] bin/godot.linuxbsd.tools.64s() [0x1e697d8] (/home/runner/work/godot/godot/platform/linuxbsd/crash_handler_linuxbsd.cpp:54)
@@ -70,24 +71,24 @@ Dumping the backtrace. Please include this when reporting the bug on godotengine
 There are some interesting things to discuss here.  
 This line shows what class we are testing now
 ```
-#################### SkeletonModification2DPhysicalBones ####################
+#################### LineEdit ####################
 ```
 which method
 ```
-SkeletonModification2DPhysicalBones.set_physical_bone_node
+LineEdit.set_align
 ```
-and which parameters (here are two arguments - `100`,  \` \`(empty string))
+and which parameters
 ```
-Parameters [100, ]
+--- executing with 1 parameters [100]
 ```
-To make testing easier, each object is created from scratch and by looking at the class definition in Godot - `set_physical_bone_node(int, String)` we can create an expression that is executed on this line:
+Next you can see GDScript command which is executed and you can copy it and test manually in Godot
 ```
-SkeletonModification2DPhysicalBones.new().set_physical_bone_node(100,"")
+GDSCRIPT CODE:     LineEdit.new()._toggle_draw_caret()
 ```
 Then you can see errors caused by invalid arguments, which you can ignore if they don't cause other crashes/leaks etc.
 ```
-ERROR: Joint index out of range!
-   at: get_physical_bone_node (scene/resources/skeleton_modification_2d_physicalbones.cpp:265)
+ERROR: set_align: Index (int)p_align = 100 is out of bounds (4 = 4).
+   At: scene/gui/line_edit.cpp:592.
 ```
 At the end we can see Godot's crash log with additional information that tried to use null pointer incorrectly:
 ```
@@ -97,14 +98,14 @@ Dumping the backtrace. Please include this when reporting the bug on godotengine
 [1] bin/godot.linuxbsd.tools.64s() [0x1e697d8] (/home/runner/work/godot/godot/platform/linuxbsd/crash_handler_linuxbsd.cpp:54)
 [2] /lib/x86_64-linux-gnu/libc.so.6(+0x46210) [0x7fd1ca5b0210] (??:0)
 ```
-we can assume that this is caused by calling the function immediately before the crash:
+In most situations, the latest executed function/created object is responsible for crash
 ```
-SkeletonModification2DPhysicalBones.fetch_physical_bones
-Parameters []
+LineEdit.set_align --- executing with 1 parameters [100]
+GDSCRIPT CODE:     LineEdit.new().set_align(100)
 ```
-We can test this by running a function in Godot that looks like this(just add `.new()` after class name and fill function arguments from `Parameters`):
+So we can just take GDScript code from above, copy it into Godot and test project, which should crash engine
 ```
-SkeletonModification2DPhysicalBones.new().fetch_physical_bones()
+LineEdit.new().set_align(100)
 ```
 
 ## Nodes
@@ -115,24 +116,18 @@ It is used to catch early very obvious and easy to reproduce bugs.
 This is more advanced variation of Nodes scene.  
 In random order adds, remove and move in scene tree nodes. It may not sound spectacular, but it sometimes allows you to find bugs that are hard to detect.
 
+## CreatingAllThings
+This scene creates, prints and removes object.  
+Can be used to quicly check if classes don't crash when executing simple commands on them.  
+
 ## Others
 Scenes like `Physics2D.tscn` or `Lights3D.tscn` are normal scenes with specific types of nodes. They are only used to manually check visual differences between different Godot versions.
 
 ![Physics](https://user-images.githubusercontent.com/41945903/115050994-9da8a100-9edc-11eb-99f6-9375ef917be1.png)
-
-## TODO
-- Add physics test - currently blocked by several crashes - https://github.com/godotengine/godot/issues/47440
-
-## 4.0 version limitations
-ReparentingDeleting is in 4.0 only Reparenting - bug https://github.com/godotengine/godot/issues/45471  
-Some scenes available in 3.x branch, but due freezes and long loading times are disabled.
 
 ## Epilepsy Warning
 Due using by project a lot of functions from each type of Node, screen may flicker, images and objects may change randomly color and size which may lead some users to health problems.
 
 ## Problems with project
 The project should not cause too many problems in CI when adding and removing features in Godot, since it don't uses too much functions but for example removing a base type e.g. `TYPE_INT` or changes in GDScript(e.g. changing `instance` to `instantiate`) can mess it up.
-
-If you have problem with this project e.g. in CI, just ping me -> @qarmin <- and after that I will try help to fix issues which you have with it or add exception to project.
-
 

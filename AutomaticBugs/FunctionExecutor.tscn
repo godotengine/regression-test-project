@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7slcpsx4l8p8"]
+[gd_scene load_steps=2 format=3 uid="uid://bqmnk4i6yhac3"]
 
 [ext_resource type="Script" path="res://AutomaticBugs/FunctionExecutor.gd" id="1"]
 

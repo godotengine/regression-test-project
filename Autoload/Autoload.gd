@@ -2,63 +2,65 @@ extends Node
 
 const screen_size = Vector2(1024, 600)
 
-var start_time : int
-var last_time : int
+var start_time: int
+var last_time: int
 
-const PRINT_TIME_EVERY_MILISECONDS : int = 5000
-var time_to_print_next_time : int = PRINT_TIME_EVERY_MILISECONDS
+const PRINT_TIME_EVERY_MILISECONDS: int = 5000
+var time_to_print_next_time: int = PRINT_TIME_EVERY_MILISECONDS
 
-var time_to_show: int = 25 * 1000 # How long test works in miliseconds
+var time_to_show: int = 25 * 1000  # How long test works in miliseconds
 
-var time_for_each_step : int = -1 
+var time_for_each_step: int = -1
 
-var os
+var can_be_closed: bool = true
 
 # Each scene runs alone
-const alone_steps : Array = [
+const alone_steps: Array = [
 	"res://CreatingAllThings/CreatingAllThings.tscn",
 	"res://Nodes/Nodes.tscn",
-#	"res://ReparentingDeleting/ReparentingDeleting.tscn", # Really slow in 4.0
-	"res://AutomaticBugs/FunctionExecutor.tscn", # Only Needs to be executed once, but this is workaround a little
+	"res://Physics/2D/Physics2D.tscn",
+	"res://Physics/3D/Physics3D.tscn",
+	# "res://ReparentingDeleting/ReparentingDeleting.tscn", Not always reproducible
+	"res://AutomaticBugs/FunctionExecutor.tscn",  # Only need to run once
 ]
 
-func _init(): 
-	if ClassDB.class_exists("OS"):
-		os = get_instance_from_name("OS")
+var time_object: Object
+
+
+func _init():
+	# Workaround for Time/OS breaking change - https://github.com/godotengine/godot/pull/54056
+	if ClassDB.class_exists("_Time"):
+		time_object = ClassDB.instantiate("_Time")
+	elif ClassDB.class_exists("Time"):
+		time_object = ClassDB.instantiate("Time")
 	else:
-		os = get_instance_from_name("Platform")
-		
-	start_time = Time.get_ticks_msec()
-	
+		time_object = ClassDB.instantiate("_OS")
+
+	start_time = time_object.get_ticks_msec()
+
 	# In case when user doesn't provide time
 	time_for_each_step = time_to_show / (alone_steps.size())
-	
-	for argument in os.get_cmdline_args():
-		if argument.is_valid_float(): # Ignore all non numeric arguments 
+
+	for argument in OS.get_cmdline_args():
+		if argument.is_valid_float():  # Ignore all non numeric arguments
 			time_to_show = int(argument.to_float() * 1000)
 			time_for_each_step = time_to_show / (alone_steps.size())
-			print("Time set to: " + str(time_to_show / 1000.0) + " seconds with "+ str(alone_steps.size()) + " steps, each step will take " + str(time_for_each_step / 1000.0) + " seconds.")
-			break # We only need to take first argument
+			print("Time set to: " + str(time_to_show / 1000.0) + " seconds with " + str(alone_steps.size()) + " steps, each step will take " + str(time_for_each_step / 1000.0) + " seconds.")
+			break  # We only need to take first numeric argument
 
 
 func _process(delta: float) -> void:
-	var current_run_time : int = Time.get_ticks_msec() - start_time
-	
-	# While loop instead if, will allow to properly flush results under heavy operations(e.g. Thread sanitizer)
-	while current_run_time > time_to_print_next_time: 
+	var current_run_time: int = time_object.get_ticks_msec() - start_time
+
+	# While loop instead simple if, because will allow to properly flush results under heavy operations(e.g. Thread sanitizer)
+	while current_run_time > time_to_print_next_time:
 		print("Test is running now " + str(int(time_to_print_next_time / 1000)) + " seconds")
 		time_to_print_next_time += PRINT_TIME_EVERY_MILISECONDS
-		
-	if current_run_time > time_to_show:
+
+	if current_run_time > time_to_show && can_be_closed:
 		print("######################## Ending test ########################")
 		get_tree().quit()
 
-func get_instance_from_name(method: String):
-	if ClassDB.class_has_method("_ClassDB","instance"):
-		return ClassDB.call("instance",method)
-	else:
-		return ClassDB.call("instantiate",method)
-	
 
-func _exit_tree():
-	os.free()
+func _exit_tree() -> void:
+	time_object.free()

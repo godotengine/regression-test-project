@@ -4,19 +4,22 @@ extends Node
 # of time
 
 # Counters which are used to delete and adds nodes in loop
-var TIME_TO_DELETE: float = 60.0
+var TIME_TO_DELETE: float = 3.0
 var time_to_delete: float = TIME_TO_DELETE
 
 # List of disabled classes
-var disabled_classes: Array = ["NavigationAgent2D", "NavigationAgent3D","GPUParticlesCollisionHeightField",
-
+var disabled_classes: Array = [
+	"NavigationAgent2D",
+	"NavigationAgent3D",
+	"GPUParticlesCollisionHeightField",
 	# Creating them is really slow in Godot 4.0
 	"ColorPicker",
 	"FileDialog",
 	"ColorPickerButton",
 	"PhysicalSkyMaterial",
-	"ProceduralSkyMaterial"]
-# List of all collected nodes which
+	"ProceduralSkyMaterial"
+]
+# List of all collected nodes
 var classes: Array = []
 
 var debug_enabled: bool = false
@@ -48,10 +51,9 @@ func collect() -> void:
 		var to_print: String = "DEBUG: List of classes used in Nodes scene:\n"
 		to_print += "DEBUG: ["
 		for index in range(classes.size()):
-			to_print += "\"" + classes[index] + "\""
+			to_print += '"' + classes[index] + '"'
 			if index != classes.size() - 1:
 				to_print += ", "
-		to_print += "]"
 		print(to_print)
 
 
@@ -70,15 +72,15 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	# Moves nodes a little
-#	for i in get_children():
-#		if i is Control:
-#			i._set_size(Vector2(200 * randf() - 100, 200 * randf() - 100))
-#		if i is Node2D:
-#			i.set_position(Vector2(1000 * randf() - 500, 1000 * randf() - 500))
-#		if i is Node3D:
-#			if i.get_name() != "Camera":
-#				i.set_scale(Vector3(delta + 1, delta + 1, delta + 1))
-#				i.set_position(Vector3(10 * randf(), 10 * randf(), 10 * randf()))
+	for i in get_children():
+		if i is Control:
+			i._set_size(Vector2(200 * randf() - 100, 200 * randf() - 100))
+		if i is Node2D:
+			i.set_position(Vector2(1000 * randf() - 500, 1000 * randf() - 500))
+		if i is Node3D:
+			if i.get_name() != "Camera3D":
+				i.set_scale(Vector3(delta + 1, delta + 1, delta + 1))
+				i.set_position(Vector3(10 * randf(), 10 * randf(), 10 * randf()))
 
 	time_to_delete -= delta
 	# Delete and adds later nodes
