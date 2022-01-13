@@ -21,15 +21,15 @@ func parse_and_return_objects(method_data: Dictionary, name_of_class: String, de
 			arguments_array.push_back(ValueCreator.get_bool())
 		elif type == TYPE_COLOR:
 			arguments_array.push_back(ValueCreator.get_color())
-		elif type == TYPE_COLOR_ARRAY:
+		elif type == TYPE_PACKED_COLOR_ARRAY:
 			arguments_array.push_back(PackedColorArray([]))
 		elif type == TYPE_DICTIONARY:
 			arguments_array.push_back(ValueCreator.get_dictionary())
 		elif type == TYPE_INT:
 			arguments_array.push_back(ValueCreator.get_int())
-		elif type == TYPE_INT32_ARRAY:
+		elif type == TYPE_PACKED_INT32_ARRAY:
 			arguments_array.push_back(PackedInt32Array([]))
-		elif type == TYPE_INT64_ARRAY:
+		elif type == TYPE_PACKED_INT64_ARRAY:
 			arguments_array.push_back(PackedInt64Array([]))
 		elif type == TYPE_NODE_PATH:
 			arguments_array.push_back(ValueCreator.get_nodepath())
@@ -39,13 +39,13 @@ func parse_and_return_objects(method_data: Dictionary, name_of_class: String, de
 			arguments_array.push_back(ValueCreator.get_plane())
 		elif type == TYPE_QUATERNION:
 			arguments_array.push_back(ValueCreator.get_quaternion())
-		elif type == TYPE_RAW_ARRAY:
+		elif type == TYPE_PACKED_BYTE_ARRAY:
 			arguments_array.push_back(PackedByteArray([]))
 		elif type == TYPE_FLOAT:
 			arguments_array.push_back(ValueCreator.get_float())
-		elif type == TYPE_FLOAT32_ARRAY:
+		elif type == TYPE_PACKED_FLOAT32_ARRAY:
 			arguments_array.push_back(PackedFloat32Array([]))
-		elif type == TYPE_FLOAT64_ARRAY:
+		elif type == TYPE_PACKED_FLOAT64_ARRAY:
 			arguments_array.push_back(PackedFloat64Array([]))
 		elif type == TYPE_RECT2:
 			arguments_array.push_back(ValueCreator.get_rect2())
@@ -57,7 +57,7 @@ func parse_and_return_objects(method_data: Dictionary, name_of_class: String, de
 			arguments_array.push_back(ValueCreator.get_string())
 		elif type == TYPE_STRING_NAME:
 			arguments_array.push_back(StringName(ValueCreator.get_string()))
-		elif type == TYPE_STRING_ARRAY:
+		elif type == TYPE_PACKED_STRING_ARRAY:
 			arguments_array.push_back(PackedStringArray([]))
 		elif type == TYPE_TRANSFORM3D:
 			arguments_array.push_back(ValueCreator.get_transform3D())
@@ -67,13 +67,13 @@ func parse_and_return_objects(method_data: Dictionary, name_of_class: String, de
 			arguments_array.push_back(ValueCreator.get_vector2())
 		elif type == TYPE_VECTOR2I:
 			arguments_array.push_back(ValueCreator.get_vector2i())
-		elif type == TYPE_VECTOR2_ARRAY:
+		elif type == TYPE_PACKED_VECTOR2_ARRAY:
 			arguments_array.push_back(PackedVector2Array([]))
 		elif type == TYPE_VECTOR3:
 			arguments_array.push_back(ValueCreator.get_vector3())
 		elif type == TYPE_VECTOR3I:
 			arguments_array.push_back(ValueCreator.get_vector3i())
-		elif type == TYPE_VECTOR3_ARRAY:
+		elif type == TYPE_PACKED_VECTOR3_ARRAY:
 			arguments_array.push_back(PackedVector3Array([]))
 		elif type == TYPE_CALLABLE:
 			arguments_array.push_back(Callable(BoxMesh.new(), "Rar"))
@@ -130,8 +130,8 @@ func return_gdscript_code_which_run_this_object(data) -> String:
 		return_string += ", "
 		return_string += return_gdscript_code_which_run_this_object(data.a)
 		return_string += ")"
-	elif type == TYPE_COLOR_ARRAY:
-		return_string = "PoolColorArray(["
+	elif type == TYPE_PACKED_COLOR_ARRAY:
+		return_string = "PackedColorArray(["
 		for i in data.size():
 			return_string += return_gdscript_code_which_run_this_object(data[i])
 			if i != data.size() - 1:
@@ -148,15 +148,15 @@ func return_gdscript_code_which_run_this_object(data) -> String:
 		return_string += "}"
 	elif type == TYPE_INT:
 		return_string = str(data)
-	elif type == TYPE_INT32_ARRAY:
-		return_string = "PoolInt32Array(["
+	elif type == TYPE_PACKED_INT32_ARRAY:
+		return_string = "PackedInt32Array(["
 		for i in data.size():
 			return_string += return_gdscript_code_which_run_this_object(data[i])
 			if i != data.size() - 1:
 				return_string += ", "
 		return_string += "])"
-	elif type == TYPE_INT64_ARRAY:
-		return_string = "PoolInt64Array(["
+	elif type == TYPE_PACKED_INT64_ARRAY:
+		return_string = "PackedInt64Array(["
 		for i in data.size():
 			return_string += return_gdscript_code_which_run_this_object(data[i])
 			if i != data.size() - 1:
@@ -202,8 +202,8 @@ func return_gdscript_code_which_run_this_object(data) -> String:
 		return_string += ", "
 		return_string += return_gdscript_code_which_run_this_object(data.w)
 		return_string += ")"
-	elif type == TYPE_RAW_ARRAY:
-		return_string = "PoolByteArray(["
+	elif type == TYPE_PACKED_BYTE_ARRAY:
+		return_string = "PackedByteArray(["
 		for i in data.size():
 			return_string += return_gdscript_code_which_run_this_object(data[i])
 			if i != data.size() - 1:
@@ -211,15 +211,15 @@ func return_gdscript_code_which_run_this_object(data) -> String:
 		return_string += "])"
 	elif type == TYPE_FLOAT:
 		return_string = str(data)
-	elif type == TYPE_FLOAT32_ARRAY:
-		return_string = "PoolFloat32Array(["
+	elif type == TYPE_PACKED_FLOAT32_ARRAY:
+		return_string = "PackedFloat32Array(["
 		for i in data.size():
 			return_string += return_gdscript_code_which_run_this_object(data[i])
 			if i != data.size() - 1:
 				return_string += ", "
 		return_string += "])"
-	elif type == TYPE_FLOAT64_ARRAY:
-		return_string = "PoolFloat64Array(["
+	elif type == TYPE_PACKED_FLOAT64_ARRAY:
+		return_string = "PackedFloat64Array(["
 		for i in data.size():
 			return_string += return_gdscript_code_which_run_this_object(data[i])
 			if i != data.size() - 1:
@@ -241,7 +241,7 @@ func return_gdscript_code_which_run_this_object(data) -> String:
 		return_string = "RID()"
 	elif type == TYPE_STRING:
 		return_string = '"' + data + '"'
-	elif type == TYPE_STRING_ARRAY:
+	elif type == TYPE_PACKED_STRING_ARRAY:
 		return_string = "PackedStringArray(["
 		for i in data.size():
 			return_string += return_gdscript_code_which_run_this_object(data[i])
@@ -274,8 +274,8 @@ func return_gdscript_code_which_run_this_object(data) -> String:
 		return_string += ", "
 		return_string += return_gdscript_code_which_run_this_object(data.y)
 		return_string += ")"
-	elif type == TYPE_VECTOR2_ARRAY:
-		return_string = "PoolVector2Array(["
+	elif type == TYPE_PACKED_VECTOR2_ARRAY:
+		return_string = "PackedVector2Array(["
 		for i in data.size():
 			return_string += return_gdscript_code_which_run_this_object(data[i])
 			if i != data.size() - 1:
@@ -301,8 +301,8 @@ func return_gdscript_code_which_run_this_object(data) -> String:
 		return_string = "StringName("
 		return_string += return_gdscript_code_which_run_this_object(str(data))
 		return_string += ")"
-	elif type == TYPE_VECTOR3_ARRAY:
-		return_string = "PoolVector3Array(["
+	elif type == TYPE_PACKED_VECTOR3_ARRAY:
+		return_string = "PackedVector3Array(["
 		for i in data.size():
 			return_string += return_gdscript_code_which_run_this_object(data[i])
 			if i != data.size() - 1:
