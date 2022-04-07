@@ -224,7 +224,7 @@ var function_exceptions: Array = [
 
 # Globally disabled classes which causes bugs or are very hard to use properly
 var disabled_classes: Array = [
-	"GLTFDocument", # TODO memory leak
+	"GLTFDocument",  # TODO memory leak
 	###
 	### Crashes, Freezes
 	###
@@ -278,15 +278,13 @@ func check_if_is_allowed(method_data: Dictionary) -> bool:
 
 	for arg in method_data["args"]:
 		var name_of_class: String = arg["class_name"]
-		if name_of_class.is_empty():
-			continue
 		if name_of_class in disabled_classes:
 			return false
 
 		if !ClassDB.class_exists(name_of_class):
 			return false
 
-		if !ClassDB.is_parent_class(name_of_class, "Node") && !ClassDB.is_parent_class(name_of_class, "RefCounted"):
+		if !name_of_class.is_empty() && !ClassDB.is_parent_class(name_of_class, "Node") && !ClassDB.is_parent_class(name_of_class, "RefCounted"):
 			return false
 
 		if name_of_class.find("Editor") != -1 || name_of_class.find("SkinReference") != -1:
@@ -295,6 +293,7 @@ func check_if_is_allowed(method_data: Dictionary) -> bool:
 		# In case of adding new type, this prevents from crashing due not recognizing this type
 		# In case of removing/rename type, just comment e.g. TYPE_ARRAY and all occurencies on e.g. switch statement with it
 		var t: int = arg["type"]
+		print(t + " #############################################")
 		if !(
 			t == TYPE_NIL
 			|| t == TYPE_CALLABLE
@@ -334,6 +333,9 @@ func check_if_is_allowed(method_data: Dictionary) -> bool:
 		):
 			print("----------------------------------------------------------- TODO - MISSING TYPE, ADD SUPPORT IT")  # Add assert here to get info which type is missing
 			return false
+
+		if name_of_class.is_empty():
+			continue
 
 	return true
 
