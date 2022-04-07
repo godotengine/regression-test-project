@@ -20,7 +20,6 @@ const alone_steps: Array = [
 	"res://Nodes/Nodes.tscn",
 	"res://Physics/2D/Physics2D.tscn",
 	"res://Physics/3D/Physics3D.tscn",
-	# "res://ReparentingDeleting/ReparentingDeleting.tscn", Not always reproducible
 	"res://AutomaticBugs/FunctionExecutor.tscn",  # Only need to run once
 ]
 
