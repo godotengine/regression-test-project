@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Physics/2D/Physics2D.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://kljbsmhghnm2" path="res://Physics/2D/Area2D.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://dwtmoy5nn03sd" path="res://Physics/2D/KinematicBody2D.tscn" id="3"]
-[ext_resource type="PackedScene" path="res://Physics/2D/StaticBody2D.tscn" id="4"]
-[ext_resource type="PackedScene" path="res://Physics/2D/RigidBody2D.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://33q68e8e6b8i" path="res://Physics/2D/StaticBody2D.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://ud2rfch1x47l" path="res://Physics/2D/RigidBody2D.tscn" id="5"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1105.04, 20.7896)

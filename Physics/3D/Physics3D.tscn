@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bkhft4ksf6bm8" path="res://icon.png" id="1"]
 [ext_resource type="Script" path="res://Physics/3D/StaticArena.gd" id="2"]
-[ext_resource type="PackedScene" path="res://Physics/3D/RigidBody3D.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://ds8d85dwfnxpq" path="res://Physics/3D/RigidBody3D.tscn" id="3"]
 
 [sub_resource type="PhysicsMaterial" id="1"]
 friction = 0.89
