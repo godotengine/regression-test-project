@@ -28,12 +28,7 @@ var time_object: Object
 
 func _init():
 	# Workaround for Time/OS breaking change - https://github.com/godotengine/godot/pull/54056
-	if ClassDB.class_exists("_Time"):
-		time_object = ClassDB.instantiate("_Time")
-	elif ClassDB.class_exists("Time"):
-		time_object = ClassDB.instantiate("Time")
-	else:
-		time_object = ClassDB.instantiate("_OS")
+	time_object = Engine.get_singleton("Time")
 
 	start_time = time_object.get_ticks_msec()
 
@@ -59,7 +54,3 @@ func _process(delta: float) -> void:
 	if current_run_time > time_to_show && can_be_closed:
 		print("######################## Ending test ########################")
 		get_tree().quit()
-
-
-func _exit_tree() -> void:
-	time_object.free()
