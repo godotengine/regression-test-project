@@ -49,6 +49,12 @@ func get_vector3() -> Vector3:
 func get_vector3i() -> Vector3i:
 	return Vector3i(get_int(), get_int(), get_int())
 
+func get_vector4() -> Vector4:
+	return Vector4(get_float(), get_float(), get_float(), get_float())
+
+
+func get_vector4i() -> Vector4i:
+	return Vector4i(get_int(), get_int(), get_int(), get_int())
 
 func get_aabb() -> AABB:
 	return AABB(get_vector3(), get_vector3())
