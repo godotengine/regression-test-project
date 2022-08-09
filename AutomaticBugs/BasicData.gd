@@ -228,6 +228,7 @@ var disabled_classes: Array = [
 	"Semaphore",
 	"Mutex",
 	"GodotSharp",
+	"ThemeDB",
 	# Class which is non instantable, and have non instantable childrens, but
 	# is used as argument
 	"Node3DGizmo",
