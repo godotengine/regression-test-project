@@ -34,6 +34,7 @@ var function_exceptions: Array = [
 	"set_is_setup",  # Just don't use, in SkeletonModification crashes
 	"_update_shape",  # TODO, probably crashes exported build
 	"get_custom_monitor",  # TODO crashes only in exported build
+	"to_node", # 64977 - expected, because create completelly new object
 	###
 	### Input crashes, still are some problems TODO
 	###
