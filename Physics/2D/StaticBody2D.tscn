@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Physics/2D/StaticBody2D.gd" id="2"]
 
 [node name="StaticBody2D" type="StaticBody2D"]
-script = ExtResource( "2" )
+script = ExtResource("2")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-0.566719, -5.64549, -7.24092, 1.19557, -2.06841, 8.20348, 5.60692, 5.20009, 4.10522, -5.14492)
@@ -12,4 +12,4 @@ polygon = PackedVector2Array(-0.566719, -5.64549, -7.24092, 1.19557, -2.06841, 8
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 1, 1, 0.584314)
 rotation = 0.270526
-texture = ExtResource( "1" )
+texture = ExtResource("1")

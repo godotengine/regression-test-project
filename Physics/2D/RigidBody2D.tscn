@@ -5,7 +5,7 @@
 
 [node name="RigidDynamicBody2D" type="RigidDynamicBody2D"]
 gravity_scale = 0.1
-script = ExtResource( "1" )
+script = ExtResource("1")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-2.29324, -15.2017, -12.0322, 4.46353, 8.38219, 7.64743)
@@ -13,4 +13,4 @@ polygon = PackedVector2Array(-2.29324, -15.2017, -12.0322, 4.46353, 8.38219, 7.6
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.47451, 0, 0.427451, 1)
 rotation = 0.792379
-texture = ExtResource( "2" )
+texture = ExtResource("2")
