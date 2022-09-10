@@ -1,4 +1,4 @@
-extends RigidDynamicBody2D
+extends RigidBody2D
 
 var move_vector: Vector2 = Vector2(1, 1)
 var speed: float = 1000.0

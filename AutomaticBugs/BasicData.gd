@@ -201,6 +201,7 @@ var disabled_classes: Array = [
 	###
 	### Crashes, Freezes
 	###
+	"NavigationMeshGenerator", # Singleton
 	"AppProtocol", # AppProtocol singleton was recreated by script, should not instance it.
 	"ProjectSettings",  # Don't mess with project settings, because they can broke entire your workflow
 	"EditorSettings",  # Also don't mess with editor settings
