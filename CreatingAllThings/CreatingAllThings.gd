@@ -1,7 +1,7 @@
 extends Node2D
 
 var available_classes: Array = []
-var exeptions: Array = ["AppProtocol", "SceneTree", "EditorSettings", "ProjectSettings", "InputEventShortcut", "InputMap", "ThemeDB"]
+var exeptions: Array = ["AppProtocol", "SceneTree", "EditorSettings", "ProjectSettings", "InputEventShortcut", "InputMap", "ThemeDB", "NavigationMeshGenerator"]
 
 
 func _ready():
