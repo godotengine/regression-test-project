@@ -81,6 +81,8 @@ func parse_and_return_objects(method_data: Dictionary, name_of_class: String, de
 			arguments_array.push_back(ValueCreator.get_vector4())
 		elif type == TYPE_VECTOR4I:
 			arguments_array.push_back(ValueCreator.get_vector4i())
+		elif type == TYPE_PROJECTION:
+			arguments_array.push_back(ValueCreator.get_projection())
 		else:
 			assert(false)  # Missed some types, add it
 
@@ -313,6 +315,16 @@ func return_gdscript_code_which_run_this_object(data) -> String:
 		return_string += ")"
 	elif type == TYPE_VECTOR4I:
 		return_string = "Vector4i("
+		return_string += return_gdscript_code_which_run_this_object(data.x)
+		return_string += ", "
+		return_string += return_gdscript_code_which_run_this_object(data.y)
+		return_string += ", "
+		return_string += return_gdscript_code_which_run_this_object(data.z)
+		return_string += ", "
+		return_string += return_gdscript_code_which_run_this_object(data.w)
+		return_string += ")"
+	elif type == TYPE_PROJECTION:
+		return_string = "Projection("
 		return_string += return_gdscript_code_which_run_this_object(data.x)
 		return_string += ", "
 		return_string += return_gdscript_code_which_run_this_object(data.y)

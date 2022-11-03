@@ -8,7 +8,7 @@ var function_exceptions: Array = [
 	###
 	### Godot 4.0
 	###
-	"get_spawnable_scene", # 61390
+	"get_spawnable_scene",  # 61390
 	"set_visibility_range_begin_margin",  #54655
 	"set_visibility_range_begin",  #54655
 	"_broadcast",  #53873
@@ -34,7 +34,7 @@ var function_exceptions: Array = [
 	"set_is_setup",  # Just don't use, in SkeletonModification crashes
 	"_update_shape",  # TODO, probably crashes exported build
 	"get_custom_monitor",  # TODO crashes only in exported build
-	"to_node", # 64977 - expected, because create completelly new object
+	"to_node",  # 64977 - expected, because create completelly new object
 	###
 	### Input crashes, still are some problems TODO
 	###
@@ -201,8 +201,8 @@ var disabled_classes: Array = [
 	###
 	### Crashes, Freezes
 	###
-	"NavigationMeshGenerator", # Singleton
-	"AppProtocol", # AppProtocol singleton was recreated by script, should not instance it.
+	"NavigationMeshGenerator",  # Singleton
+	"AppProtocol",  # AppProtocol singleton was recreated by script, should not instance it.
 	"ProjectSettings",  # Don't mess with project settings, because they can broke entire your workflow
 	"EditorSettings",  # Also don't mess with editor settings
 	"GDScript",  # Broke script
@@ -266,7 +266,6 @@ func check_if_is_allowed(method_data: Dictionary) -> bool:
 		# In case of adding new type, this prevents from crashing due not recognizing this type
 		# In case of removing/rename type, just comment e.g. TYPE_ARRAY and all occurencies on e.g. switch statement with it
 		var t: int = arg["type"]
-		print(t + " #############################################")
 		if !(
 			t == TYPE_NIL
 			|| t == TYPE_CALLABLE
@@ -305,6 +304,7 @@ func check_if_is_allowed(method_data: Dictionary) -> bool:
 			|| t == TYPE_PACKED_VECTOR3_ARRAY
 			|| t == TYPE_VECTOR4
 			|| t == TYPE_VECTOR4I
+			|| t == TYPE_PROJECTION
 		):
 			print("----------------------------------------------------------- TODO - MISSING TYPE, ADD SUPPORT IT")  # Add assert here to get info which type is missing
 			return false
@@ -337,6 +337,11 @@ func get_list_of_available_classes(must_be_instantable: bool = true) -> Array:
 	var classes: Array = []
 	full_class_list.sort()
 	var c = 0
+
+	var singletons = Array(Engine.get_singleton_list())
+	for i in singletons:
+		disabled_classes.append(i)
+
 	for name_of_class in full_class_list:
 		if name_of_class in disabled_classes:
 			continue
