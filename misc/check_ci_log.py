@@ -17,7 +17,7 @@ file_contents = fileread.read()
 
 if file_contents.find("ERROR: AddressSanitizer:") != -1:
     print("FATAL ERROR: An incorrectly used memory was found.")
-    sys.exit(1)
+    sys.exit(51)
 
 # There is also possible, that program crashed with or without backtrace.
 
@@ -27,7 +27,7 @@ if (
     or file_contents.find("Segmentation fault (core dumped)") != -1
 ):
     print("FATAL ERROR: Godot has been crashed.")
-    sys.exit(1)
+    sys.exit(52)
 
 # Finding memory leaks in Godot is quite difficult, because we need to take into
 # account leaks also in external libraries. They are usually provided without
@@ -38,7 +38,7 @@ if (
 if file_contents.find("ERROR: LeakSanitizer:") != -1:
     if file_contents.find("#4 0x") != -1:
         print("ERROR: Memory leak was found")
-        sys.exit(1)
+        sys.exit(53)
 
 # It may happen that Godot detects leaking nodes/resources and removes them, so
 # this possibility should also be handled as a potential error, even if
@@ -46,6 +46,10 @@ if file_contents.find("ERROR: LeakSanitizer:") != -1:
 
 if file_contents.find("ObjectDB instances leaked at exit") != -1:
     print("ERROR: Memory leak was found")
-    sys.exit(1)
+    sys.exit(54)
+    
+if file_contents.find("SCRIPT ERROR:") != -1:
+    print("ERROR: Found script error, probably this is caused by Godot which ")
+    sys.exit(55)
 
 sys.exit(0)

@@ -18,8 +18,6 @@ var can_be_closed: bool = true
 const alone_steps: Array = [
 	"res://CreatingAllThings/CreatingAllThings.tscn",
 	"res://Nodes/Nodes.tscn",
-	"res://Physics/2D/Physics2D.tscn",
-	"res://Physics/3D/Physics3D.tscn",
 	"res://AutomaticBugs/FunctionExecutor.tscn",  # Only need to run once
 ]
 

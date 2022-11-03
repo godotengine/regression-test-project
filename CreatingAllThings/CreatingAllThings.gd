@@ -1,10 +1,12 @@
 extends Node2D
 
 var available_classes: Array = []
-var exeptions: Array = ["AppProtocol", "SceneTree", "EditorSettings", "ProjectSettings", "InputEventShortcut", "InputMap", "ThemeDB", "NavigationMeshGenerator"]
+var exceptions: Array = []
 
 
 func _ready():
+	exceptions = Engine.get_singleton_list()
+
 	var cl: Array = Array(ClassDB.get_class_list())
 	cl.sort()
 	for name_of_class in cl:
@@ -12,7 +14,7 @@ func _ready():
 		for _i in range(3):
 			if !ClassDB.can_instantiate(name_of_class):
 				continue
-			if name_of_class in exeptions:
+			if name_of_class in exceptions:
 				continue
 			if name_of_class.to_lower().find("server") != -1:
 				continue
