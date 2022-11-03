@@ -305,6 +305,7 @@ func check_if_is_allowed(method_data: Dictionary) -> bool:
 			|| t == TYPE_PACKED_VECTOR3_ARRAY
 			|| t == TYPE_VECTOR4
 			|| t == TYPE_VECTOR4I
+			|| t == TYPE_PROJECTION
 		):
 			print("----------------------------------------------------------- TODO - MISSING TYPE, ADD SUPPORT IT")  # Add assert here to get info which type is missing
 			return false

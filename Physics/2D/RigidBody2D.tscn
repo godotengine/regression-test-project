@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Physics/2D/RigidBody2D.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bkhft4ksf6bm8" path="res://icon.png" id="2"]
 
-[node name="RigidDynamicBody2D" type="RigidDynamicBody2D"]
+[node name="RigidDynamicBody2D" type="RigidBody2D"]
 gravity_scale = 0.1
 script = ExtResource("1")
 

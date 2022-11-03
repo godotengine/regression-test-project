@@ -55,6 +55,9 @@ func get_vector4() -> Vector4:
 
 func get_vector4i() -> Vector4i:
 	return Vector4i(get_int(), get_int(), get_int(), get_int())
+	
+func get_projection() -> Projection:
+	return Projection(get_vector4(),get_vector4(),get_vector4(),get_vector4())
 
 func get_aabb() -> AABB:
 	return AABB(get_vector3(), get_vector3())
@@ -73,7 +76,7 @@ func get_plane() -> Plane:
 
 
 func get_quaternion() -> Quaternion:
-	return Quaternion(get_vector3())
+	return Quaternion(get_vector3(),get_float())
 
 
 func get_basis() -> Basis:

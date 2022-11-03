@@ -171,8 +171,6 @@ gravity_scale = -3.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2888, 15.3482, 19.1751)
 
 [node name="ConeTwistJoint3D" type="ConeTwistJoint3D" parent="Joints/Cone"]
-nodes/node_a = NodePath("../RigidDynamicBody3D")
-nodes/node_b = NodePath("../RigidBody2")
 
 [node name="Generic" type="Node3D" parent="Joints"]
 
@@ -184,8 +182,6 @@ gravity_scale = -3.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2888, 33.1278, -0.445078)
 
 [node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="Joints/Generic"]
-nodes/node_a = NodePath("../RigidDynamicBody3D")
-nodes/node_b = NodePath("../RigidBody2")
 
 [node name="Hinge" type="Node3D" parent="Joints"]
 
@@ -197,8 +193,6 @@ gravity_scale = -3.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.17695, 33.1278, 19.1751)
 
 [node name="HingeJoint3D" type="HingeJoint3D" parent="Joints/Hinge"]
-nodes/node_a = NodePath("../RigidDynamicBody3D")
-nodes/node_b = NodePath("../RigidBody2")
 
 [node name="Pin" type="Node3D" parent="Joints"]
 
@@ -210,8 +204,6 @@ gravity_scale = -3.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2888, 18.4589, 10.7729)
 
 [node name="PinJoint3D" type="PinJoint3D" parent="Joints/Pin"]
-nodes/node_a = NodePath("../RigidDynamicBody3D")
-nodes/node_b = NodePath("../RigidBody2")
 
 [node name="Slider" type="Node3D" parent="Joints"]
 
@@ -223,6 +215,4 @@ gravity_scale = -3.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.3355, 16.2845, 19.1751)
 
 [node name="SliderJoint3D" type="SliderJoint3D" parent="Joints/Slider"]
-nodes/node_a = NodePath("../RigidDynamicBody3D")
-nodes/node_b = NodePath("../RigidBody2")
 linear_motion/softness = 1.43
