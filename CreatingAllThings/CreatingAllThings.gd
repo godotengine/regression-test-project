@@ -5,25 +5,17 @@ var exceptions: Array = []
 
 
 func _ready():
-	exceptions = Engine.get_singleton_list()
+	var classes_to_check = BasicData.get_list_of_available_classes()
 
-	var cl: Array = Array(ClassDB.get_class_list())
-	cl.sort()
-	for name_of_class in cl:
+	for name_of_class in classes_to_check:
 		# Repeat 3 times, to be sure that code don't crash in unreleated function
 		for _i in range(3):
-			if !ClassDB.can_instantiate(name_of_class):
-				continue
-			if name_of_class in exceptions:
-				continue
-			if name_of_class.to_lower().find("server") != -1:
-				continue
-
 			print("########### " + name_of_class)
 			print('GDSCRIPT CODE:  var thing = ClassDB.instantiate("' + name_of_class + '")')
-			print("GDSCRIPT CODE:  str(" + name_of_class + ")")
-
 			var thing = ClassDB.instantiate(name_of_class)
+
+			# Sometimes even printing cause crash
+			print("GDSCRIPT CODE:  str(" + name_of_class + ")")
 			str(thing)
 
 			if thing is Node:
