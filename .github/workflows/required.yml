@@ -11,7 +11,7 @@ jobs:
     name: Editor and exported project with sanitizers (target=debug/release, tools=yes/no, debug_symbols=yes, use_ubsan=yes, use_asan=yes)
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       # Azure repositories are not reliable, we need to prevent azure giving us packages.
       - name: Make apt sources.list use the default Ubuntu repositories
@@ -27,21 +27,6 @@ jobs:
             libxinerama-dev libgl1-mesa-dev libglu-dev libasound2-dev libpulse-dev libudev-dev libxi-dev libxrandr-dev yasm \
             xvfb wget2 unzip python scons git
 
-# Allows to test project with precompiled binaries
-#      - name: Download Godot
-#        run: |
-#          wget2 https://downloads.tuxfamily.org/godotengine/3.2.4/beta1/Godot_v3.2.4-beta1_x11.64.zip
-#          unzip Godot_v3.2.4-beta1_x11.64.zip
-#          rm Godot_v3.2.4-beta1_x11.64.zip
-#          mv Godot_v3.2.4-beta1_x11.64 godot.x11.tools.64s
-
-#      - name: Download Godot(ZIP)
-#        run: |
-#          wget2 https://github.com/godotengine/godot/archive/3.2.zip
-#          unzip 3.2.zip
-#          rm 3.2.zip
-
-
       - name: Download Godot(GIT)
         run: |
           git clone https://github.com/godotengine/godot.git
@@ -52,7 +37,7 @@ jobs:
       - name: Compile Godot
         run: |
           cd godot
-          scons p=x11 -j2 use_asan=yes use_ubsan=yes
+          scons -j2 use_asan=yes use_ubsan=yes linker=gold
           cp bin/godot.x11.tools.64s ../
           cd ../
           rm -rf godot
@@ -66,9 +51,3 @@ jobs:
         run: |
           DRI_PRIME=0 xvfb-run ./godot.x11.tools.64s 180 --audio-driver Dummy --video-driver GLES3 --path $(pwd) 2>&1 | tee sanitizers_log.txt || true
           misc/check_ci_log.py sanitizers_log.txt
-
-#      - uses: actions/upload-artifact@v2
-#        with:
-#          name: ${{ github.job }}
-#          path: godot.x11.tools.64s
-#          retention-days: 14

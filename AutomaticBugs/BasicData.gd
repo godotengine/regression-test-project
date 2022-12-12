@@ -12,8 +12,6 @@ var function_exceptions: Array = [
 	"_unhandled_key_input",
 	"connect_to_signal",  # Should be chrrypicked
 	"_editor_settings_changed",  # GH 45979
-	"_submenu_timeout",  # GH 45981
-	"_thread_done",  #GH 46000
 	"generate",  #GH 46001
 	"_proximity_group_broadcast",  #GH 46002
 	"_direct_state_changed",  #GH 46003
@@ -128,6 +126,7 @@ var function_exceptions: Array = [
 	"add_child",
 	"add_child_below_node",
 	"add_sibling",
+	"to_node", # Convert GLTFLight to node, which leak memory
 ]
 
 # Globally disabled classes which causes bugs or are very hard to use properly
