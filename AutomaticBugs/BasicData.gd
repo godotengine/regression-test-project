@@ -234,6 +234,7 @@ var disabled_classes: Array = [
 	# Class which is non instantable, and have non instantable childrens, but
 	# is used as argument
 	"Node3DGizmo",
+	"TLSOptions",
 	# Creating them is really slow in Godot 4.0
 	"ColorPicker",
 	"FileDialog",
