@@ -29,6 +29,7 @@ var function_exceptions: Array = [
 	"set_texture",  #46828
 	"compress_from_channels",  # Image
 	"open_midi_inputs",  #52821
+	"open_inputs",  #86713
 	"load_threaded_request",  #46762
 	"bake_navigation_mesh",  # TODO too hard to find for now
 	"set_is_setup",  # Just don't use, in SkeletonModification crashes
