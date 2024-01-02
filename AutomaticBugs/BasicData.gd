@@ -26,6 +26,7 @@ var function_exceptions: Array = [
 	"getvar",  #GH 46019
 	"get_available_chars",  #GH 46118
 	"open_midi_inputs",  #GH 46183
+	"open_inputs",  #GH 86713
 	"set_icon",  #GH 46189
 	"get_latin_keyboard_variant",  #GH  TODO Memory Leak
 	"set_editor_hint",  #GH 46252
