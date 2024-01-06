@@ -35,7 +35,10 @@ var function_exceptions: Array = [
 	"set_is_setup",  # Just don't use, in SkeletonModification crashes
 	"_update_shape",  # TODO, probably crashes exported build
 	"get_custom_monitor",  # TODO crashes only in exported build
-	"to_node",  # 64977 - expected, because create completelly new object
+	# Convert GLTF data to nodes, these are expected to allocate memory.
+	"to_node", # 64977
+	"to_node_0d",
+	"to_node_3d",
 	###
 	### Input crashes, still are some problems TODO
 	###
