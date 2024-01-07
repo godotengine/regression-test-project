@@ -127,7 +127,10 @@ var function_exceptions: Array = [
 	"add_child",
 	"add_child_below_node",
 	"add_sibling",
-	"to_node", # Convert GLTFLight to node, which leak memory
+	# Convert GLTF data to nodes, these are expected to allocate memory.
+	"to_node",
+	"to_node_0d",
+	"to_node_3d",
 ]
 
 # Globally disabled classes which causes bugs or are very hard to use properly
@@ -145,11 +148,11 @@ var disabled_classes: Array = [
 	"InputDefault",
 	"IP_Unix",
 	"JNISingleton",
-	
+
 	# Backported Navigation changes also backport bugged classes
-	"NavigationAgent2D", 
-	"NavigationAgent", 
-	
+	"NavigationAgent2D",
+	"NavigationAgent",
+
 	# Only one class - JavaClass returns Null when using JavaClass.new().get_class()
 	"JavaClass",
 	# Just don't use these because they are not normal things
