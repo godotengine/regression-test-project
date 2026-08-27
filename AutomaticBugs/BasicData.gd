@@ -257,6 +257,15 @@ func check_if_is_allowed(method_data: Dictionary) -> bool:
 	if method_data["flags"] == method_data["flags"] | 128:  # VARARG TODO, Godot issue, add missing flag binding
 		return false
 
+	# If the function returns a new Object/Node (or other non-RefCounted Object subtype)
+	# that isn't already part of the scene tree, there's nobody to free it, since we just
+	# discard the return value below. RefCounted returns are fine, they free themselves.
+	var return_class_name: String = method_data["return"]["class_name"]
+	if !return_class_name.is_empty() && !ClassDB.is_parent_class(return_class_name, "RefCounted"):
+		var method_name: String = method_data["name"]
+		if method_name.contains("generate"):
+			return false
+
 	for arg in method_data["args"]:
 		var name_of_class: String = arg["class_name"]
 		if name_of_class in disabled_classes:
